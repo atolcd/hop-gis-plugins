@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>hop-gis-plugin</artifactId>
-        <groupId>org.atolcd.hop</groupId>
+        <groupId>com.atolcd.hop</groupId>
         <version>0.70</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>

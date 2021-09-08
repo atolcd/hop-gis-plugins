@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>gis-plugin-assemblies</artifactId>
-        <groupId>org.atolcd.hop</groupId>
+        <groupId>com.atolcd.hop</groupId>
         <version>0.70</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -13,7 +13,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.atolcd.hop</groupId>
+            <groupId>com.atolcd.hop</groupId>
             <artifactId>hop-gis-plugins</artifactId>
             <version>${project.version}</version>
         </dependency>
