@@ -20,7 +20,6 @@
   </properties>
 
   <modules>
-    <module>assemblies-gis-plugins</module>
     <module>../concave-hull</module>
     <module>../dxf</module>
     <module>../geojson</module>
@@ -30,4 +29,54 @@
     <module>../spatialite</module>
     <module>../svg</module>
   </modules>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.atolcd.hop</groupId>
+      <artifactId>hop-gis-plugins</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <version>${maven-assembly-plugin.version}</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+  <profiles>
+    <profile>
+      <id>assembly</id>
+      <activation>
+        <file>
+          <exists>${basedir}/src/assembly/assembly.xml</exists>
+        </file>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>assembly_package</id>
+                <phase>compile</phase>
+                <goals>
+                  <goal>single</goal>
+                </goals>
+                <configuration>
+                  <descriptorSourceDirectory>${basedir}/src/assembly</descriptorSourceDirectory>
+                  <appendAssemblyId>false</appendAssemblyId>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>

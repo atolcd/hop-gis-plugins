@@ -23,7 +23,7 @@ To package the plugins, run the following commands from the base project directo
 mvn clean package
 ```
 
-The built package is `assemblies/assemblies-gis-plugins/target/assemblies-gis-plugins-1.0-SNAPSHOT.zip` (version can differ)
+The built package is `assemblies/target/gis-plugin-assemblies-1.0-SNAPSHOT.zip` (version can differ)
 
 
 Installing/upgrading the module
@@ -36,9 +36,9 @@ Examples of extraction from the root directory of the project :
 
 ```console
 # Use compiled version...
-GIS_PLUGINS_ASSEMBLY="assemblies/assemblies-gis-plugins/target/assemblies-gis-plugins-1.0-SNAPSHOT.zip"
+GIS_PLUGINS_ASSEMBLY="assemblies/target/gis-plugin-assemblies-1.0-SNAPSHOT.zip"
 
-# ... Or download a prepared one (must exist...)
+# ... Or download a prepared one (must exist :)
 wget https://github.com/atolcd/hop-gis-plugins/releases/download/v1.0-SNAPSHOT/assemblies-gis-plugins-1.0-SNAPSHOT.zip
 GIS_PLUGINS_ASSEMBLY="assemblies-gis-plugins-1.0-SNAPSHOT.zip"
 

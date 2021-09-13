@@ -35,7 +35,6 @@
 		      <outputDirectory>lib</outputDirectory>
 		      <unpack>false</unpack>
 		      <includes>
-		      	<!--  
 		      	<include>org.locationtech.jts:jts-core:jar</include>
 		      	<include>com.atolcd.gis:geojson:jar</include>
 		      	<include>com.atolcd.gis:dxf:jar</include>
@@ -45,7 +44,7 @@
 		      	<include>com.atolcd.gis:svg:jar</include>
 		      	<include>com.atolcd.gis:spatialite:jar</include>
 		      	<include>com.atolcd.gis:concave-hull:jar</include>
-		      	-->
+
 		      	<include>org.locationtech.spatial4j:spatial4j:jar</include>
 		      	<include>org.locationtech.proj4j:proj4j:jar</include>
 		      	<include>mil.nga.sf:sf-proj:jar</include>
