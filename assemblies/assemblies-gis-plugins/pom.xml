@@ -8,6 +8,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <artifactId>assemblies-gis-plugins</artifactId>
+  <name>HOP GIS Plugins assemblies assemblies</name>
 
   <dependencies>
     <dependency>

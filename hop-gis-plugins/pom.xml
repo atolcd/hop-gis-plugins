@@ -8,6 +8,8 @@
   <modelVersion>4.0.0</modelVersion>
 
   <artifactId>hop-gis-plugins</artifactId>
+  <name>HOP GIS Plugins</name>
+
   <build>
     <plugins>
       <plugin>
