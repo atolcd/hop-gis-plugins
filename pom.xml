@@ -7,7 +7,7 @@
     <groupId>com.atolcd.hop</groupId>
     <artifactId>hop-gis-plugin</artifactId>
     <packaging>pom</packaging>
-    <version>0.70</version>
+    <version>1.0-SNAPSHOT</version>
 
     <name>HOP Sample Plugin development</name>
     <description>Maven POM for a sample plugin</description>
@@ -17,7 +17,7 @@
 
     <properties>
         <!-- Set this to the Hop version you want to debug against-->
-        <hop.version>0.70</hop.version>
+        <hop.version>1.0-SNAPSHOT</hop.version>
 
 
         <!-- Path You will be using to debug the application -->
@@ -190,6 +190,13 @@
       <name>axiomalaska</name>
       <url>https://nexus.axiomalaska.com/nexus/content/groups/public/</url>
     </repository>
+      <repository>
+        <id>apache.snapshots</id>
+        <url>https://repository.apache.org/snapshots/</url>
+        <snapshots>
+            <enabled>true</enabled>
+        </snapshots>
+      </repository>
     </repositories>
     <pluginRepositories>
         <pluginRepository>

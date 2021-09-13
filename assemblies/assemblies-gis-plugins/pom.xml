@@ -5,7 +5,7 @@
     <parent>
         <artifactId>gis-plugin-assemblies</artifactId>
         <groupId>com.atolcd.hop</groupId>
-        <version>0.70</version>
+        <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 

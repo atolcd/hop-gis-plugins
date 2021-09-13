@@ -3,7 +3,7 @@ Apache Hop GIS Plugins
 
 This project allows you to manage GIS data in Apache Hop.
 
-Works with Apache Hop 0.70.
+Works with Apache Hop 1.0-SNAPSHOT.
 
 
 Building the plugins
@@ -23,7 +23,7 @@ To package the plugins, run the following commands from the base project directo
         mvn clean package
 
 
-The built package is assemblies/assemblies-gis-plugins/target/assemblies-gis-plugins-0.70.zip (version can differ)
+The built package is assemblies/assemblies-gis-plugins/target/assemblies-gis-plugins-1.0-SNAPSHOT.zip (version can differ)
 
 
 
@@ -37,11 +37,11 @@ Installing/upgrading the module
 
 ***Method 2 : Manual installation***
 
-Extract the content of assemblies-gis-plugins-0.70.zip in ${HOP_HOME}/plugins/transforms.
+Extract the content of assemblies-gis-plugins-1.0-SNAPSHOT.zip in ${HOP_HOME}/plugins/transforms.
 Example of extraction from the root directory of the project :
 
-        wget https://github.com/atolcd/hop-gis-plugins/releases/download/v0.70/assemblies-gis-plugins-0.70.zip
-        unzip assemblies-gis-plugins-0.70.zip -d ${HOP_HOME}/plugins/transforms
+        wget https://github.com/atolcd/hop-gis-plugins/releases/download/v1.0-SNAPSHOT/assemblies-gis-plugins-1.0-SNAPSHOT.zip
+        unzip assemblies-gis-plugins-1.0-SNAPSHOT.zip -d ${HOP_HOME}/plugins/transforms
 
 To upgrade the plugin, delete files you added before and start a fresh installation.
 
