@@ -165,11 +165,6 @@
       <url>https://nexus.pentaho.org/content/groups/omni</url>
     </repository>
     <repository>
-      <id>lds-main</id>
-      <name>Main Approved LDS Repo</name>
-      <url>https://code.lds.org/nexus/content/groups/main-repo/artifactory/repo/</url>
-    </repository>
-    <repository>
       <id>maven-us.nuxeo.org</id>
       <name>maven-us.nuxeo.org</name>
       <url>https://maven-us.nuxeo.org/nexus/content/groups/public/</url>
