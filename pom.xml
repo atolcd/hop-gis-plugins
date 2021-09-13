@@ -3,23 +3,21 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.atolcd.hop</groupId>
-  <artifactId>hop-gis-plugin</artifactId>
+  <artifactId>hop-gis-plugins-holder</artifactId>
   <packaging>pom</packaging>
   <version>1.0-SNAPSHOT</version>
 
-  <name>HOP Sample Plugin development</name>
-  <description>Maven POM for a sample plugin</description>
-  <url>https://hop.apache.org</url>
-  <inceptionYear>2020</inceptionYear>
+  <name>HOP GIS Plugins and modified deps</name>
+  <description>HOP GIS Plugins and modified deps by Atol Conseils &amp; Développements</description>
+  <url>https://www.atolcd.com</url>
+  <inceptionYear>2021</inceptionYear>
 
   <properties>
     <!-- Set this to the Hop version you want to debug against-->
     <hop.version>1.0-SNAPSHOT</hop.version>
 
-
-    <!-- Path You will be using to debug the application -->
-    <hop.debug.path>/home/jtr/Documents/test</hop.debug.path>
-
+    <!-- Path You will be using to debug the application >
+    <hop.debug.path>TODO ?</hop.debug.path-->
 
     <!-- Third-party dependencies-->
     <org.eclipse.platform.version>3.114.0</org.eclipse.platform.version>
@@ -119,7 +117,6 @@
     </profile>
   </profiles>
 
-
   <repositories>
     <repository>
       <id>central</id>
@@ -146,7 +143,7 @@
     <repository>
       <id>local-maven-repo</id>
       <name>Local Maven Repo</name>
-      <url>file://${project.basedir}/../local-maven-repo</url>
+      <url>file://${project.basedir}/local-maven-repo</url>
     </repository>
     <repository>
       <id>52north.org-releases</id>

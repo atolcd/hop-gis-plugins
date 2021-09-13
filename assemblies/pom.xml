@@ -11,7 +11,7 @@
 
   <parent>
     <groupId>com.atolcd.hop</groupId>
-    <artifactId>hop-gis-plugin</artifactId>
+    <artifactId>hop-gis-plugins-holder</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
 
