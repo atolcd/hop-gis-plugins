@@ -39,9 +39,6 @@
 	    <module>assemblies</module>
     </modules>
 
-
-
-
     <!-- needed for correct SWT libs dependending on system -->
     <profiles>
         <profile>
@@ -366,15 +363,11 @@
       <groupId>com.atolcd.gis</groupId>
       <artifactId>concave-hull</artifactId>
       <version>1.1</version>
-      <scope>system</scope>
-      <systemPath>${project.basedir}/src/main/resources/lib/concave-hull-1.1.jar</systemPath>
     </dependency>
     <dependency>
       <groupId>com.atolcd.gis</groupId>
       <artifactId>dxf</artifactId>
       <version>1.2</version>
-      <scope>system</scope>
-      <systemPath>${project.basedir}/src/main/resources/lib/dxf-1.2.jar</systemPath>
     </dependency>
     <!-- In the local repository, kabeja is a dxf's dependency needed in final zip -->
     <dependency>
@@ -386,43 +379,31 @@
       <groupId>com.atolcd.gis</groupId>
       <artifactId>geojson</artifactId>
       <version>1.2</version>
-      <scope>system</scope>
-      <systemPath>${project.basedir}/src/main/resources/lib/geojson-1.2.jar</systemPath>
     </dependency>
     <dependency>
       <groupId>com.atolcd.gis</groupId>
       <artifactId>mifmid</artifactId>
       <version>1.1</version>
-      <scope>system</scope>
-      <systemPath>${project.basedir}/src/main/resources/lib/mifmid-1.1.jar</systemPath>
     </dependency>
     <dependency>
       <groupId>com.atolcd.gis</groupId>
       <artifactId>shp</artifactId>
       <version>1.1</version>
-      <scope>system</scope>
-      <systemPath>${project.basedir}/src/main/resources/lib/shp-1.1.jar</systemPath>
     </dependency>
     <dependency>
       <groupId>com.atolcd.gis</groupId>
       <artifactId>spatialite</artifactId>
       <version>1.1</version>
-      <scope>system</scope>
-      <systemPath>${project.basedir}/src/main/resources/lib/spatialite-1.1.jar</systemPath>
     </dependency>
     <dependency>
       <groupId>com.atolcd.gis</groupId>
       <artifactId>gpx</artifactId>
       <version>1.0</version>
-      <scope>system</scope>
-      <systemPath>${project.basedir}/src/main/resources/lib/gpx-1.0.jar</systemPath>
     </dependency>
     <dependency>
       <groupId>com.atolcd.gis</groupId>
       <artifactId>svg</artifactId>
       <version>1.0</version>
-      <scope>system</scope>
-      <systemPath>${project.basedir}/src/main/resources/lib/svg-1.0.jar</systemPath>
     </dependency>
     </dependencies>
 </project>

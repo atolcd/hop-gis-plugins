@@ -21,6 +21,14 @@
   </properties>
 
   <modules>
-  	<module>assemblies-gis-plugins</module>
+    <module>assemblies-gis-plugins</module>
+    <module>../concave-hull</module>
+    <module>../dxf</module>
+    <module>../geojson</module>
+    <module>../gpx</module>
+    <module>../mifmid</module>
+    <module>../shp</module>
+    <module>../spatialite</module>
+    <module>../svg</module>
   </modules>
 </project>
