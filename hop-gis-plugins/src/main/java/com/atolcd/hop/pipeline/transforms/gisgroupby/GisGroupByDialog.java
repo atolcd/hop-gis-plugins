@@ -35,6 +35,7 @@ import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.events.ShellAdapter;
 import org.eclipse.swt.events.ShellEvent;
 import org.eclipse.swt.layout.FormAttachment;
@@ -435,7 +436,7 @@ public class GisGroupByDialog extends BaseTransformDialog implements ITransformD
         wAgg.setLayoutData(fdAgg);
 
         // Add listeners
-        lsOk = new Listener() {
+        Listener lsOk = new Listener() {
             public void handleEvent(Event e) {
                 ok();
             }
@@ -450,7 +451,7 @@ public class GisGroupByDialog extends BaseTransformDialog implements ITransformD
                 getAgg();
             }
         };
-        lsCancel = new Listener() {
+        Listener lsCancel = new Listener() {
             public void handleEvent(Event e) {
                 cancel();
             }
@@ -461,7 +462,7 @@ public class GisGroupByDialog extends BaseTransformDialog implements ITransformD
         wGetAgg.addListener(SWT.Selection, lsGetAgg);
         wCancel.addListener(SWT.Selection, lsCancel);
 
-        lsDef = new SelectionAdapter() {
+        SelectionListener lsDef = new SelectionAdapter() {
             public void widgetDefaultSelected(SelectionEvent e) {
                 ok();
             }

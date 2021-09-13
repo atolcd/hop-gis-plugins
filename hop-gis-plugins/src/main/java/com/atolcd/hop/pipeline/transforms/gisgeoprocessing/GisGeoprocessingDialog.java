@@ -34,6 +34,7 @@ import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.events.ShellAdapter;
 import org.eclipse.swt.events.ShellEvent;
 import org.eclipse.swt.layout.FormAttachment;
@@ -513,12 +514,12 @@ public class GisGeoprocessingDialog extends BaseTransformDialog implements ITran
         wCancel.setText(BaseMessages.getString(PKG, "System.Button.Cancel"));
 
         setButtonPositions(new Button[] { wOk, wCancel }, margin, wOutputGroup);
-        lsCancel = new Listener() {
+        Listener lsCancel = new Listener() {
             public void handleEvent(Event e) {
                 cancel();
             }
         };
-        lsOk = new Listener() {
+        Listener lsOk = new Listener() {
             public void handleEvent(Event e) {
                 ok();
             }
@@ -526,7 +527,7 @@ public class GisGeoprocessingDialog extends BaseTransformDialog implements ITran
 
         wCancel.addListener(SWT.Selection, lsCancel);
         wOk.addListener(SWT.Selection, lsOk);
-        lsDef = new SelectionAdapter() {
+        SelectionListener lsDef = new SelectionAdapter() {
             public void widgetDefaultSelected(SelectionEvent e) {
                 ok();
             }

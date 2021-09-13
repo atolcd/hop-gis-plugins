@@ -35,6 +35,7 @@ import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.events.ShellAdapter;
 import org.eclipse.swt.events.ShellEvent;
 import org.eclipse.swt.layout.FormAttachment;
@@ -184,12 +185,12 @@ public class GisGeometryInfoDialog extends BaseTransformDialog implements ITrans
         wOutputs.setLayoutData(fdOutputs);
 
         setButtonPositions(new Button[] { wOk, wCancel }, margin, null);
-        lsCancel = new Listener() {
+        Listener lsCancel = new Listener() {
             public void handleEvent(Event e) {
                 cancel();
             }
         };
-        lsOk = new Listener() {
+        Listener lsOk = new Listener() {
             public void handleEvent(Event e) {
                 ok();
             }
@@ -197,7 +198,7 @@ public class GisGeometryInfoDialog extends BaseTransformDialog implements ITrans
 
         wCancel.addListener(SWT.Selection, lsCancel);
         wOk.addListener(SWT.Selection, lsOk);
-        lsDef = new SelectionAdapter() {
+        SelectionListener lsDef = new SelectionAdapter() {
             public void widgetDefaultSelected(SelectionEvent e) {
                 ok();
             }
