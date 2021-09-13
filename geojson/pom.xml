@@ -41,12 +41,12 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
     <repository>
       <id>52north.org-releases</id>
       <name>52north.org-releases</name>
-      <url>http://52north.org/maven/repo/releases/</url>
+      <url>https://52north.org/maven/repo/releases/</url>
     </repository>
     <repository>
       <id>datanucleus</id>
       <name>datanucleus</name>
-      <url>http://www.datanucleus.org/downloads/maven2/</url>
+      <url>https://www.datanucleus.org/downloads/maven2/</url>
     </repository>
     <repository>
       <id>jboss.org</id>
@@ -60,17 +60,17 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
     <repository>
       <id>lds-main</id>
       <name>Main Approved LDS Repo</name>
-      <url>http://code.lds.org/nexus/content/groups/main-repo</url>
+      <url>https://code.lds.org/nexus/content/groups/main-repo</url>
     </repository>
     <repository>
       <id>maven-us.nuxeo.org</id>
       <name>maven-us.nuxeo.org</name>
-      <url>http://maven-us.nuxeo.org/nexus/content/groups/public/</url>
+      <url>https://maven-us.nuxeo.org/nexus/content/groups/public/</url>
     </repository>
     <repository>
       <id>axiomalaska</id>
       <name>axiomalaska</name>
-      <url>http://nexus.axiomalaska.com/nexus/content/groups/public/</url>
+      <url>https://nexus.axiomalaska.com/nexus/content/groups/public/</url>
     </repository>
   </repositories>
 
@@ -99,6 +99,6 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 
   <organization>
     <name>Atol CD</name>
-    <url>http://www.atolcd.com</url>
+    <url>https://www.atolcd.com</url>
   </organization>
 </project>

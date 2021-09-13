@@ -164,7 +164,7 @@
     <repository>
       <id>datanucleus</id>
       <name>datanucleus</name>
-      <url>http://www.datanucleus.org/downloads/maven2/</url>
+      <url>https://www.datanucleus.org/downloads/maven2/</url>
     </repository>
     <repository>
       <id>jboss.org</id>
@@ -188,7 +188,7 @@
     <repository>
       <id>axiomalaska</id>
       <name>axiomalaska</name>
-      <url>http://nexus.axiomalaska.com/nexus/content/groups/public/</url>
+      <url>https://nexus.axiomalaska.com/nexus/content/groups/public/</url>
     </repository>
     </repositories>
     <pluginRepositories>
