@@ -16,32 +16,29 @@
 package org.kabeja.ui.model;
 
 import java.util.Iterator;
-
 import javax.swing.tree.TreeNode;
 
-
 public class SAXFiltersTreeNode extends AbstractProcessingTreeNode {
-    protected final static String LABEL = "SAXFilters";
+  protected static final String LABEL = "SAXFilters";
 
-    public SAXFiltersTreeNode(TreeNode parent) {
-        super(parent, LABEL);
+  public SAXFiltersTreeNode(TreeNode parent) {
+    super(parent, LABEL);
+  }
+
+  protected void initializeChildren() {
+    Iterator i = this.manager.getSAXFilters().keySet().iterator();
+
+    while (i.hasNext()) {
+      String key = (String) i.next();
+      this.addChild(new SAXFilterTreeNode(this, this.manager.getSAXFilter(key), key));
     }
+  }
 
-    protected void initializeChildren() {
-        Iterator i = this.manager.getSAXFilters().keySet().iterator();
+  public boolean getAllowsChildren() {
+    return true;
+  }
 
-        while (i.hasNext()) {
-            String key = (String) i.next();
-            this.addChild(new SAXFilterTreeNode(this,
-                    this.manager.getSAXFilter(key), key));
-        }
-    }
-
-    public boolean getAllowsChildren() {
-        return true;
-    }
-
-    public boolean isLeaf() {
-        return false;
-    }
+  public boolean isLeaf() {
+    return false;
+  }
 }

@@ -15,19 +15,14 @@
 */
 package org.kabeja.dxf;
 
-
-/**
- * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
- *
- */
+/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
 public class DXFAttrib extends DXFText {
-    public DXFAttrib() {
-    }
+  public DXFAttrib() {}
 
-    /* (non-Javadoc)
-     * @see de.miethxml.kabeja.dxf.DXFEntity#getType()
-     */
-    public String getType() {
-        return DXFConstants.ENTITY_TYPE_ATTRIB;
-    }
+  /* (non-Javadoc)
+   * @see de.miethxml.kabeja.dxf.DXFEntity#getType()
+   */
+  public String getType() {
+    return DXFConstants.ENTITY_TYPE_ATTRIB;
+  }
 }

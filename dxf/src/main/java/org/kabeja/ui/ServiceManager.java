@@ -15,18 +15,16 @@
 */
 package org.kabeja.ui;
 /**
- * The Service Manager provides access to services of the application.
- * You can query the Service Manager for service.
- * 
- * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ * The Service Manager provides access to services of the application. You can query the Service
+ * Manager for service.
  *
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
  */
 public interface ServiceManager {
-	
-	/**
-	 * 
-	 * @param service the searched service 
-	 * @return an array of Components which provides the service
-	 */
-    public Component[] getServiceComponents(String service);
+
+  /**
+   * @param service the searched service
+   * @return an array of Components which provides the service
+   */
+  public Component[] getServiceComponents(String service);
 }

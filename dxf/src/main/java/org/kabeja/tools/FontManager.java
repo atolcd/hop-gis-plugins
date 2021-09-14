@@ -22,94 +22,86 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Hashtable;
 
-
-/**
- * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
- *
- */
+/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
 public class FontManager {
-    private static FontManager instance = new FontManager();
-    private String fontDescription = "conf/font.properties";
-    private Hashtable fontProperties = new Hashtable();
+  private static FontManager instance = new FontManager();
+  private String fontDescription = "conf/font.properties";
+  private Hashtable fontProperties = new Hashtable();
 
-    private FontManager() {
-        loadFontDescription();
-    }
+  private FontManager() {
+    loadFontDescription();
+  }
 
-    public void setFontDescription(String file) {
-        this.fontDescription = file;
-        loadFontDescription();
-    }
+  public void setFontDescription(String file) {
+    this.fontDescription = file;
+    loadFontDescription();
+  }
 
-    private void loadFontDescription() {
-        fontProperties.clear();
+  private void loadFontDescription() {
+    fontProperties.clear();
 
+    try {
+      InputStream stream = this.getClass().getResourceAsStream(this.fontDescription);
+
+      if (stream == null) {
         try {
-            InputStream stream = this.getClass()
-                                     .getResourceAsStream(this.fontDescription);
-
-            if (stream == null) {
-                try {
-                    stream = new FileInputStream(this.fontDescription);
-                } catch (FileNotFoundException e1) {
-                }
-            }
-
-            if (stream != null) {
-                BufferedReader in = new BufferedReader(new InputStreamReader(
-                            stream));
-                String line = null;
-
-                while ((line = in.readLine()) != null) {
-                    int index = line.indexOf("=");
-
-                    if (index >= 0) {
-                        String font = line.substring(0, index).trim()
-                                          .toLowerCase();
-                        String svgFont = line.substring(index + 1).trim();
-                        fontProperties.put(font, svgFont);
-                    }
-                }
-            } else {
-                // System.out.println("no font.properties");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+          stream = new FileInputStream(this.fontDescription);
+        } catch (FileNotFoundException e1) {
         }
-    }
+      }
 
-    public static FontManager getInstance() {
-        return instance;
-    }
+      if (stream != null) {
+        BufferedReader in = new BufferedReader(new InputStreamReader(stream));
+        String line = null;
 
-    /**
-     * Query if a SVG font description exists for the given shx font.
-     *
-     * @param font
-     *            The font.shx or font
-     * @return
-     */
-    public boolean hasFontDescription(String font) {
-        font = getFontKey(font);
+        while ((line = in.readLine()) != null) {
+          int index = line.indexOf("=");
 
-        if (fontProperties.containsKey(font)) {
-            return true;
+          if (index >= 0) {
+            String font = line.substring(0, index).trim().toLowerCase();
+            String svgFont = line.substring(index + 1).trim();
+            fontProperties.put(font, svgFont);
+          }
         }
+      } else {
+        // System.out.println("no font.properties");
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
 
-        return false;
+  public static FontManager getInstance() {
+    return instance;
+  }
+
+  /**
+   * Query if a SVG font description exists for the given shx font.
+   *
+   * @param font The font.shx or font
+   * @return
+   */
+  public boolean hasFontDescription(String font) {
+    font = getFontKey(font);
+
+    if (fontProperties.containsKey(font)) {
+      return true;
     }
 
-    public String getFontDescription(String font) {
-        return (String) fontProperties.get(getFontKey(font));
+    return false;
+  }
+
+  public String getFontDescription(String font) {
+    return (String) fontProperties.get(getFontKey(font));
+  }
+
+  private String getFontKey(String font) {
+    font = font.toLowerCase();
+
+    if (font.endsWith(".shx")) {
+      font = font.substring(0, font.indexOf(".shx"));
     }
 
-    private String getFontKey(String font) {
-        font = font.toLowerCase();
-
-        if (font.endsWith(".shx")) {
-            font = font.substring(0, font.indexOf(".shx"));
-        }
-
-        return font;
-    }
+    return font;
+  }
 }

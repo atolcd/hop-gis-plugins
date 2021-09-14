@@ -18,14 +18,11 @@ package org.kabeja.xml;
 import org.kabeja.processing.Configurable;
 import org.xml.sax.ContentHandler;
 
-
 /**
- * A SAXFilter consumes SAX events and passes SAX event to the next
- * org.xml.sax.ContentHandler.
+ * A SAXFilter consumes SAX events and passes SAX event to the next org.xml.sax.ContentHandler.
  *
  * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
- *
  */
 public interface SAXFilter extends ContentHandler, Configurable {
-    public void setContentHandler(ContentHandler handler);
+  public void setContentHandler(ContentHandler handler);
 }

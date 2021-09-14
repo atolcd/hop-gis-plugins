@@ -17,18 +17,14 @@ package org.kabeja.parser;
 
 import org.kabeja.dxf.DXFDocument;
 
-
-/**
- * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
- *
- */
+/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
 public abstract class AbstractSectionHandler implements DXFSectionHandler {
-    protected DXFDocument doc;
+  protected DXFDocument doc;
 
-    /* (non-Javadoc)
-     * @see org.dxf2svg.parser.SectionHandler#setDXFDocument(org.dxf2svg.xml.DXFDocument)
-     */
-    public void setDXFDocument(DXFDocument doc) {
-        this.doc = doc;
-    }
+  /* (non-Javadoc)
+   * @see org.dxf2svg.parser.SectionHandler#setDXFDocument(org.dxf2svg.xml.DXFDocument)
+   */
+  public void setDXFDocument(DXFDocument doc) {
+    this.doc = doc;
+  }
 }

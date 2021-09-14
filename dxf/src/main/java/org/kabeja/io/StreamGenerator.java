@@ -17,34 +17,34 @@ package org.kabeja.io;
 
 import java.io.OutputStream;
 import java.util.Map;
-
 import org.kabeja.dxf.DXFDocument;
 
-
 /**
+ * This interface describes a Generator, which will generate output the given stream.
  *
- * This interface describes a Generator, which will generate  output  the given stream.
- *<h3>Lifecycle</h3>
+ * <h3>Lifecycle</h3>
  *
  * <ol>
- * <li>setProperties</li>
- * <li>getSuffix()</li>
- * <li>getMimeType()</li>
- * <li>generate()</li>
+ *   <li>setProperties
+ *   <li>getSuffix()
+ *   <li>getMimeType()
+ *   <li>generate()
  * </ol>
- *@author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ *
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
  */
 public interface StreamGenerator {
-    public void setProperties(Map properties);
+  public void setProperties(Map properties);
 
-    public String getSuffix();
+  public String getSuffix();
 
-    public String getMimeType();
+  public String getMimeType();
 
-    /**
-     * Output the generation result to the given stream.
-     * @param doc the @see DXFDocument to  output
-     * @param out
-     */
-    public void generate(DXFDocument doc, OutputStream out);
+  /**
+   * Output the generation result to the given stream.
+   *
+   * @param doc the @see DXFDocument to output
+   * @param out
+   */
+  public void generate(DXFDocument doc, OutputStream out);
 }

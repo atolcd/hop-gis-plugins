@@ -18,25 +18,24 @@ package org.kabeja.ui;
 import javax.swing.Action;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+
 /**
  * Appliction menubar service provides access to the applications menubar.
- * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
- * 
  *
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
  */
-
 public interface ApplicationMenuBar {
-    public static final String SERVICE = ApplicationMenuBar.class.getName();
-    public static final String MENU_ID_FILE = "menu.file";
-    public static final String MENU_ID_VIEW = "menu.view";
-    public static final String MENU_ID_EDIT = "menu.edit";
-    public static final String MENU_ID_HELP = "menu.help";
+  public static final String SERVICE = ApplicationMenuBar.class.getName();
+  public static final String MENU_ID_FILE = "menu.file";
+  public static final String MENU_ID_VIEW = "menu.view";
+  public static final String MENU_ID_EDIT = "menu.edit";
+  public static final String MENU_ID_HELP = "menu.help";
 
-    public void setMenu(String menuID, JMenu menu);
+  public void setMenu(String menuID, JMenu menu);
 
-    public boolean hasMenu(String id);
+  public boolean hasMenu(String id);
 
-    public void setAction(String menuID, Action action);
+  public void setAction(String menuID, Action action);
 
-    public void setJMenuItem(String menuID, JMenuItem item);
+  public void setJMenuItem(String menuID, JMenuItem item);
 }

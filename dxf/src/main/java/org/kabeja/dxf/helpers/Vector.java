@@ -15,32 +15,28 @@
 */
 package org.kabeja.dxf.helpers;
 
-
-/**
- * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
- *
- */
+/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
 public class Vector extends Point {
-    public Vector() {
-        super();
-    }
+  public Vector() {
+    super();
+  }
 
-    public Vector(Point p) {
-        super(p.getX(), p.getY(), p.getZ());
-    }
+  public Vector(Point p) {
+    super(p.getX(), p.getY(), p.getZ());
+  }
 
-    public Vector(double x, double y, double z) {
-        super(x, y, z);
-    }
+  public Vector(double x, double y, double z) {
+    super(x, y, z);
+  }
 
-    public double getLength() {
-        return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2));
-    }
+  public double getLength() {
+    return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2));
+  }
 
-    public void normalize() {
-        double r = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2));
-        x = x / r;
-        y = y / r;
-        z = z / r;
-    }
+  public void normalize() {
+    double r = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2));
+    x = x / r;
+    y = y / r;
+    z = z / r;
+  }
 }

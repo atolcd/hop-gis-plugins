@@ -17,25 +17,21 @@ package org.kabeja.parser.table;
 
 import org.kabeja.dxf.DXFDocument;
 
-
-/**
- * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
- *
- */
+/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
 public abstract class AbstractTableHandler implements DXFTableHandler {
-    protected DXFDocument doc;
+  protected DXFDocument doc;
 
-    /* (non-Javadoc)
-     * @see org.dxf2svg.parser.table.TableHandler#setDXFDocument(org.dxf2svg.xml.DXFDocument)
-     */
-    public void setDXFDocument(DXFDocument doc) {
-        this.doc = doc;
-    }
+  /* (non-Javadoc)
+   * @see org.dxf2svg.parser.table.TableHandler#setDXFDocument(org.dxf2svg.xml.DXFDocument)
+   */
+  public void setDXFDocument(DXFDocument doc) {
+    this.doc = doc;
+  }
 
-    /* (non-Javadoc)
-     * @see de.miethxml.kabeja.parser.Handler#releaseDXFDocument()
-     */
-    public void releaseDXFDocument() {
-        this.doc = null;
-    }
+  /* (non-Javadoc)
+   * @see de.miethxml.kabeja.parser.Handler#releaseDXFDocument()
+   */
+  public void releaseDXFDocument() {
+    this.doc = null;
+  }
 }

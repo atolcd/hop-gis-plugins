@@ -17,19 +17,13 @@ package org.kabeja.parser;
 
 import org.kabeja.dxf.DXFDocument;
 
-
 /**
- * This is a simple marker-interface. Every parser part must implement this
- * interface.
- *
+ * This is a simple marker-interface. Every parser part must implement this interface.
  *
  * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
- *
- *
- *
  */
 public interface Handler {
-    public void setDXFDocument(DXFDocument doc);
+  public void setDXFDocument(DXFDocument doc);
 
-    public void releaseDXFDocument();
+  public void releaseDXFDocument();
 }

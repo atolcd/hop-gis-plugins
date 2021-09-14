@@ -18,243 +18,214 @@ package org.kabeja.dxf;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.TreeMap;
 
-
-/**
- * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
- *
- *
- */
+/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
 public abstract class DXFEntity {
-    protected DXFDocument doc;
-    protected String id = "";
-    protected String layerID = "";
-    protected boolean visibile = true;
-    protected String lineType = "";
-    protected int flags = 0;
-    protected boolean block = false;
-    protected double linetypeScaleFactor = 1.0;
-    protected int color = 0;
-    protected byte[] colorRGB;
-    protected int lineWeight;
-    protected double transparency;
-    protected double thickness = 0.0;
-    protected DXFExtrusion extrusion = new DXFExtrusion();
-    protected LinkedHashMap<String,DXFExtendedData> extendedData;
+  protected DXFDocument doc;
+  protected String id = "";
+  protected String layerID = "";
+  protected boolean visibile = true;
+  protected String lineType = "";
+  protected int flags = 0;
+  protected boolean block = false;
+  protected double linetypeScaleFactor = 1.0;
+  protected int color = 0;
+  protected byte[] colorRGB;
+  protected int lineWeight;
+  protected double transparency;
+  protected double thickness = 0.0;
+  protected DXFExtrusion extrusion = new DXFExtrusion();
+  protected LinkedHashMap<String, DXFExtendedData> extendedData;
 
-    /**
-     * From the DXF Specs default all entities are in model space.
-     */
-    protected boolean modelSpace = true;
+  /** From the DXF Specs default all entities are in model space. */
+  protected boolean modelSpace = true;
 
-    public DXFEntity() {
-    	this.extendedData = new LinkedHashMap<String,DXFExtendedData>();
-    }
+  public DXFEntity() {
+    this.extendedData = new LinkedHashMap<String, DXFExtendedData>();
+  }
 
-    public void setDXFDocument(DXFDocument doc) {
-        this.doc = doc;
-    }
+  public void setDXFDocument(DXFDocument doc) {
+    this.doc = doc;
+  }
 
-    public DXFDocument getDXFDocument() {
-        return this.doc;
-    }
+  public DXFDocument getDXFDocument() {
+    return this.doc;
+  }
 
-    /**
-     * Gives the name of the layer, which containts the entity.
-     * @return the name of the layer
-     */
-    public String getLayerName() {
-        return this.layerID;
-    }
+  /**
+   * Gives the name of the layer, which containts the entity.
+   *
+   * @return the name of the layer
+   */
+  public String getLayerName() {
+    return this.layerID;
+  }
 
-    /**
-     * Set the name of the layer, which containts the entity.
-     * @return the name of the layer
-     */
-    public void setLayerName(String id) {
-        this.layerID = id;
-    }
-    
-    public DXFExtendedData getExtendedData(String name) {
-		return this.extendedData.get(name);
-	}
-    
+  /**
+   * Set the name of the layer, which containts the entity.
+   *
+   * @return the name of the layer
+   */
+  public void setLayerName(String id) {
+    this.layerID = id;
+  }
 
-	public List<DXFExtendedData> getExtendedData() {
-		return new ArrayList<DXFExtendedData>(this.extendedData.values());
-	}
+  public DXFExtendedData getExtendedData(String name) {
+    return this.extendedData.get(name);
+  }
 
-	public void addExtendedData(DXFExtendedData extendedData) {
-		this.extendedData.put(extendedData.getName(), extendedData);
-	}
+  public List<DXFExtendedData> getExtendedData() {
+    return new ArrayList<DXFExtendedData>(this.extendedData.values());
+  }
 
-	//    public abstract void toSAX(ContentHandler handler, Map svgContext)
-    //        throws SAXException;
-    public abstract Bounds getBounds();
+  public void addExtendedData(DXFExtendedData extendedData) {
+    this.extendedData.put(extendedData.getName(), extendedData);
+  }
 
-    /**
-     * @return Returns the lineType.
-     */
-    public String getLineType() {
-        return lineType;
-    }
+  //    public abstract void toSAX(ContentHandler handler, Map svgContext)
+  //        throws SAXException;
+  public abstract Bounds getBounds();
 
-    /**
-     * @param lineType
-     *            The lineType to set.
-     */
-    public void setLineType(String lineType) {
-        this.lineType = lineType;
-    }
+  /** @return Returns the lineType. */
+  public String getLineType() {
+    return lineType;
+  }
 
-    /**
-     * @return Returns the visibile.
-     */
-    public boolean isVisibile() {
-        return visibile;
-    }
+  /** @param lineType The lineType to set. */
+  public void setLineType(String lineType) {
+    this.lineType = lineType;
+  }
 
-    /**
-     * @param visibile
-     *            The visibile to set.
-     */
-    public void setVisibile(boolean visibile) {
-        this.visibile = visibile;
-    }
+  /** @return Returns the visibile. */
+  public boolean isVisibile() {
+    return visibile;
+  }
 
-    /**
-     * @return Returns the flags.
-     */
-    public int getFlags() {
-        return flags;
-    }
+  /** @param visibile The visibile to set. */
+  public void setVisibile(boolean visibile) {
+    this.visibile = visibile;
+  }
 
-    /**
-     * @param flags
-     *            The flags to set.
-     */
-    public void setFlags(int flags) {
-        this.flags = flags;
-    }
+  /** @return Returns the flags. */
+  public int getFlags() {
+    return flags;
+  }
 
-    public void setBlockEntity(boolean b) {
-        this.block = b;
-    }
+  /** @param flags The flags to set. */
+  public void setFlags(int flags) {
+    this.flags = flags;
+  }
 
-    public boolean isBlockEntity() {
-        return block;
-    }
+  public void setBlockEntity(boolean b) {
+    this.block = b;
+  }
 
-    public void setExtrusion(DXFExtrusion extrusion) {
-        this.extrusion = extrusion;
-    }
+  public boolean isBlockEntity() {
+    return block;
+  }
 
-    public DXFExtrusion getExtrusion() {
-        return extrusion;
-    }
+  public void setExtrusion(DXFExtrusion extrusion) {
+    this.extrusion = extrusion;
+  }
 
-    public double getLinetypeScaleFactor() {
-        return linetypeScaleFactor;
-    }
+  public DXFExtrusion getExtrusion() {
+    return extrusion;
+  }
 
-    public void setLinetypeScaleFactor(double linetypeScaleFactor) {
-        this.linetypeScaleFactor = linetypeScaleFactor;
-    }
+  public double getLinetypeScaleFactor() {
+    return linetypeScaleFactor;
+  }
 
-    public int getColor() {
-        return color;
-    }
+  public void setLinetypeScaleFactor(double linetypeScaleFactor) {
+    this.linetypeScaleFactor = linetypeScaleFactor;
+  }
 
-    public void setColor(int color) {
-        this.color = color;
-    }
+  public int getColor() {
+    return color;
+  }
 
-    public byte[] getColorRGB() {
-        return colorRGB;
-    }
+  public void setColor(int color) {
+    this.color = color;
+  }
 
-    public void setColorRGB(byte[] colorRGB) {
-        this.colorRGB = colorRGB;
-    }
+  public byte[] getColorRGB() {
+    return colorRGB;
+  }
 
-    public int getLineWeight() {
-        return lineWeight;
-    }
+  public void setColorRGB(byte[] colorRGB) {
+    this.colorRGB = colorRGB;
+  }
 
-    public void setLineWeight(int lineWeight) {
-        this.lineWeight = lineWeight;
-    }
+  public int getLineWeight() {
+    return lineWeight;
+  }
 
-    public double getTransparency() {
-        return transparency;
-    }
+  public void setLineWeight(int lineWeight) {
+    this.lineWeight = lineWeight;
+  }
 
-    public void setTransparency(double transparency) {
-        this.transparency = transparency;
-    }
+  public double getTransparency() {
+    return transparency;
+  }
 
-    public void setID(String id) {
-        this.id = id;
-    }
+  public void setTransparency(double transparency) {
+    this.transparency = transparency;
+  }
 
-    public String getID() {
-        return id;
-    }
+  public void setID(String id) {
+    this.id = id;
+  }
 
-    public void setExtrusionX(double x) {
-        extrusion.setX(x);
-    }
+  public String getID() {
+    return id;
+  }
 
-    public void setExtrusionY(double y) {
-        extrusion.setY(y);
-    }
+  public void setExtrusionX(double x) {
+    extrusion.setX(x);
+  }
 
-    public void setExtrusionZ(double z) {
-        extrusion.setZ(z);
-    }
+  public void setExtrusionY(double y) {
+    extrusion.setY(y);
+  }
 
-    public abstract String getType();
+  public void setExtrusionZ(double z) {
+    extrusion.setZ(z);
+  }
 
-    /**
-     * The thickness reflects the height of the entity.
-     *
-     *
-     * @return Returns the thickness.
-     */
-    public double getThickness() {
-        return thickness;
-    }
+  public abstract String getType();
 
-    /**
-     * @param thickness
-     *            The thickness /height of the entity to set.
-     */
-    public void setThickness(double thickness) {
-        this.thickness = thickness;
-    }
+  /**
+   * The thickness reflects the height of the entity.
+   *
+   * @return Returns the thickness.
+   */
+  public double getThickness() {
+    return thickness;
+  }
 
-    public boolean isOmitLineType() {
-        return false;
-    }
+  /** @param thickness The thickness /height of the entity to set. */
+  public void setThickness(double thickness) {
+    this.thickness = thickness;
+  }
 
-    /**
-     * @return Returns the modelSpace.
-     */
-    public boolean isModelSpace() {
-        return modelSpace;
-    }
+  public boolean isOmitLineType() {
+    return false;
+  }
 
-    /**
-     * @param modelSpace The modelSpace to set.
-     */
-    public void setModelSpace(boolean modelSpace) {
-        this.modelSpace = modelSpace;
-    }
+  /** @return Returns the modelSpace. */
+  public boolean isModelSpace() {
+    return modelSpace;
+  }
 
-    /**
-     * Returns the length of the entity or 0 if the entity has no length
-     * @return
-     */
-    public abstract double getLength();
+  /** @param modelSpace The modelSpace to set. */
+  public void setModelSpace(boolean modelSpace) {
+    this.modelSpace = modelSpace;
+  }
+
+  /**
+   * Returns the length of the entity or 0 if the entity has no length
+   *
+   * @return
+   */
+  public abstract double getLength();
 }

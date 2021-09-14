@@ -18,67 +18,57 @@ package org.kabeja.dxf.helpers;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
 import org.kabeja.dxf.Bounds;
 import org.kabeja.dxf.DXFEntity;
 
-
-/**
- * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
- *
- */
+/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
 public class HatchBoundaryLoop {
-    private List edges = new ArrayList();
-    private boolean outermost = true;
+  private List edges = new ArrayList();
+  private boolean outermost = true;
 
-    /**
-     * @return Returns the outermost.
-     */
-    public boolean isOutermost() {
-        return outermost;
-    }
+  /** @return Returns the outermost. */
+  public boolean isOutermost() {
+    return outermost;
+  }
 
-    /**
-     * @param outermost
-     *            The outermost to set.
-     */
-    public void setOutermost(boolean outermost) {
-        this.outermost = outermost;
-    }
+  /** @param outermost The outermost to set. */
+  public void setOutermost(boolean outermost) {
+    this.outermost = outermost;
+  }
 
-    public Iterator getBoundaryEdgesIterator() {
-        return edges.iterator();
-    }
+  public Iterator getBoundaryEdgesIterator() {
+    return edges.iterator();
+  }
 
-    public void addBoundaryEdge(DXFEntity edge) {
-        edges.add(edge);
-    }
+  public void addBoundaryEdge(DXFEntity edge) {
+    edges.add(edge);
+  }
 
-    public Bounds getBounds() {
-        Bounds bounds = new Bounds();
+  public Bounds getBounds() {
+    Bounds bounds = new Bounds();
 
-        // System.out.println("edges="+edges.size());
-        if (edges.size() > 0) {
-            Iterator i = edges.iterator();
+    // System.out.println("edges="+edges.size());
+    if (edges.size() > 0) {
+      Iterator i = edges.iterator();
 
-            while (i.hasNext()) {
-                DXFEntity entity = (DXFEntity) i.next();
-                Bounds b = entity.getBounds();
+      while (i.hasNext()) {
+        DXFEntity entity = (DXFEntity) i.next();
+        Bounds b = entity.getBounds();
 
-                if (b.isValid()) {
-                    bounds.addToBounds(b);
-                }
-            }
-
-            return bounds;
-        } else {
-            bounds.setValid(false);
-
-            return bounds;
+        if (b.isValid()) {
+          bounds.addToBounds(b);
         }
-    }
+      }
 
-    public int getEdgeCount() {
-        return this.edges.size();
+      return bounds;
+    } else {
+      bounds.setValid(false);
+
+      return bounds;
     }
+  }
+
+  public int getEdgeCount() {
+    return this.edges.size();
+  }
 }

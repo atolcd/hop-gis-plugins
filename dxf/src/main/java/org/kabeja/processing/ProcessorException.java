@@ -15,20 +15,15 @@
 */
 package org.kabeja.processing;
 
-
-/**
- * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
- *
- */
+/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
 public class ProcessorException extends Exception {
-    public ProcessorException() {
-    }
+  public ProcessorException() {}
 
-    public ProcessorException(Exception e) {
-        super(e);
-    }
+  public ProcessorException(Exception e) {
+    super(e);
+  }
 
-    public ProcessorException(String msg) {
-        super(msg);
-    }
+  public ProcessorException(String msg) {
+    super(msg);
+  }
 }

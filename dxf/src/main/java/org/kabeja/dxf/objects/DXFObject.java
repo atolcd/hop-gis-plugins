@@ -17,50 +17,42 @@ package org.kabeja.dxf.objects;
 
 import org.kabeja.dxf.DXFDocument;
 
-
-/**
- * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
- *
- */
+/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
 public abstract class DXFObject {
-    protected DXFDocument doc;
-    protected String softID;
-    protected String hardID;
-    protected String handleID;
+  protected DXFDocument doc;
+  protected String softID;
+  protected String hardID;
+  protected String handleID;
 
-    public String getSoftPointerID() {
-        return softID;
-    }
+  public String getSoftPointerID() {
+    return softID;
+  }
 
-    public void setSoftPointerID(String id) {
-        this.softID = id;
-    }
+  public void setSoftPointerID(String id) {
+    this.softID = id;
+  }
 
-    public String getHardOwnerID() {
-        return hardID;
-    }
+  public String getHardOwnerID() {
+    return hardID;
+  }
 
-    public void setHardOwnerID(String id) {
-        this.hardID = id;
-    }
+  public void setHardOwnerID(String id) {
+    this.hardID = id;
+  }
 
-    public void setDXFDocument(DXFDocument doc) {
-        this.doc = doc;
-    }
+  public void setDXFDocument(DXFDocument doc) {
+    this.doc = doc;
+  }
 
-    public abstract String getObjectType();
+  public abstract String getObjectType();
 
-    /**
-     * @return Returns the handleID.
-     */
-    public String getID() {
-        return handleID;
-    }
+  /** @return Returns the handleID. */
+  public String getID() {
+    return handleID;
+  }
 
-    /**
-     * @param handleID The handleID to set.
-     */
-    public void setID(String handleID) {
-        this.handleID = handleID;
-    }
+  /** @param handleID The handleID to set. */
+  public void setID(String handleID) {
+    this.handleID = handleID;
+  }
 }

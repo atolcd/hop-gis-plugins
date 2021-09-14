@@ -17,8 +17,7 @@ package org.kabeja.ui;
 
 /**
  * This is the base interface for every component in the application.
- * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
  *
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
  */
-public interface Component {
-}
+public interface Component {}

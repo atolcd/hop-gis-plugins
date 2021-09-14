@@ -17,85 +17,82 @@ package org.kabeja.processing;
 
 import java.util.Iterator;
 import java.util.Map;
-
 import org.kabeja.dxf.Bounds;
 import org.kabeja.dxf.DXFDocument;
 import org.kabeja.dxf.DXFEntity;
 import org.kabeja.dxf.DXFLayer;
 import org.kabeja.dxf.DXFViewport;
 
-
-/**
- * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
- *
- */
+/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
 public class ViewportFilter extends AbstractPostProcessor {
-    /*
-     * (non-Javadoc)
-     *
-     * @see org.kabeja.tools.PostProcessor#process(org.kabeja.dxf.DXFDocument,
-     *      java.util.Map)
-     */
-    public void process(DXFDocument doc, Map context) throws ProcessorException {
-        DXFViewport viewport = null;
-        Iterator i = doc.getDXFViewportIterator();
+  /*
+   * (non-Javadoc)
+   *
+   * @see org.kabeja.tools.PostProcessor#process(org.kabeja.dxf.DXFDocument,
+   *      java.util.Map)
+   */
+  public void process(DXFDocument doc, Map context) throws ProcessorException {
+    DXFViewport viewport = null;
+    Iterator i = doc.getDXFViewportIterator();
 
-        boolean found = false;
+    boolean found = false;
 
-        while (i.hasNext() && !found) {
-            DXFViewport v = (DXFViewport) i.next();
+    while (i.hasNext() && !found) {
+      DXFViewport v = (DXFViewport) i.next();
 
-            if (v.isActive()) {
-                viewport = v;
-                found = true;
-            }
-        }
-
-        if (viewport != null) {
-            double h = viewport.getHeight() / 2;
-            double w = (viewport.getHeight() * viewport.getAspectRatio()) / 2;
-            Bounds b = new Bounds();
-
-            // the upper right corner
-            b.addToBounds(viewport.getCenterPoint().getX() + w,
-                viewport.getCenterPoint().getY() + h,
-                viewport.getCenterPoint().getZ());
-
-            // the lower left corner
-            b.addToBounds(viewport.getCenterPoint().getX() - w,
-                viewport.getCenterPoint().getY() - h,
-                viewport.getCenterPoint().getZ());
-            filterEntities(b, doc);
-        }
+      if (v.isActive()) {
+        viewport = v;
+        found = true;
+      }
     }
 
-    protected void filterEntities(Bounds b, DXFDocument doc) {
-        Iterator i = doc.getDXFLayerIterator();
+    if (viewport != null) {
+      double h = viewport.getHeight() / 2;
+      double w = (viewport.getHeight() * viewport.getAspectRatio()) / 2;
+      Bounds b = new Bounds();
 
-        while (i.hasNext()) {
-            DXFLayer l = (DXFLayer) i.next();
-            Iterator ti = l.getDXFEntityTypeIterator();
+      // the upper right corner
+      b.addToBounds(
+          viewport.getCenterPoint().getX() + w,
+          viewport.getCenterPoint().getY() + h,
+          viewport.getCenterPoint().getZ());
 
-            while (ti.hasNext()) {
-                String type = (String) ti.next();
-                Iterator ei = l.getDXFEntities(type).iterator();
+      // the lower left corner
+      b.addToBounds(
+          viewport.getCenterPoint().getX() - w,
+          viewport.getCenterPoint().getY() - h,
+          viewport.getCenterPoint().getZ());
+      filterEntities(b, doc);
+    }
+  }
 
-                while (ei.hasNext()) {
-                    DXFEntity entity = (DXFEntity) ei.next();
-                    Bounds currentBounds = entity.getBounds();
+  protected void filterEntities(Bounds b, DXFDocument doc) {
+    Iterator i = doc.getDXFLayerIterator();
 
-                    if (!b.contains(currentBounds)) {
-                        ei.remove();
-                    }
-                }
-            }
+    while (i.hasNext()) {
+      DXFLayer l = (DXFLayer) i.next();
+      Iterator ti = l.getDXFEntityTypeIterator();
+
+      while (ti.hasNext()) {
+        String type = (String) ti.next();
+        Iterator ei = l.getDXFEntities(type).iterator();
+
+        while (ei.hasNext()) {
+          DXFEntity entity = (DXFEntity) ei.next();
+          Bounds currentBounds = entity.getBounds();
+
+          if (!b.contains(currentBounds)) {
+            ei.remove();
+          }
         }
+      }
     }
+  }
 
-    /* (non-Javadoc)
-         * @see org.kabeja.tools.PostProcessor#setProperties(java.util.Map)
-         */
-    public void setProperties(Map properties) {
-        // TODO Auto-generated method stub
-    }
+  /* (non-Javadoc)
+   * @see org.kabeja.tools.PostProcessor#setProperties(java.util.Map)
+   */
+  public void setProperties(Map properties) {
+    // TODO Auto-generated method stub
+  }
 }

@@ -19,51 +19,44 @@ import org.kabeja.dxf.DXFAttrib;
 import org.kabeja.dxf.DXFConstants;
 import org.kabeja.parser.DXFValue;
 
-
-/**
- * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
- *
- */
+/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
 public class DXFAttribHandler extends DXFTextHandler {
-    public static final int ATTRIB_VERTICAL_ALIGN = 74;
-    public static final int ATTRIB_TEXT_LENGTH = 73;
+  public static final int ATTRIB_VERTICAL_ALIGN = 74;
+  public static final int ATTRIB_TEXT_LENGTH = 73;
 
-    
-    public DXFAttribHandler() {
-        super();
+  public DXFAttribHandler() {
+    super();
+  }
+
+  /* (non-Javadoc)
+   * @see de.miethxml.kabeja.parser.entities.DXFEntityHandler#parseGroup(int, de.miethxml.kabeja.parser.DXFValue)
+   */
+  public void parseGroup(int groupCode, DXFValue value) {
+
+    switch (groupCode) {
+      case ATTRIB_TEXT_LENGTH:
+
+        // ignore not used by
+        break;
+
+      case ATTRIB_VERTICAL_ALIGN:
+        text.setValign(value.getIntegerValue());
+
+        break;
+
+      default:
+        super.parseGroup(groupCode, value);
     }
+  }
 
-    /* (non-Javadoc)
-     * @see de.miethxml.kabeja.parser.entities.DXFEntityHandler#parseGroup(int, de.miethxml.kabeja.parser.DXFValue)
-     */
-    public void parseGroup(int groupCode, DXFValue value) {
-        
-        switch (groupCode) {
+  public void startDXFEntity() {
+    text = new DXFAttrib();
+  }
 
-        
-        case ATTRIB_TEXT_LENGTH:
-
-            //ignore not used by
-            break;
-
-        case ATTRIB_VERTICAL_ALIGN:
-            text.setValign(value.getIntegerValue());
-
-            break;
-
-        default:
-            super.parseGroup(groupCode, value);
-        }
-    }
-
-    public void startDXFEntity() {
-        text = new DXFAttrib();
-    }
-
-    /* (non-Javadoc)
-     * @see de.miethxml.kabeja.parser.entities.DXFEntityHandler#getDXFEntityName()
-     */
-    public String getDXFEntityName() {
-        return DXFConstants.ENTITY_TYPE_ATTRIB;
-    }
+  /* (non-Javadoc)
+   * @see de.miethxml.kabeja.parser.entities.DXFEntityHandler#getDXFEntityName()
+   */
+  public String getDXFEntityName() {
+    return DXFConstants.ENTITY_TYPE_ATTRIB;
+  }
 }

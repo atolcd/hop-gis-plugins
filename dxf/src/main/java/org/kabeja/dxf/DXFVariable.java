@@ -18,50 +18,41 @@ package org.kabeja.dxf;
 import java.util.Hashtable;
 import java.util.Iterator;
 
-
-/**
- * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
- *
- *
- *
- */
+/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
 public class DXFVariable {
-    private Hashtable values = new Hashtable();
-    private String name = "";
+  private Hashtable values = new Hashtable();
+  private String name = "";
 
-    public DXFVariable(String name) {
-        this.name = name;
-    }
+  public DXFVariable(String name) {
+    this.name = name;
+  }
 
-    public String getName() {
-        return name;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public String getValue(String name) {
-        return (String) values.get(name);
-    }
+  public String getValue(String name) {
+    return (String) values.get(name);
+  }
 
-    public int getIntegerValue(String name) {
-        return Integer.parseInt((String) values.get(name));
-    }
+  public int getIntegerValue(String name) {
+    return Integer.parseInt((String) values.get(name));
+  }
 
-    public double getDoubleValue(String name) {
-        return Double.parseDouble((String) values.get(name));
-    }
+  public double getDoubleValue(String name) {
+    return Double.parseDouble((String) values.get(name));
+  }
 
-    public void setValue(String name, String value) {
-        values.put(name, value);
-    }
+  public void setValue(String name, String value) {
+    values.put(name, value);
+  }
 
-    /**
-     *
-     * @return a iterator over all keys of this DXFValue
-     */
-    public Iterator getValueKeyIterator() {
-        return values.keySet().iterator();
-    }
+  /** @return a iterator over all keys of this DXFValue */
+  public Iterator getValueKeyIterator() {
+    return values.keySet().iterator();
+  }
 }

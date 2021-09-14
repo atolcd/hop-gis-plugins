@@ -10,18 +10,17 @@ package com.atolcd.hop.gis.io.features;
  * it under the terms of the GNU Lesser General Public License as
  * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Lesser Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Lesser Public
  * License along with this program.  If not, see
  * <http://www.gnu.org/licenses/lgpl-3.0.html>.
  * #L%
  */
-
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -29,48 +28,44 @@ import java.util.List;
 
 public class Feature {
 
-    private List<Value> values;
+  private List<Value> values;
 
-    public Feature() {
+  public Feature() {
 
-        this.values = new ArrayList<Value>();
+    this.values = new ArrayList<Value>();
+  }
 
+  public List<Value> getValues() {
+    return values;
+  }
+
+  public void addValue(Field field, Object value) {
+    this.values.add(new Value(field, value));
+  }
+
+  public Field getField(String fieldName) {
+
+    Iterator<Value> valueIt = this.values.iterator();
+    while (valueIt.hasNext()) {
+
+      Value value = valueIt.next();
+      if (value.getField().getName().equals(fieldName)) {
+        return value.getField();
+      }
     }
+    return null;
+  }
 
-    public List<Value> getValues() {
-        return values;
+  public Object getValue(Field field) {
+
+    Iterator<Value> valueIt = this.values.iterator();
+    while (valueIt.hasNext()) {
+
+      Value value = valueIt.next();
+      if (value.getField().getName().equals(field.getName())) {
+        return value.getValue();
+      }
     }
-
-    public void addValue(Field field, Object value) {
-        this.values.add(new Value(field, value));
-    }
-
-    public Field getField(String fieldName) {
-
-        Iterator<Value> valueIt = this.values.iterator();
-        while (valueIt.hasNext()) {
-
-            Value value = valueIt.next();
-            if (value.getField().getName().equals(fieldName)) {
-                return value.getField();
-            }
-        }
-        return null;
-
-    }
-
-    public Object getValue(Field field) {
-
-        Iterator<Value> valueIt = this.values.iterator();
-        while (valueIt.hasNext()) {
-
-            Value value = valueIt.next();
-            if (value.getField().getName().equals(field.getName())) {
-                return value.getValue();
-            }
-        }
-        return null;
-
-    }
-
+    return null;
+  }
 }

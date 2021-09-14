@@ -18,34 +18,26 @@ package org.kabeja.tools;
 import java.util.HashMap;
 import java.util.Map;
 
-
-/**
- * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
- *
- */
+/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
 public class SAXSerializerConfig {
-    private Map properties = new HashMap();
-    private String saxSerializerName;
+  private Map properties = new HashMap();
+  private String saxSerializerName;
 
-    public Map getProperties() {
-        return this.properties;
-    }
+  public Map getProperties() {
+    return this.properties;
+  }
 
-    public void addProperty(String name, String value) {
-        this.properties.put(name, value);
-    }
+  public void addProperty(String name, String value) {
+    this.properties.put(name, value);
+  }
 
-    /**
-     * @return Returns the filterName.
-     */
-    public String getSAXSerializerName() {
-        return saxSerializerName;
-    }
+  /** @return Returns the filterName. */
+  public String getSAXSerializerName() {
+    return saxSerializerName;
+  }
 
-    /**
-     * @param filterName The filterName to set.
-     */
-    public void setSAXSerializerName(String filterName) {
-        this.saxSerializerName = filterName;
-    }
+  /** @param filterName The filterName to set. */
+  public void setSAXSerializerName(String filterName) {
+    this.saxSerializerName = filterName;
+  }
 }

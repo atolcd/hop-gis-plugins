@@ -1,7 +1,7 @@
 /*
  * This file is part of the OpenSphere project which aims to
  * develop geospatial algorithms.
- * 
+ *
  * Copyright (C) 2012 Eric Grosso
  *
  * This library is free software; you can redistribute it and/or
@@ -20,55 +20,48 @@
  *
  * For more information, contact:
  * Eric Grosso, eric.grosso.os@gmail.com
- * 
+ *
  */
 package org.opensphere.geometry.triangulation;
 
 import java.util.Comparator;
 import java.util.Map;
-
 import org.locationtech.jts.triangulate.quadedge.QuadEdge;
 
 /**
- * Comparator of a map containing QuadEdge as key and Double as value (Double
- * comparator).
- * 
- * @author Eric Grosso
+ * Comparator of a map containing QuadEdge as key and Double as value (Double comparator).
  *
+ * @author Eric Grosso
  */
 public class DoubleComparator implements Comparator<QuadEdge> {
 
-    Map<QuadEdge, Double> map;
+  Map<QuadEdge, Double> map;
 
-    /**
-     * Constructor.
-     * 
-     * @param map
-     *            map containing QuadEdge and Double
-     */
-    public DoubleComparator(Map<QuadEdge, Double> map) {
-        this.map = map;
+  /**
+   * Constructor.
+   *
+   * @param map map containing QuadEdge and Double
+   */
+  public DoubleComparator(Map<QuadEdge, Double> map) {
+    this.map = map;
+  }
+
+  /**
+   * Method of comparison.
+   *
+   * @param qeA quad edge to compare
+   * @param qeB quad edge to compare
+   * @return 1 if double value associated to qeA < double value associated to qeB, 0 if values are
+   *     equals, -1 otherwise
+   */
+  @Override
+  public int compare(QuadEdge qeA, QuadEdge qeB) {
+    if (this.map.get(qeA) < this.map.get(qeB)) {
+      return 1;
+    } else if (this.map.get(qeA) == this.map.get(qeB)) {
+      return 0;
+    } else {
+      return -1;
     }
-
-    /**
-     * Method of comparison.
-     * 
-     * @param qeA
-     *            quad edge to compare
-     * @param qeB
-     *            quad edge to compare
-     * @return 1 if double value associated to qeA < double value associated to
-     *         qeB, 0 if values are equals, -1 otherwise
-     */
-    @Override
-    public int compare(QuadEdge qeA, QuadEdge qeB) {
-        if (this.map.get(qeA) < this.map.get(qeB)) {
-            return 1;
-        } else if (this.map.get(qeA) == this.map.get(qeB)) {
-            return 0;
-        } else {
-            return -1;
-        }
-    }
-
+  }
 }

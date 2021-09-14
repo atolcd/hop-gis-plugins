@@ -18,42 +18,34 @@ package org.kabeja.processing;
 import java.util.HashMap;
 import java.util.Map;
 
-
-/**
- * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
- *
- */
+/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
 public class PostProcessorConfig {
-    private Map properties = new HashMap();
-    private String postProcessorName;
+  private Map properties = new HashMap();
+  private String postProcessorName;
 
-    public PostProcessorConfig(Map properties) {
-        this.properties = properties;
-    }
+  public PostProcessorConfig(Map properties) {
+    this.properties = properties;
+  }
 
-    public PostProcessorConfig() {
-        this(new HashMap());
-    }
+  public PostProcessorConfig() {
+    this(new HashMap());
+  }
 
-    public Map getProperties() {
-        return this.properties;
-    }
+  public Map getProperties() {
+    return this.properties;
+  }
 
-    public void addProperty(String name, String value) {
-        this.properties.put(name, value);
-    }
+  public void addProperty(String name, String value) {
+    this.properties.put(name, value);
+  }
 
-    /**
-     * @return Returns the filterName.
-     */
-    public String getPostProcessorName() {
-        return postProcessorName;
-    }
+  /** @return Returns the filterName. */
+  public String getPostProcessorName() {
+    return postProcessorName;
+  }
 
-    /**
-     * @param filterName The filterName to set.
-     */
-    public void setPostProcessorName(String filterName) {
-        this.postProcessorName = filterName;
-    }
+  /** @param filterName The filterName to set. */
+  public void setPostProcessorName(String filterName) {
+    this.postProcessorName = filterName;
+  }
 }

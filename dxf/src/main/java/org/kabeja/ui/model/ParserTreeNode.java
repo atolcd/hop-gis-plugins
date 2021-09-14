@@ -16,32 +16,29 @@
 package org.kabeja.ui.model;
 
 import javax.swing.tree.TreeNode;
-
 import org.kabeja.parser.Parser;
 
-
 public class ParserTreeNode extends AbstractProcessingTreeNode {
-    protected Parser parser;
+  protected Parser parser;
 
-    public ParserTreeNode(TreeNode parent, Parser parser) {
-        super(parent, parser.getName());
+  public ParserTreeNode(TreeNode parent, Parser parser) {
+    super(parent, parser.getName());
 
-        this.parser = parser;
-    }
+    this.parser = parser;
+  }
 
-    protected String getLabel() {
-        // TODO Auto-generated method stub
-        return parser.getName();
-    }
+  protected String getLabel() {
+    // TODO Auto-generated method stub
+    return parser.getName();
+  }
 
-    protected void initializeChildren() {
-    }
+  protected void initializeChildren() {}
 
-    public boolean getAllowsChildren() {
-        return false;
-    }
+  public boolean getAllowsChildren() {
+    return false;
+  }
 
-    public boolean isLeaf() {
-        return true;
-    }
+  public boolean isLeaf() {
+    return true;
+  }
 }

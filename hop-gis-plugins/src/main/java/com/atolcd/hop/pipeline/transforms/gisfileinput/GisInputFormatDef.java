@@ -10,12 +10,12 @@ package com.atolcd.hop.pipeline.transforms.gisfileinput;
  * it under the terms of the GNU Lesser General Public License as
  * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Lesser Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Lesser Public
  * License along with this program.  If not, see
  * <http://www.gnu.org/licenses/lgpl-3.0.html>.
@@ -28,44 +28,51 @@ import java.util.List;
 
 public class GisInputFormatDef {
 
-    private String key;
-    private String[] extensions;
-    private String[] extensionsNames;
-    private LinkedHashMap<String, GisInputFormatParameterDef> parameterDefs;
+  private String key;
+  private String[] extensions;
+  private String[] extensionsNames;
+  private LinkedHashMap<String, GisInputFormatParameterDef> parameterDefs;
 
-    public GisInputFormatDef(String key, String[] extensions, String[] extensionsNames) {
-        this.key = key;
-        this.extensions = extensions;
-        this.extensionsNames = extensionsNames;
-        this.parameterDefs = new LinkedHashMap<String, GisInputFormatParameterDef>();
-    }
+  public GisInputFormatDef(String key, String[] extensions, String[] extensionsNames) {
+    this.key = key;
+    this.extensions = extensions;
+    this.extensionsNames = extensionsNames;
+    this.parameterDefs = new LinkedHashMap<String, GisInputFormatParameterDef>();
+  }
 
-    public String getKey() {
-        return key;
-    }
+  public String getKey() {
+    return key;
+  }
 
-    public String[] getExtensions() {
-        return extensions;
-    }
+  public String[] getExtensions() {
+    return extensions;
+  }
 
-    public String[] getExtensionsNames() {
-        return extensionsNames;
-    }
+  public String[] getExtensionsNames() {
+    return extensionsNames;
+  }
 
-    public void addParameterDef(String key, int valueMetaType, boolean required) {
-        parameterDefs.put(key, new GisInputFormatParameterDef(key, valueMetaType, required));
-    }
+  public void addParameterDef(String key, int valueMetaType, boolean required) {
+    parameterDefs.put(key, new GisInputFormatParameterDef(key, valueMetaType, required));
+  }
 
-    public void addParameterDef(String key, int valueMetaType, boolean required, List<String> predefinedValues, String defaultValue) {
-        parameterDefs.put(key, new GisInputFormatParameterDef(key, valueMetaType, required, predefinedValues, defaultValue));
-    }
+  public void addParameterDef(
+      String key,
+      int valueMetaType,
+      boolean required,
+      List<String> predefinedValues,
+      String defaultValue) {
+    parameterDefs.put(
+        key,
+        new GisInputFormatParameterDef(
+            key, valueMetaType, required, predefinedValues, defaultValue));
+  }
 
-    public GisInputFormatParameterDef getParameterDef(String key) {
-        return parameterDefs.get(key);
-    }
+  public GisInputFormatParameterDef getParameterDef(String key) {
+    return parameterDefs.get(key);
+  }
 
-    public List<GisInputFormatParameterDef> getParameterDefs() {
-        return new ArrayList<GisInputFormatParameterDef>(parameterDefs.values());
-    }
-
+  public List<GisInputFormatParameterDef> getParameterDefs() {
+    return new ArrayList<GisInputFormatParameterDef>(parameterDefs.values());
+  }
 }

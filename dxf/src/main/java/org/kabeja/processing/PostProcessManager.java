@@ -18,45 +18,39 @@ package org.kabeja.processing;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
-
 import org.kabeja.dxf.DXFDocument;
 
-
-/**
- * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
- *
- */
+/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
 public class PostProcessManager {
-    private ArrayList processors = new ArrayList();
+  private ArrayList processors = new ArrayList();
 
-    public void addPostProcessor(PostProcessor pp) {
-        processors.add(pp);
+  public void addPostProcessor(PostProcessor pp) {
+    processors.add(pp);
+  }
+
+  public void addPostProcessor(String classname) {
+    try {
+      PostProcessor pp =
+          (PostProcessor) this.getClass().getClassLoader().loadClass(classname).newInstance();
+      addPostProcessor(pp);
+    } catch (InstantiationException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    } catch (IllegalAccessException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    } catch (ClassNotFoundException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
     }
+  }
 
-    public void addPostProcessor(String classname) {
-        try {
-            PostProcessor pp = (PostProcessor) this.getClass().getClassLoader()
-                                                   .loadClass(classname)
-                                                   .newInstance();
-            addPostProcessor(pp);
-        } catch (InstantiationException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+  public void process(DXFDocument doc, Map context) throws ProcessorException {
+    Iterator i = processors.iterator();
+
+    while (i.hasNext()) {
+      PostProcessor pp = (PostProcessor) i.next();
+      pp.process(doc, context);
     }
-
-    public void process(DXFDocument doc, Map context) throws ProcessorException {
-        Iterator i = processors.iterator();
-
-        while (i.hasNext()) {
-            PostProcessor pp = (PostProcessor) i.next();
-            pp.process(doc, context);
-        }
-    }
+  }
 }

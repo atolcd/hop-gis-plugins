@@ -15,15 +15,16 @@
 */
 package org.kabeja.ui;
 /**
- * A component which implement this interface get access to
- * the services which are provided by this application.
- * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ * A component which implement this interface get access to the services which are provided by this
+ * application.
  *
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
  */
 public interface Serviceable {
-	/**
-	 * Set the @see ServiceManager of the application.
-	 * @param manager
-	 */
-    public void setServiceManager(ServiceManager manager);
+  /**
+   * Set the @see ServiceManager of the application.
+   *
+   * @param manager
+   */
+  public void setServiceManager(ServiceManager manager);
 }

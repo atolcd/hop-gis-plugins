@@ -1,83 +1,80 @@
 package com.atolcd.gis.gpx.type;
 
-import java.util.GregorianCalendar;
-
 import com.atolcd.gis.gpx.ISpatialElement;
+import java.util.GregorianCalendar;
 import org.locationtech.jts.geom.Coordinate;
 import org.locationtech.jts.geom.Geometry;
 
-public class WayPoint extends AbstractSpatialElement implements ISpatialElement{
+public class WayPoint extends AbstractSpatialElement implements ISpatialElement {
 
-	private Coordinate coordinate;
-	private GregorianCalendar time;
-	private String symbol;
-	
-	public WayPoint(Coordinate coordinate) throws WayPointException{
-		this.coordinate = checkCoordinate(coordinate);
-		this.time = null;
-		this.symbol = null;
-	}
+  private Coordinate coordinate;
+  private GregorianCalendar time;
+  private String symbol;
 
-	public Geometry getGeometry() {
+  public WayPoint(Coordinate coordinate) throws WayPointException {
+    this.coordinate = checkCoordinate(coordinate);
+    this.time = null;
+    this.symbol = null;
+  }
 
-		Geometry geometry = getGeometryFactory().createPoint(this.coordinate);
-		geometry.setSRID(4326);
-		return geometry;
+  public Geometry getGeometry() {
 
-	}
-	
-	public Double getLongitude(){
-		return coordinate.x;
-	}
-	
-	public Double getLatitude(){
-		return coordinate.y;
-	}
-	
-	public Double getElevation(){
-		return coordinate.z;
-	}
+    Geometry geometry = getGeometryFactory().createPoint(this.coordinate);
+    geometry.setSRID(4326);
+    return geometry;
+  }
 
-	public String getSymbol() {
-		return symbol;
-	}
+  public Double getLongitude() {
+    return coordinate.x;
+  }
 
-	public void setSymbol(String symbol) {
-		this.symbol = symbol;
-	}
+  public Double getLatitude() {
+    return coordinate.y;
+  }
 
-	public GregorianCalendar getTime() {
-		return time;
-	}
+  public Double getElevation() {
+    return coordinate.z;
+  }
 
-	public void setTime(GregorianCalendar time) {
-		this.time = time;
-	}
+  public String getSymbol() {
+    return symbol;
+  }
 
-	protected Coordinate getCoordinate(){
-		return this.coordinate;
-	}
-	
-	private Coordinate checkCoordinate(Coordinate coordinate) throws WayPointException{
-		
-		if(coordinate == null){
-			throw new WayPointException("Coordinates can not be null");
-		}
-		
-		if(coordinate.x > 180 || coordinate.x < -180 ||coordinate.y > 90 ||coordinate.y < -90){
-			throw new WayPointException("Wrong coordinates (" + coordinate.x + "|" + coordinate.y + ") for WGS84 system");
-		}
-		
-		return coordinate;
-	}
+  public void setSymbol(String symbol) {
+    this.symbol = symbol;
+  }
 
-	@SuppressWarnings("serial")
-	public class WayPointException extends Exception {
-		
-	    public WayPointException(String message) {
-	        super(message);
-	    }
-	    
-	}
+  public GregorianCalendar getTime() {
+    return time;
+  }
 
+  public void setTime(GregorianCalendar time) {
+    this.time = time;
+  }
+
+  protected Coordinate getCoordinate() {
+    return this.coordinate;
+  }
+
+  private Coordinate checkCoordinate(Coordinate coordinate) throws WayPointException {
+
+    if (coordinate == null) {
+      throw new WayPointException("Coordinates can not be null");
+    }
+
+    if (coordinate.x > 180 || coordinate.x < -180 || coordinate.y > 90 || coordinate.y < -90) {
+      throw new WayPointException(
+          "Wrong coordinates (" + coordinate.x + "|" + coordinate.y + ") for WGS84 system");
+    }
+
+    return coordinate;
+  }
+
+  @SuppressWarnings("serial")
+  public class WayPointException extends Exception {
+
+    public WayPointException(String message) {
+      super(message);
+    }
+  }
 }

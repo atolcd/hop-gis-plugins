@@ -15,13 +15,7 @@
 */
 package org.kabeja.parser;
 
-
-/**
- * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
- *
- *
- *
- */
+/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
 public interface HandlerManager extends Handler {
-    public void addHandler(Handler handler);
+  public void addHandler(Handler handler);
 }

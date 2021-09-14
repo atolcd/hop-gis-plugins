@@ -17,93 +17,73 @@ package org.kabeja.dxf;
 
 import org.kabeja.dxf.helpers.Point;
 
-
-/**
- * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
- *
- */
+/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
 public class DXFPoint extends DXFEntity {
-    protected Point p = new Point();
+  protected Point p = new Point();
 
-    public DXFPoint() {
-    }
+  public DXFPoint() {}
 
-    public DXFPoint(double x, double y, double z) {
-        this.p.setX(x);
-        this.p.setY(y);
-        this.p.setZ(z);
-    }
+  public DXFPoint(double x, double y, double z) {
+    this.p.setX(x);
+    this.p.setY(y);
+    this.p.setZ(z);
+  }
 
-    public DXFPoint(Point p) {
-        this.p = p;
-    }
+  public DXFPoint(Point p) {
+    this.p = p;
+  }
 
-    /**
-     * @return Returns the x.
-     */
-    public double getX() {
-        return this.p.getX();
-    }
+  /** @return Returns the x. */
+  public double getX() {
+    return this.p.getX();
+  }
 
-    /**
-     * @param x
-     *            The x to set.
-     */
-    public void setX(double x) {
-        this.p.setX(x);
-    }
+  /** @param x The x to set. */
+  public void setX(double x) {
+    this.p.setX(x);
+  }
 
-    /**
-     * @return Returns the y.
-     */
-    public double getY() {
-        return this.p.getY();
-    }
+  /** @return Returns the y. */
+  public double getY() {
+    return this.p.getY();
+  }
 
-    /**
-     * @param y
-     *            The y to set.
-     */
-    public void setY(double y) {
-        this.p.setY(y);
-    }
+  /** @param y The y to set. */
+  public void setY(double y) {
+    this.p.setY(y);
+  }
 
-    /**
-     * @return Returns the z.
-     */
-    public double getZ() {
-        return this.p.getZ();
-    }
+  /** @return Returns the z. */
+  public double getZ() {
+    return this.p.getZ();
+  }
 
-    /**
-     * @param z
-     *            The z to set.
-     */
-    public void setZ(double z) {
-        this.p.setZ(z);
-    }
+  /** @param z The z to set. */
+  public void setZ(double z) {
+    this.p.setZ(z);
+  }
 
-    public Bounds getBounds() {
-        Bounds bounds = new Bounds();
-        bounds.addToBounds(p);
+  public Bounds getBounds() {
+    Bounds bounds = new Bounds();
+    bounds.addToBounds(p);
 
-        return bounds;
-    }
+    return bounds;
+  }
 
-    public String getType() {
-        return DXFConstants.ENTITY_TYPE_POINT;
-    }
+  public String getType() {
+    return DXFConstants.ENTITY_TYPE_POINT;
+  }
 
-    public Point getPoint() {
-        return this.p;
-    }
+  public Point getPoint() {
+    return this.p;
+  }
 
-    public void setPoint(Point p) {
-        this.p = p;
-    }
+  public void setPoint(Point p) {
+    this.p = p;
+  }
 
-    public double getLength() {
-        // a point has no length
-        return 0;
-    }
+  public double getLength() {
+    // a point has no length
+    return 0;
+  }
 }

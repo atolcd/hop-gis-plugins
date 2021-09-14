@@ -16,17 +16,16 @@
 package org.kabeja.ui;
 
 import javax.swing.Action;
+
 /**
- * Application toolbar service provides access to the application toolbar for
- * components.
- * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ * Application toolbar service provides access to the application toolbar for components.
  *
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
  */
-
 public interface ApplicationToolBar {
-    public static final String SERVICE = ApplicationToolBar.class.getName();
+  public static final String SERVICE = ApplicationToolBar.class.getName();
 
-    public void addAction(Action action);
+  public void addAction(Action action);
 
-    public void addAction(java.awt.Component component);
+  public void addAction(java.awt.Component component);
 }

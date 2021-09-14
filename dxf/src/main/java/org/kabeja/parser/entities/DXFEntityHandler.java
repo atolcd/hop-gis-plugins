@@ -20,59 +20,46 @@ import org.kabeja.dxf.DXFEntity;
 import org.kabeja.parser.DXFValue;
 import org.kabeja.parser.Handler;
 
-
 /**
- *
- * This interface descripe an Entity jandler, which should
- * handle (parse) an DXF entity.
+ * This interface descripe an Entity jandler, which should handle (parse) an DXF entity.
  *
  * <h3>Lifecycle</h3>
+ *
  * <ol>
- * <li>setDXFDocument</li>
- * <li>startDXFEntity</li>
- * <li>parseGroup (multiple)</li>
- * <li>isFollowSequence (need for polylines, where multiple vertices follow)</li>
- * <li>endDXFEntity</li>
- * <li>getDXFEntity</li>
- * </lo>
+ *   <li>setDXFDocument
+ *   <li>startDXFEntity
+ *   <li>parseGroup (multiple)
+ *   <li>isFollowSequence (need for polylines, where multiple vertices follow)
+ *   <li>endDXFEntity
+ *   <li>getDXFEntity </lo>
+ *
  * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
- *
- *
  * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
  */
 public interface DXFEntityHandler extends Handler {
-    /**
-     *
-     * @return the DXFEntity name (LINE,POLYLINE,TEXT,...)
-     */
-    public abstract String getDXFEntityName();
+  /** @return the DXFEntity name (LINE,POLYLINE,TEXT,...) */
+  public abstract String getDXFEntityName();
 
-    public void setDXFDocument(DXFDocument doc);
+  public void setDXFDocument(DXFDocument doc);
 
-    /**
-     * Will called if the entity block starts.
-     *
-     */
-    public abstract void startDXFEntity();
+  /** Will called if the entity block starts. */
+  public abstract void startDXFEntity();
 
-    public abstract void parseGroup(int groupCode, DXFValue value);
+  public abstract void parseGroup(int groupCode, DXFValue value);
 
-    /**
-     * Called after endDXFEntity.
-     * @return the parsed Entity
-     */
-    public abstract DXFEntity getDXFEntity();
+  /**
+   * Called after endDXFEntity.
+   *
+   * @return the parsed Entity
+   */
+  public abstract DXFEntity getDXFEntity();
 
-    /**
-     * Will called if the entity block ends.
-     *
-     */
-    public abstract void endDXFEntity();
+  /** Will called if the entity block ends. */
+  public abstract void endDXFEntity();
 
-    /**
-     *
-     * @return true if the this DXFEntityHandler have to parse the following entities (like POLYLINE),
-     *  otherwise false (like TEXT,LINE).
-     */
-    public abstract boolean isFollowSequence();
+  /**
+   * @return true if the this DXFEntityHandler have to parse the following entities (like POLYLINE),
+   *     otherwise false (like TEXT,LINE).
+   */
+  public abstract boolean isFollowSequence();
 }

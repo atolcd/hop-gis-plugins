@@ -16,13 +16,11 @@
 package org.kabeja.ui;
 /**
  * A Startable component will started at Application starts and stopped at the application stop.
- * 
- * 
- * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
  *
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
  */
 public interface Startable extends Component {
-    public void start();
+  public void start();
 
-    public void stop();
+  public void stop();
 }

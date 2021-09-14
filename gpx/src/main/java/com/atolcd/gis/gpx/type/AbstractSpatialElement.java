@@ -2,47 +2,46 @@ package com.atolcd.gis.gpx.type;
 
 import org.locationtech.jts.geom.GeometryFactory;
 
-public abstract class AbstractSpatialElement extends AbstractElement{
+public abstract class AbstractSpatialElement extends AbstractElement {
 
-	private static GeometryFactory geometryFactory = new GeometryFactory();
-	
-	private String comment;
-	private String source;
-	private String type;
-	
-	public AbstractSpatialElement(){
-		super();
-		this.comment = null;
-		this.source = null;
-		this.type = null;
-	}
+  private static GeometryFactory geometryFactory = new GeometryFactory();
 
-	public String getComment() {
-		return comment;
-	}
+  private String comment;
+  private String source;
+  private String type;
 
-	public void setComment(String comment) {
-		this.comment = comment;
-	}
+  public AbstractSpatialElement() {
+    super();
+    this.comment = null;
+    this.source = null;
+    this.type = null;
+  }
 
-	public String getSource() {
-		return source;
-	}
+  public String getComment() {
+    return comment;
+  }
 
-	public void setSource(String source) {
-		this.source = source;
-	}
+  public void setComment(String comment) {
+    this.comment = comment;
+  }
 
-	public String getType() {
-		return type;
-	}
+  public String getSource() {
+    return source;
+  }
 
-	public void setType(String type) {
-		this.type = type;
-	}
+  public void setSource(String source) {
+    this.source = source;
+  }
 
-	public static GeometryFactory getGeometryFactory() {
-		return geometryFactory;
-	}
+  public String getType() {
+    return type;
+  }
 
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public static GeometryFactory getGeometryFactory() {
+    return geometryFactory;
+  }
 }

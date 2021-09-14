@@ -1,18 +1,18 @@
 /*
- Copyright 2005 Simon Mieth
+Copyright 2005 Simon Mieth
 
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
- http://www.apache.org/licenses/LICENSE-2.0
+http://www.apache.org/licenses/LICENSE-2.0
 
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
- */
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
 package org.kabeja.parser.entities;
 
 import org.kabeja.dxf.DXFConstants;
@@ -22,228 +22,207 @@ import org.kabeja.dxf.DXFVertex;
 import org.kabeja.parser.DXFEntitiesSectionHandler;
 import org.kabeja.parser.DXFValue;
 
-
-/**
- * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth </a>
- *
- */
+/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth </a> */
 public class DXFPolylineHandler extends AbstractEntityHandler {
-    public static final String ENTITY_NAME = "POLYLINE";
-    public static final String ENTITY_VERTEX = "VERTEX";
-    public static final String END_SEQUENCE = "SEQEND";
-    public static final int END_SEQUENCE_CODE = -2;
-    public static final int VERTEX_BULGE = 42;
-    public static final int START_WIDTH = 40;
-    public static final int END_WIDTH = 41;
-    public static final int THICKNESS = 39;
-    public static final int SURFACE_TYPE = 75;
-    public static final int SUREFACE_DENSITY_ROW_COUNT = 73;
-    public static final int SUREFACE_DENSITY_COLUMN_COUNT = 74;
-    public static final int ROW_COUNT = 71;
-    public static final int COLUMN_COUNT = 72;
-    private boolean follow = true;
-    private boolean parse_vertex = false;
-    private DXFVertex vertex;
-    private DXFPolyline polyline;
+  public static final String ENTITY_NAME = "POLYLINE";
+  public static final String ENTITY_VERTEX = "VERTEX";
+  public static final String END_SEQUENCE = "SEQEND";
+  public static final int END_SEQUENCE_CODE = -2;
+  public static final int VERTEX_BULGE = 42;
+  public static final int START_WIDTH = 40;
+  public static final int END_WIDTH = 41;
+  public static final int THICKNESS = 39;
+  public static final int SURFACE_TYPE = 75;
+  public static final int SUREFACE_DENSITY_ROW_COUNT = 73;
+  public static final int SUREFACE_DENSITY_COLUMN_COUNT = 74;
+  public static final int ROW_COUNT = 71;
+  public static final int COLUMN_COUNT = 72;
+  private boolean follow = true;
+  private boolean parse_vertex = false;
+  private DXFVertex vertex;
+  private DXFPolyline polyline;
 
-    /**
-     *
-     */
-    public DXFPolylineHandler() {
-        super();
+  /** */
+  public DXFPolylineHandler() {
+    super();
 
-        // TODO Auto-generated constructor stub
+    // TODO Auto-generated constructor stub
+  }
+
+  /*
+   * (non-Javadoc)
+   *
+   * @see org.dxf2svg.parser.entities.EntityHandler#endParsing()
+   */
+  public void endDXFEntity() {}
+
+  /*
+   * (non-Javadoc)
+   *
+   * @see org.dxf2svg.parser.entities.EntityHandler#getEntity()
+   */
+  public DXFEntity getDXFEntity() {
+    return polyline;
+  }
+
+  /*
+   * (non-Javadoc)
+   *
+   * @see org.dxf2svg.parser.entities.EntityHandler#getEntityName()
+   */
+  public String getDXFEntityName() {
+    return DXFConstants.ENTITY_TYPE_POLYLINE;
+  }
+
+  /*
+   * (non-Javadoc)
+   *
+   * @see org.dxf2svg.parser.entities.EntityHandler#isFollowSequence()
+   */
+  public boolean isFollowSequence() {
+    return follow;
+  }
+
+  /*
+   * (non-Javadoc)
+   *
+   * @see org.dxf2svg.parser.entities.EntityHandler#parseGroup(int,
+   *      org.dxf2svg.parser.DXFValue)
+   */
+  public void parseGroup(int groupCode, DXFValue value) {
+
+    if ((groupCode == END_SEQUENCE_CODE) || END_SEQUENCE.equals(value.getValue())) {
+      polyline.addVertex(vertex);
+      follow = false;
+
+      return;
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see org.dxf2svg.parser.entities.EntityHandler#endParsing()
-     */
-    public void endDXFEntity() {
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see org.dxf2svg.parser.entities.EntityHandler#getEntity()
-     */
-    public DXFEntity getDXFEntity() {
-        return polyline;
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see org.dxf2svg.parser.entities.EntityHandler#getEntityName()
-     */
-    public String getDXFEntityName() {
-        return DXFConstants.ENTITY_TYPE_POLYLINE;
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see org.dxf2svg.parser.entities.EntityHandler#isFollowSequence()
-     */
-    public boolean isFollowSequence() {
-        return follow;
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see org.dxf2svg.parser.entities.EntityHandler#parseGroup(int,
-     *      org.dxf2svg.parser.DXFValue)
-     */
-    public void parseGroup(int groupCode, DXFValue value) {
-        
-    	if ((groupCode == END_SEQUENCE_CODE) ||
-                END_SEQUENCE.equals(value.getValue())) {
+    switch (groupCode) {
+      case DXFEntitiesSectionHandler.ENTITY_START:
+        if (ENTITY_VERTEX.equals(value.getValue())) {
+          // store the old before
+          if (parse_vertex) {
             polyline.addVertex(vertex);
-            follow = false;
+          } else {
+            parse_vertex = true;
+          }
 
-            return;
+          vertex = new DXFVertex();
+          vertex.setDXFDocument(doc);
         }
 
-        switch (groupCode) {
+        break;
 
-        case DXFEntitiesSectionHandler.ENTITY_START:
+      case GROUPCODE_START_X:
+        if (parse_vertex) {
+          vertex.setX(value.getDoubleValue());
+        }
 
-            if (ENTITY_VERTEX.equals(value.getValue())) {
-                // store the old before
-                if (parse_vertex) {
-                    polyline.addVertex(vertex);
-                } else {
-                    parse_vertex = true;
-                }
+        break;
 
-                vertex = new DXFVertex();
-                vertex.setDXFDocument(doc);
-            }
+      case GROUPCODE_START_Y:
+        if (parse_vertex) {
+          vertex.setY(value.getDoubleValue());
+        }
 
-            break;
+        break;
 
-        case GROUPCODE_START_X:
+      case GROUPCODE_START_Z:
+        if (parse_vertex) {
+          vertex.setZ(value.getDoubleValue());
+        }
 
-            if (parse_vertex) {
-                vertex.setX(value.getDoubleValue());
-            }
+        break;
 
-            break;
+      case VERTEX_BULGE:
+        if (parse_vertex) {
+          vertex.setBulge(value.getDoubleValue());
+        }
 
-        case GROUPCODE_START_Y:
+        break;
 
-            if (parse_vertex) {
-                vertex.setY(value.getDoubleValue());
-            }
+      case START_WIDTH:
+        if (parse_vertex) {
+          vertex.setStartWidth(value.getDoubleValue());
+        } else {
+          polyline.setStartWidth(value.getDoubleValue());
+        }
 
-            break;
+        break;
 
-        case GROUPCODE_START_Z:
+      case END_WIDTH:
+        if (parse_vertex) {
+          vertex.setEndWidth(value.getDoubleValue());
+        } else {
+          polyline.setEndWidth(value.getDoubleValue());
+        }
 
-            if (parse_vertex) {
-                vertex.setZ(value.getDoubleValue());
-            }
+        break;
 
-            break;
+      case THICKNESS:
+        polyline.setThickness(value.getDoubleValue());
 
-        case VERTEX_BULGE:
+        break;
 
-            if (parse_vertex) {
-                vertex.setBulge(value.getDoubleValue());
-            }
+      case SURFACE_TYPE:
+        polyline.setSurefaceType(value.getIntegerValue());
 
-            break;
+        break;
 
-        case START_WIDTH:
+      case ROW_COUNT:
+        if (parse_vertex) {
+          vertex.setPolyFaceMeshVertex0(value.getIntegerValue());
+        } else {
+          polyline.setRows(value.getIntegerValue());
+        }
 
-            if (parse_vertex) {
-                vertex.setStartWidth(value.getDoubleValue());
-            } else {
-                polyline.setStartWidth(value.getDoubleValue());
-            }
+        break;
 
-            break;
+      case COLUMN_COUNT:
+        if (parse_vertex) {
+          vertex.setPolyFaceMeshVertex1(value.getIntegerValue());
+        } else {
+          polyline.setColumns(value.getIntegerValue());
+        }
 
-        case END_WIDTH:
+        break;
 
-            if (parse_vertex) {
-                vertex.setEndWidth(value.getDoubleValue());
-            } else {
-                polyline.setEndWidth(value.getDoubleValue());
-            }
+      case SUREFACE_DENSITY_ROW_COUNT:
+        if (parse_vertex) {
+          vertex.setPolyFaceMeshVertex2(value.getIntegerValue());
+        } else {
+          polyline.setSurefaceDensityRows(value.getIntegerValue());
+        }
 
-            break;
+        break;
 
-        case THICKNESS:
-            polyline.setThickness(value.getDoubleValue());
+      case SUREFACE_DENSITY_COLUMN_COUNT:
+        if (parse_vertex) {
+          vertex.setPolyFaceMeshVertex3(value.getIntegerValue());
+        } else {
+          polyline.setSurefaceDensityColumns(value.getIntegerValue());
+        }
 
-            break;
+        break;
 
-        case SURFACE_TYPE:
-            polyline.setSurefaceType(value.getIntegerValue());
-
-            break;
-
-        case ROW_COUNT:
-
-            if (parse_vertex) {
-                vertex.setPolyFaceMeshVertex0(value.getIntegerValue());
-            } else {
-                polyline.setRows(value.getIntegerValue());
-            }
-
-            break;
-
-        case COLUMN_COUNT:
-
-            if (parse_vertex) {
-                vertex.setPolyFaceMeshVertex1(value.getIntegerValue());
-            } else {
-                polyline.setColumns(value.getIntegerValue());
-            }
-
-            break;
-
-        case SUREFACE_DENSITY_ROW_COUNT:
-
-            if (parse_vertex) {
-                vertex.setPolyFaceMeshVertex2(value.getIntegerValue());
-            } else {
-                polyline.setSurefaceDensityRows(value.getIntegerValue());
-            }
-
-            break;
-
-        case SUREFACE_DENSITY_COLUMN_COUNT:
-
-            if (parse_vertex) {
-                vertex.setPolyFaceMeshVertex3(value.getIntegerValue());
-            } else {
-                polyline.setSurefaceDensityColumns(value.getIntegerValue());
-            }
-
-            break;
-
-        default:
-
-            if (parse_vertex) {
-                super.parseCommonProperty(groupCode, value, vertex);
-            } else {
-                super.parseCommonProperty(groupCode, value, polyline);
-            }
+      default:
+        if (parse_vertex) {
+          super.parseCommonProperty(groupCode, value, vertex);
+        } else {
+          super.parseCommonProperty(groupCode, value, polyline);
         }
     }
+  }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see org.dxf2svg.parser.entities.EntityHandler#startParsing()
-     */
-    public void startDXFEntity() {
-        follow = true;
-        parse_vertex = false;
-        polyline = new DXFPolyline();
-    }
+  /*
+   * (non-Javadoc)
+   *
+   * @see org.dxf2svg.parser.entities.EntityHandler#startParsing()
+   */
+  public void startDXFEntity() {
+    follow = true;
+    parse_vertex = false;
+    polyline = new DXFPolyline();
+  }
 }

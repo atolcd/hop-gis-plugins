@@ -1,7 +1,6 @@
 package org.sqlite.spatialite.io;
 
 import java.io.IOException;
-
 import org.locationtech.jts.geom.Coordinate;
 import org.locationtech.jts.geom.Geometry;
 import org.locationtech.jts.geom.GeometryCollection;
@@ -17,284 +16,280 @@ import org.locationtech.jts.io.ByteArrayInStream;
 import org.locationtech.jts.io.ByteOrderDataInStream;
 import org.locationtech.jts.io.ByteOrderValues;
 import org.locationtech.jts.io.InStream;
-import org.locationtech.jts.io.WKBConstants;
 import org.locationtech.jts.io.ParseException;
+import org.locationtech.jts.io.WKBConstants;
 
 public class GeometryBlobReader {
 
-    private GeometryFactory factory = new GeometryFactory();
+  private GeometryFactory factory = new GeometryFactory();
 
-    @SuppressWarnings("unused")
-    public Geometry read(byte[] bytes) throws IOException, ParseException {
+  @SuppressWarnings("unused")
+  public Geometry read(byte[] bytes) throws IOException, ParseException {
 
-        InStream is = new ByteArrayInStream(bytes);
-        ByteOrderDataInStream dis = new ByteOrderDataInStream(is);
+    InStream is = new ByteArrayInStream(bytes);
+    ByteOrderDataInStream dis = new ByteOrderDataInStream(is);
 
-        byte start = dis.readByte();
+    byte start = dis.readByte();
 
-        assert (start == GeometryBlobConstants.START);
+    assert (start == GeometryBlobConstants.START);
 
-        byte byteOrder = dis.readByte();
+    byte byteOrder = dis.readByte();
 
-        if (byteOrder == GeometryBlobConstants.BIG_ENDIAN) {
-            dis.setOrder(ByteOrderValues.BIG_ENDIAN);
-        } else if (byteOrder == GeometryBlobConstants.LITTLE_ENDIAN) {
-            dis.setOrder(ByteOrderValues.LITTLE_ENDIAN);
-        } else {
-            throw new IOException("Unexpected byte order value at pos 0x01");
-        }
-
-        int srid = dis.readInt();
-
-        double minx = dis.readDouble();
-        double miny = dis.readDouble();
-        double maxx = dis.readDouble();
-        double maxy = dis.readDouble();
-
-        byte mbr_end = dis.readByte();
-        assert (mbr_end == GeometryBlobConstants.MBR_END);
-
-        TypeInfo typeInfo = new TypeInfo(dis.readInt());
-        Geometry geometry = readGeometry(dis, typeInfo.geometryType, typeInfo.hasZ, typeInfo.hasM, typeInfo.compressed);
-
-        byte last = dis.readByte();
-        assert (last == GeometryBlobConstants.LAST);
-
-        geometry.setSRID(srid);
-
-        return geometry;
-
+    if (byteOrder == GeometryBlobConstants.BIG_ENDIAN) {
+      dis.setOrder(ByteOrderValues.BIG_ENDIAN);
+    } else if (byteOrder == GeometryBlobConstants.LITTLE_ENDIAN) {
+      dis.setOrder(ByteOrderValues.LITTLE_ENDIAN);
+    } else {
+      throw new IOException("Unexpected byte order value at pos 0x01");
     }
 
-    private Geometry readGeometry(ByteOrderDataInStream dis, int geometryType, boolean hasZ, boolean hasM, boolean compressed) throws IOException, ParseException {
+    int srid = dis.readInt();
 
-        switch (geometryType) {
+    double minx = dis.readDouble();
+    double miny = dis.readDouble();
+    double maxx = dis.readDouble();
+    double maxy = dis.readDouble();
 
-        case WKBConstants.wkbPoint:
+    byte mbr_end = dis.readByte();
+    assert (mbr_end == GeometryBlobConstants.MBR_END);
 
-            return readPoint(dis, hasZ, hasM, compressed);
+    TypeInfo typeInfo = new TypeInfo(dis.readInt());
+    Geometry geometry =
+        readGeometry(dis, typeInfo.geometryType, typeInfo.hasZ, typeInfo.hasM, typeInfo.compressed);
 
-        case WKBConstants.wkbLineString:
+    byte last = dis.readByte();
+    assert (last == GeometryBlobConstants.LAST);
 
-            return readLinestring(dis, hasZ, hasM, compressed);
+    geometry.setSRID(srid);
 
-        case WKBConstants.wkbPolygon:
+    return geometry;
+  }
 
-            return readPolygon(dis, hasZ, hasM, compressed);
+  private Geometry readGeometry(
+      ByteOrderDataInStream dis, int geometryType, boolean hasZ, boolean hasM, boolean compressed)
+      throws IOException, ParseException {
 
-        case WKBConstants.wkbMultiPoint:
+    switch (geometryType) {
+      case WKBConstants.wkbPoint:
+        return readPoint(dis, hasZ, hasM, compressed);
 
-            return readMultiPoint(dis, hasZ, hasM, compressed);
+      case WKBConstants.wkbLineString:
+        return readLinestring(dis, hasZ, hasM, compressed);
 
-        case WKBConstants.wkbMultiLineString:
+      case WKBConstants.wkbPolygon:
+        return readPolygon(dis, hasZ, hasM, compressed);
 
-            return readMultiLineString(dis, hasZ, hasM, compressed);
+      case WKBConstants.wkbMultiPoint:
+        return readMultiPoint(dis, hasZ, hasM, compressed);
 
-        case WKBConstants.wkbMultiPolygon:
+      case WKBConstants.wkbMultiLineString:
+        return readMultiLineString(dis, hasZ, hasM, compressed);
 
-            return readMultiPolygon(dis, hasZ, hasM, compressed);
+      case WKBConstants.wkbMultiPolygon:
+        return readMultiPolygon(dis, hasZ, hasM, compressed);
 
-        case WKBConstants.wkbGeometryCollection:
+      case WKBConstants.wkbGeometryCollection:
+        return readGeometryCollection(dis, hasZ, hasM, compressed);
 
-            return readGeometryCollection(dis, hasZ, hasM, compressed);
+      default:
+        throw new IOException();
+    }
+  }
 
-        default:
-            throw new IOException();
-        }
+  private GeometryCollection readGeometryCollection(
+      ByteOrderDataInStream dis, boolean hasZ, boolean hasM, boolean compressed)
+      throws IOException, ParseException {
 
+    int numberOfComponents = dis.readInt();
+    Geometry[] components = new Geometry[numberOfComponents];
+
+    for (int i = 0; i < numberOfComponents; i++) {
+      byte marker = dis.readByte();
+      assert (marker == GeometryBlobConstants.GEOMETRY_ENTITY);
+      TypeInfo typeInfo = new TypeInfo(dis.readInt());
+      components[i] = readGeometry(dis, typeInfo.geometryType, hasZ, hasM, compressed);
     }
 
-    private GeometryCollection readGeometryCollection(ByteOrderDataInStream dis, boolean hasZ, boolean hasM, boolean compressed) throws IOException, ParseException {
+    return factory.createGeometryCollection(components);
+  }
 
-        int numberOfComponents = dis.readInt();
-        Geometry[] components = new Geometry[numberOfComponents];
+  private MultiPolygon readMultiPolygon(
+      ByteOrderDataInStream dis, boolean hasZ, boolean hasM, boolean compressed)
+      throws IOException, ParseException {
 
-        for (int i = 0; i < numberOfComponents; i++) {
-            byte marker = dis.readByte();
-            assert (marker == GeometryBlobConstants.GEOMETRY_ENTITY);
-            TypeInfo typeInfo = new TypeInfo(dis.readInt());
-            components[i] = readGeometry(dis, typeInfo.geometryType, hasZ, hasM, compressed);
-        }
+    int numberOfComponents = dis.readInt();
+    Polygon[] components = new Polygon[numberOfComponents];
 
-        return factory.createGeometryCollection(components);
+    for (int i = 0; i < numberOfComponents; i++) {
+      byte marker = dis.readByte();
+      assert (marker == GeometryBlobConstants.GEOMETRY_ENTITY);
+      int type = dis.readInt();
+      assert (type == WKBConstants.wkbPolygon);
+      components[i] = readPolygon(dis, hasZ, hasM, compressed);
     }
 
-    private MultiPolygon readMultiPolygon(ByteOrderDataInStream dis, boolean hasZ, boolean hasM, boolean compressed) throws IOException, ParseException {
+    return factory.createMultiPolygon(components);
+  }
 
-        int numberOfComponents = dis.readInt();
-        Polygon[] components = new Polygon[numberOfComponents];
+  private MultiLineString readMultiLineString(
+      ByteOrderDataInStream dis, boolean hasZ, boolean hasM, boolean compressed)
+      throws IOException, ParseException {
 
-        for (int i = 0; i < numberOfComponents; i++) {
-            byte marker = dis.readByte();
-            assert (marker == GeometryBlobConstants.GEOMETRY_ENTITY);
-            int type = dis.readInt();
-            assert (type == WKBConstants.wkbPolygon);
-            components[i] = readPolygon(dis, hasZ, hasM, compressed);
-        }
+    int numberOfComponents = dis.readInt();
+    LineString[] strings = new LineString[numberOfComponents];
 
-        return factory.createMultiPolygon(components);
-
+    for (int i = 0; i < numberOfComponents; i++) {
+      byte marker = dis.readByte();
+      assert (marker == GeometryBlobConstants.GEOMETRY_ENTITY);
+      int type = dis.readInt();
+      assert (type == WKBConstants.wkbLineString);
+      strings[i] = readLinestring(dis, hasZ, hasM, compressed);
     }
 
-    private MultiLineString readMultiLineString(ByteOrderDataInStream dis, boolean hasZ, boolean hasM, boolean compressed) throws IOException, ParseException {
+    return factory.createMultiLineString(strings);
+  }
 
-        int numberOfComponents = dis.readInt();
-        LineString[] strings = new LineString[numberOfComponents];
+  private MultiPoint readMultiPoint(
+      ByteOrderDataInStream dis, boolean hasZ, boolean hasM, boolean compressed)
+      throws IOException, ParseException {
 
-        for (int i = 0; i < numberOfComponents; i++) {
-            byte marker = dis.readByte();
-            assert (marker == GeometryBlobConstants.GEOMETRY_ENTITY);
-            int type = dis.readInt();
-            assert (type == WKBConstants.wkbLineString);
-            strings[i] = readLinestring(dis, hasZ, hasM, compressed);
-        }
+    int numberOfComponents = dis.readInt();
+    Point[] points = new Point[numberOfComponents];
 
-        return factory.createMultiLineString(strings);
-
+    for (int i = 0; i < numberOfComponents; i++) {
+      byte marker = dis.readByte();
+      assert (marker == GeometryBlobConstants.GEOMETRY_ENTITY);
+      int type = dis.readInt();
+      assert (type == WKBConstants.wkbPoint);
+      points[i] = readPoint(dis, hasZ, hasM, compressed);
     }
 
-    private MultiPoint readMultiPoint(ByteOrderDataInStream dis, boolean hasZ, boolean hasM, boolean compressed) throws IOException, ParseException {
+    return factory.createMultiPoint(points);
+  }
 
-        int numberOfComponents = dis.readInt();
-        Point[] points = new Point[numberOfComponents];
+  private Polygon readPolygon(
+      ByteOrderDataInStream dis, boolean hasZ, boolean hasM, boolean compressed)
+      throws IOException, ParseException {
 
-        for (int i = 0; i < numberOfComponents; i++) {
-            byte marker = dis.readByte();
-            assert (marker == GeometryBlobConstants.GEOMETRY_ENTITY);
-            int type = dis.readInt();
-            assert (type == WKBConstants.wkbPoint);
-            points[i] = readPoint(dis, hasZ, hasM, compressed);
-        }
+    int numberOfRings = dis.readInt();
 
-        return factory.createMultiPoint(points);
+    LineString outerlinestring = readLinestring(dis, hasZ, hasM, compressed);
+    LinearRing shell = factory.createLinearRing(outerlinestring.getCoordinates());
 
+    LinearRing[] holes = new LinearRing[numberOfRings - 1];
+
+    for (int i = 0; i < numberOfRings - 1; i++) {
+      LineString hole = readLinestring(dis, hasZ, hasM, compressed);
+      holes[i] = factory.createLinearRing(hole.getCoordinates());
     }
 
-    private Polygon readPolygon(ByteOrderDataInStream dis, boolean hasZ, boolean hasM, boolean compressed) throws IOException, ParseException {
+    return factory.createPolygon(shell, holes);
+  }
 
-        int numberOfRings = dis.readInt();
+  private Point readPoint(ByteOrderDataInStream dis, boolean hasZ, boolean hasM, boolean compressed)
+      throws IOException, ParseException {
 
-        LineString outerlinestring = readLinestring(dis, hasZ, hasM, compressed);
-        LinearRing shell = factory.createLinearRing(outerlinestring.getCoordinates());
-
-        LinearRing[] holes = new LinearRing[numberOfRings - 1];
-
-        for (int i = 0; i < numberOfRings - 1; i++) {
-            LineString hole = readLinestring(dis, hasZ, hasM, compressed);
-            holes[i] = factory.createLinearRing(hole.getCoordinates());
-        }
-
-        return factory.createPolygon(shell, holes);
-
+    if (compressed) {
+      throw new IOException(new IllegalArgumentException("Point cannot be compressed."));
     }
 
-    private Point readPoint(ByteOrderDataInStream dis, boolean hasZ, boolean hasM, boolean compressed) throws IOException, ParseException {
+    return factory.createPoint(readCoordinate(dis, hasZ, hasM));
+  }
 
-        if (compressed) {
-            throw new IOException(new IllegalArgumentException("Point cannot be compressed."));
-        }
+  private LineString readLinestring(
+      ByteOrderDataInStream dis, boolean hasZ, boolean hasM, boolean compressed)
+      throws IOException, ParseException {
 
-        return factory.createPoint(readCoordinate(dis, hasZ, hasM));
+    int numberOfPoints = dis.readInt();
+    Coordinate[] coordinates = new Coordinate[numberOfPoints];
 
+    if (compressed) {
+
+      coordinates[0] = readCoordinate(dis, hasZ, hasM);
+
+      for (int i = 1; i < numberOfPoints - 1; i++) {
+        coordinates[i] = readDiffCoordinate(dis, hasZ, hasM, coordinates[i - 1]);
+      }
+
+      coordinates[numberOfPoints - 1] = readCoordinate(dis, hasZ, hasM);
+
+    } else {
+
+      for (int i = 0; i < numberOfPoints; i++) {
+        coordinates[i] = readCoordinate(dis, hasZ, hasM);
+      }
     }
 
-    private LineString readLinestring(ByteOrderDataInStream dis, boolean hasZ, boolean hasM, boolean compressed) throws IOException, ParseException {
+    return factory.createLineString(coordinates);
+  }
 
-        int numberOfPoints = dis.readInt();
-        Coordinate[] coordinates = new Coordinate[numberOfPoints];
+  private Coordinate readDiffCoordinate(
+      ByteOrderDataInStream dis, boolean hasZ, boolean hasM, Coordinate p0)
+      throws IOException, ParseException {
 
-        if (compressed) {
+    int diffx = dis.readInt();
+    int diffy = dis.readInt();
 
-            coordinates[0] = readCoordinate(dis, hasZ, hasM);
+    float dx = Float.intBitsToFloat(diffx);
+    float dy = Float.intBitsToFloat(diffy);
 
-            for (int i = 1; i < numberOfPoints - 1; i++) {
-                coordinates[i] = readDiffCoordinate(dis, hasZ, hasM, coordinates[i - 1]);
-            }
+    Coordinate c = new Coordinate(p0);
+    c.x += dx;
+    c.y += dy;
 
-            coordinates[numberOfPoints - 1] = readCoordinate(dis, hasZ, hasM);
+    if (hasZ) {
 
-        } else {
-
-            for (int i = 0; i < numberOfPoints; i++) {
-                coordinates[i] = readCoordinate(dis, hasZ, hasM);
-            }
-
-        }
-
-        return factory.createLineString(coordinates);
-
+      int diffz = dis.readInt();
+      float dz = Float.intBitsToFloat(diffz);
+      c.z += dz;
     }
 
-    private Coordinate readDiffCoordinate(ByteOrderDataInStream dis, boolean hasZ, boolean hasM, Coordinate p0) throws IOException, ParseException {
+    return c;
+  }
 
-        int diffx = dis.readInt();
-        int diffy = dis.readInt();
+  private Coordinate readCoordinate(ByteOrderDataInStream dis, boolean hasZ, boolean hasM)
+      throws IOException, ParseException {
 
-        float dx = Float.intBitsToFloat(diffx);
-        float dy = Float.intBitsToFloat(diffy);
+    double x = dis.readDouble();
+    double y = dis.readDouble();
+    Coordinate coordinate = new Coordinate(x, y);
 
-        Coordinate c = new Coordinate(p0);
-        c.x += dx;
-        c.y += dy;
+    if (hasZ) {
 
-        if (hasZ) {
-
-            int diffz = dis.readInt();
-            float dz = Float.intBitsToFloat(diffz);
-            c.z += dz;
-
-        }
-
-        return c;
+      double z = dis.readDouble();
+      coordinate.z = z;
     }
 
-    private Coordinate readCoordinate(ByteOrderDataInStream dis, boolean hasZ, boolean hasM) throws IOException, ParseException {
+    return coordinate;
+  }
 
-        double x = dis.readDouble();
-        double y = dis.readDouble();
-        Coordinate coordinate = new Coordinate(x, y);
+  class TypeInfo {
 
-        if (hasZ) {
+    int geometryType;
+    boolean compressed = false;
+    boolean hasZ = false;
+    boolean hasM = false;
 
-            double z = dis.readDouble();
-            coordinate.z = z;
+    public TypeInfo(int geometryType) {
 
-        }
+      if (geometryType > GeometryBlobConstants.COMPRESSED_OFFSET) {
+        compressed = true;
+        geometryType -= GeometryBlobConstants.COMPRESSED_OFFSET;
+      }
 
-        return coordinate;
+      if (geometryType > GeometryBlobConstants.ZM_OFFSET) {
+        hasZ = true;
+        hasM = true;
+        geometryType -= GeometryBlobConstants.ZM_OFFSET;
+      } else if (geometryType > GeometryBlobConstants.M_OFFSET) {
+        hasM = true;
+        geometryType -= GeometryBlobConstants.M_OFFSET;
+      } else if (geometryType > GeometryBlobConstants.Z_OFFSET) {
+        hasZ = true;
+        geometryType -= GeometryBlobConstants.Z_OFFSET;
+      }
 
+      this.geometryType = geometryType;
     }
-
-    class TypeInfo {
-
-        int geometryType;
-        boolean compressed = false;
-        boolean hasZ = false;
-        boolean hasM = false;
-
-        public TypeInfo(int geometryType) {
-
-            if (geometryType > GeometryBlobConstants.COMPRESSED_OFFSET) {
-                compressed = true;
-                geometryType -= GeometryBlobConstants.COMPRESSED_OFFSET;
-            }
-
-            if (geometryType > GeometryBlobConstants.ZM_OFFSET) {
-                hasZ = true;
-                hasM = true;
-                geometryType -= GeometryBlobConstants.ZM_OFFSET;
-            } else if (geometryType > GeometryBlobConstants.M_OFFSET) {
-                hasM = true;
-                geometryType -= GeometryBlobConstants.M_OFFSET;
-            } else if (geometryType > GeometryBlobConstants.Z_OFFSET) {
-                hasZ = true;
-                geometryType -= GeometryBlobConstants.Z_OFFSET;
-            }
-
-            this.geometryType = geometryType;
-
-        }
-
-    }
-
+  }
 }

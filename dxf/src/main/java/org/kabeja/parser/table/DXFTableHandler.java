@@ -19,19 +19,15 @@ import org.kabeja.dxf.DXFDocument;
 import org.kabeja.parser.DXFValue;
 import org.kabeja.parser.Handler;
 
-
-/**
- * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
- *
- */
+/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
 public interface DXFTableHandler extends Handler {
-    public String getTableKey();
+  public String getTableKey();
 
-    public void setDXFDocument(DXFDocument doc);
+  public void setDXFDocument(DXFDocument doc);
 
-    public void startParsing();
+  public void startParsing();
 
-    public void parseGroup(int groupCode, DXFValue value);
+  public void parseGroup(int groupCode, DXFValue value);
 
-    public void endParsing();
+  public void endParsing();
 }

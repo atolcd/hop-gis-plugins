@@ -18,27 +18,25 @@ package org.kabeja.parser;
 import org.kabeja.dxf.DXFDocument;
 import org.kabeja.parser.dxf.DXFHandler;
 
-
 /**
- * This interface descripe a Section Handler, which should handle a SECTION
- * block.
+ * This interface descripe a Section Handler, which should handle a SECTION block.
+ *
  * <h3>Lifecycle</h3>
+ *
  * <ol>
- * <li>setDXFDocument</li>
- * <li>startSection</li>
- * <li>parseGroup (multiple)</li>
- * <li>endSection</li>
- * </lo>
+ *   <li>setDXFDocument
+ *   <li>startSection
+ *   <li>parseGroup (multiple)
+ *   <li>endSection </lo>
+ *
  * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
- *
- *
  */
 public interface DXFSectionHandler extends Handler, DXFHandler {
-    public String getSectionKey();
+  public String getSectionKey();
 
-    public void setDXFDocument(DXFDocument doc);
+  public void setDXFDocument(DXFDocument doc);
 
-    public void startSection();
+  public void startSection();
 
-    public void endSection();
+  public void endSection();
 }

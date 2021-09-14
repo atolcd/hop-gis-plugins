@@ -15,17 +15,13 @@
 */
 package org.kabeja.dxf;
 
-
-/**
- * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
- *
- */
+/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
 public class DXF3DSolid extends DXFRegion {
-    /* (non-Javadoc)
-     * @see de.miethxml.kabeja.dxf.DXFEntity#getType()
-     */
-    public String getType() {
-        // TODO Auto-generated method stub
-        return DXFConstants.ENTITY_TYPE_3DSOLID;
-    }
+  /* (non-Javadoc)
+   * @see de.miethxml.kabeja.dxf.DXFEntity#getType()
+   */
+  public String getType() {
+    // TODO Auto-generated method stub
+    return DXFConstants.ENTITY_TYPE_3DSOLID;
+  }
 }

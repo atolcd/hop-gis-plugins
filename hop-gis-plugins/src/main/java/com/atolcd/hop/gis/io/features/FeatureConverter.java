@@ -10,232 +10,219 @@ package com.atolcd.hop.gis.io.features;
  * it under the terms of the GNU Lesser General Public License as
  * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Lesser Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Lesser Public
  * License along with this program.  If not, see
  * <http://www.gnu.org/licenses/lgpl-3.0.html>.
  * #L%
  */
 
-
+import com.atolcd.hop.core.row.value.GeometryInterface;
+import com.atolcd.hop.core.row.value.ValueMetaGeometry;
+import com.atolcd.hop.gis.io.features.Field.FieldType;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.atolcd.hop.core.row.value.GeometryInterface;
 import org.apache.hop.core.exception.HopValueException;
-import org.apache.hop.core.row.RowMeta;
 import org.apache.hop.core.row.IRowMeta;
 import org.apache.hop.core.row.IValueMeta;
+import org.apache.hop.core.row.RowMeta;
 import org.apache.hop.core.row.value.ValueMetaBoolean;
 import org.apache.hop.core.row.value.ValueMetaDate;
 import org.apache.hop.core.row.value.ValueMetaInteger;
 import org.apache.hop.core.row.value.ValueMetaNumber;
 import org.apache.hop.core.row.value.ValueMetaString;
 
-import com.atolcd.hop.core.row.value.ValueMetaGeometry;
-import com.atolcd.hop.gis.io.features.Field.FieldType;
-
 public final class FeatureConverter {
 
-    public static List<Field> getFields(IRowMeta rowMeta) {
+  public static List<Field> getFields(IRowMeta rowMeta) {
 
-        List<Field> fields = new ArrayList<Field>();
+    List<Field> fields = new ArrayList<Field>();
 
-        for (String fieldName : rowMeta.getFieldNames()) {
+    for (String fieldName : rowMeta.getFieldNames()) {
 
-            int fieldIndex = rowMeta.indexOfValue(fieldName);
-            IValueMeta valueMetaInterface = rowMeta.getValueMeta(fieldIndex);
-            Integer length = null;
-            Integer precision = null;
-            Field field = null;
+      int fieldIndex = rowMeta.indexOfValue(fieldName);
+      IValueMeta valueMetaInterface = rowMeta.getValueMeta(fieldIndex);
+      Integer length = null;
+      Integer precision = null;
+      Field field = null;
 
-            if (valueMetaInterface.getLength() != -1) {
-                length = valueMetaInterface.getLength();
-            }
+      if (valueMetaInterface.getLength() != -1) {
+        length = valueMetaInterface.getLength();
+      }
 
-            if (valueMetaInterface.getPrecision() != -1) {
-                precision = valueMetaInterface.getPrecision();
-            }
+      if (valueMetaInterface.getPrecision() != -1) {
+        precision = valueMetaInterface.getPrecision();
+      }
 
-            switch (valueMetaInterface.getType()) {
+      switch (valueMetaInterface.getType()) {
+        case IValueMeta.TYPE_BOOLEAN:
+          field = new Field(fieldName, FieldType.BOOLEAN, length, precision);
+          break;
 
-            case IValueMeta.TYPE_BOOLEAN:
-                field = new Field(fieldName, FieldType.BOOLEAN, length, precision);
-                break;
+        case IValueMeta.TYPE_INTEGER:
+          field = new Field(fieldName, FieldType.LONG, length, precision);
+          break;
 
-            case IValueMeta.TYPE_INTEGER:
-                field = new Field(fieldName, FieldType.LONG, length, precision);
-                break;
+        case IValueMeta.TYPE_NUMBER:
+          field = new Field(fieldName, FieldType.DOUBLE, length, precision);
+          break;
 
-            case IValueMeta.TYPE_NUMBER:
-                field = new Field(fieldName, FieldType.DOUBLE, length, precision);
-                break;
+        case IValueMeta.TYPE_BIGNUMBER:
+          field = new Field(fieldName, FieldType.DOUBLE, length, precision);
+          break;
 
-            case IValueMeta.TYPE_BIGNUMBER:
-                field = new Field(fieldName, FieldType.DOUBLE, length, precision);
-                break;
+        case IValueMeta.TYPE_STRING:
+          field = new Field(fieldName, FieldType.STRING, length, precision);
+          break;
 
-            case IValueMeta.TYPE_STRING:
-                field = new Field(fieldName, FieldType.STRING, length, precision);
-                break;
+        case IValueMeta.TYPE_DATE:
+          field = new Field(fieldName, FieldType.DATE, length, precision);
+          break;
 
-            case IValueMeta.TYPE_DATE:
-                field = new Field(fieldName, FieldType.DATE, length, precision);
-                break;
+        case ValueMetaGeometry.TYPE_GEOMETRY:
+          field = new Field(fieldName, FieldType.GEOMETRY, length, precision);
+          break;
 
-            case ValueMetaGeometry.TYPE_GEOMETRY:
-                field = new Field(fieldName, FieldType.GEOMETRY, length, precision);
-                break;
+        default:
+          field = new Field(fieldName, FieldType.STRING, length, precision);
+          break;
+      }
 
-            default:
-                field = new Field(fieldName, FieldType.STRING, length, precision);
-                break;
-            }
-
-            fields.add(field);
-
-        }
-
-        return fields;
-
+      fields.add(field);
     }
 
-    public static Feature getFeature(IRowMeta rowMeta, Object[] r) throws HopValueException {
+    return fields;
+  }
 
-        Feature feature = new Feature();
+  public static Feature getFeature(IRowMeta rowMeta, Object[] r) throws HopValueException {
 
-        for (Field field : getFields(rowMeta)) {
+    Feature feature = new Feature();
 
-            int fieldIndex = rowMeta.indexOfValue(field.getName());
+    for (Field field : getFields(rowMeta)) {
 
-            if (rowMeta.isNull(r, fieldIndex)) {
-                feature.addValue(field, null);
-            } else {
+      int fieldIndex = rowMeta.indexOfValue(field.getName());
 
-                if (rowMeta.getValueMeta(fieldIndex).isBoolean()) {
-                    feature.addValue(field, rowMeta.getBoolean(r, fieldIndex));
-                } else if (rowMeta.getValueMeta(fieldIndex).isInteger()) {
-                    feature.addValue(field, rowMeta.getInteger(r, fieldIndex));
-                } else if (rowMeta.getValueMeta(fieldIndex).isNumber()) {
-                    feature.addValue(field, rowMeta.getNumber(r, fieldIndex));
-                } else if (rowMeta.getValueMeta(fieldIndex).isBigNumber()) {
-                    feature.addValue(field, rowMeta.getNumber(r, fieldIndex).doubleValue());
-                } else if (rowMeta.getValueMeta(fieldIndex).isString()) {
-                    feature.addValue(field, rowMeta.getString(r, fieldIndex));
-                } else if (rowMeta.getValueMeta(fieldIndex).isDate()) {
-                    feature.addValue(field, (rowMeta.getDate(r, fieldIndex)));
-                } else if (rowMeta.getValueMeta(fieldIndex).getType() == ValueMetaGeometry.TYPE_GEOMETRY) {
-                    feature.addValue(field, ((GeometryInterface) rowMeta.getValueMeta(fieldIndex)).getGeometry(r[fieldIndex]));
-                } else {
-                    feature.addValue(field, rowMeta.getString(r, fieldIndex));
-                }
-            }
+      if (rowMeta.isNull(r, fieldIndex)) {
+        feature.addValue(field, null);
+      } else {
 
+        if (rowMeta.getValueMeta(fieldIndex).isBoolean()) {
+          feature.addValue(field, rowMeta.getBoolean(r, fieldIndex));
+        } else if (rowMeta.getValueMeta(fieldIndex).isInteger()) {
+          feature.addValue(field, rowMeta.getInteger(r, fieldIndex));
+        } else if (rowMeta.getValueMeta(fieldIndex).isNumber()) {
+          feature.addValue(field, rowMeta.getNumber(r, fieldIndex));
+        } else if (rowMeta.getValueMeta(fieldIndex).isBigNumber()) {
+          feature.addValue(field, rowMeta.getNumber(r, fieldIndex).doubleValue());
+        } else if (rowMeta.getValueMeta(fieldIndex).isString()) {
+          feature.addValue(field, rowMeta.getString(r, fieldIndex));
+        } else if (rowMeta.getValueMeta(fieldIndex).isDate()) {
+          feature.addValue(field, (rowMeta.getDate(r, fieldIndex)));
+        } else if (rowMeta.getValueMeta(fieldIndex).getType() == ValueMetaGeometry.TYPE_GEOMETRY) {
+          feature.addValue(
+              field,
+              ((GeometryInterface) rowMeta.getValueMeta(fieldIndex)).getGeometry(r[fieldIndex]));
+        } else {
+          feature.addValue(field, rowMeta.getString(r, fieldIndex));
         }
-
-        return feature;
-
+      }
     }
 
-    public static IRowMeta getRowMeta(List<Field> fields, String origin) {
+    return feature;
+  }
 
-        RowMeta rowMeta = new RowMeta();
+  public static IRowMeta getRowMeta(List<Field> fields, String origin) {
 
-        for (Field field : fields) {
+    RowMeta rowMeta = new RowMeta();
 
-            IValueMeta valueMeta = null;
+    for (Field field : fields) {
 
-            if (field.getType().equals(FieldType.GEOMETRY)) {
+      IValueMeta valueMeta = null;
 
-                valueMeta = new ValueMetaGeometry(field.getName());
+      if (field.getType().equals(FieldType.GEOMETRY)) {
 
-            } else if (field.getType().equals(FieldType.BOOLEAN)) {
+        valueMeta = new ValueMetaGeometry(field.getName());
 
-                valueMeta = new ValueMetaBoolean(field.getName());
+      } else if (field.getType().equals(FieldType.BOOLEAN)) {
 
-            } else if (field.getType().equals(FieldType.DATE)) {
+        valueMeta = new ValueMetaBoolean(field.getName());
 
-                valueMeta = new ValueMetaDate(field.getName());
+      } else if (field.getType().equals(FieldType.DATE)) {
 
-            } else if (field.getType().equals(FieldType.DOUBLE)) {
+        valueMeta = new ValueMetaDate(field.getName());
 
-                valueMeta = new ValueMetaNumber(field.getName());
+      } else if (field.getType().equals(FieldType.DOUBLE)) {
 
-            } else if (field.getType().equals(FieldType.LONG)) {
+        valueMeta = new ValueMetaNumber(field.getName());
 
-                valueMeta = new ValueMetaInteger(field.getName());
+      } else if (field.getType().equals(FieldType.LONG)) {
 
-            } else {
+        valueMeta = new ValueMetaInteger(field.getName());
 
-                valueMeta = new ValueMetaString(field.getName());
+      } else {
 
-            }
+        valueMeta = new ValueMetaString(field.getName());
+      }
 
-            if (field.getLength() != null) {
-                valueMeta.setLength(field.getLength());
-            }
-            if (field.getDecimalCount() != null) {
-                valueMeta.setPrecision(field.getDecimalCount());
-            }
+      if (field.getLength() != null) {
+        valueMeta.setLength(field.getLength());
+      }
+      if (field.getDecimalCount() != null) {
+        valueMeta.setPrecision(field.getDecimalCount());
+      }
 
-            valueMeta.setOrigin(origin);
-            rowMeta.addValueMeta(valueMeta);
-
-        }
-
-        return rowMeta;
-
+      valueMeta.setOrigin(origin);
+      rowMeta.addValueMeta(valueMeta);
     }
 
-    public static Object[] getRow(IRowMeta rowMeta, Feature feature) throws HopValueException {
+    return rowMeta;
+  }
 
-        Object[] row = new Object[rowMeta.size()];
-        for (Field field : getFields(rowMeta)) {
+  public static Object[] getRow(IRowMeta rowMeta, Feature feature) throws HopValueException {
 
-            int fieldIndex = rowMeta.indexOfValue(field.getName());
-            IValueMeta valueMeta = rowMeta.getValueMeta(fieldIndex);
-            Object value = null;
+    Object[] row = new Object[rowMeta.size()];
+    for (Field field : getFields(rowMeta)) {
 
-            Object featureValue = feature.getValue(field);
-            if (featureValue != null) {
+      int fieldIndex = rowMeta.indexOfValue(field.getName());
+      IValueMeta valueMeta = rowMeta.getValueMeta(fieldIndex);
+      Object value = null;
 
-                if (field.getType().equals(FieldType.GEOMETRY)) {
+      Object featureValue = feature.getValue(field);
+      if (featureValue != null) {
 
-                    value = featureValue;
+        if (field.getType().equals(FieldType.GEOMETRY)) {
 
-                } else if (field.getType().equals(FieldType.BOOLEAN)) {
+          value = featureValue;
 
-                    value = valueMeta.getBoolean(featureValue);
+        } else if (field.getType().equals(FieldType.BOOLEAN)) {
 
-                } else if (field.getType().equals(FieldType.DATE)) {
+          value = valueMeta.getBoolean(featureValue);
 
-                    value = valueMeta.getDate(featureValue);
+        } else if (field.getType().equals(FieldType.DATE)) {
 
-                } else if (field.getType().equals(FieldType.DOUBLE)) {
+          value = valueMeta.getDate(featureValue);
 
-                    value = valueMeta.getNumber(featureValue);
+        } else if (field.getType().equals(FieldType.DOUBLE)) {
 
-                } else if (field.getType().equals(FieldType.LONG)) {
+          value = valueMeta.getNumber(featureValue);
 
-                    value = valueMeta.getInteger(Long.parseLong(String.valueOf(featureValue)));
+        } else if (field.getType().equals(FieldType.LONG)) {
 
-                } else {
-                    value = valueMeta.getString(String.valueOf(featureValue));
-                }
+          value = valueMeta.getInteger(Long.parseLong(String.valueOf(featureValue)));
 
-            }
-
-            row[fieldIndex] = value;
-
+        } else {
+          value = valueMeta.getString(String.valueOf(featureValue));
         }
+      }
 
-        return row;
-
+      row[fieldIndex] = value;
     }
 
+    return row;
+  }
 }

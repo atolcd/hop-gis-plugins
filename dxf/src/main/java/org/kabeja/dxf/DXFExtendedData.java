@@ -2,38 +2,37 @@ package org.kabeja.dxf;
 
 public class DXFExtendedData {
 
-	private String name;
-	private Class<?> type;
-	private Object value;
-	
-	public DXFExtendedData(String name) {
-		this.name = name;
-		this.type = null;
-		this.value = null;
-	}
+  private String name;
+  private Class<?> type;
+  private Object value;
 
-	public String getName() {
-		return name;
-	}
+  public DXFExtendedData(String name) {
+    this.name = name;
+    this.type = null;
+    this.value = null;
+  }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+  public String getName() {
+    return name;
+  }
 
-	public Class<?> getType() {
-		return type;
-	}
+  public void setName(String name) {
+    this.name = name;
+  }
 
-	public void setType(Class<?> type) {
-		this.type = type;
-	}
+  public Class<?> getType() {
+    return type;
+  }
 
-	public Object getValue() {
-		return value;
-	}
+  public void setType(Class<?> type) {
+    this.type = type;
+  }
 
-	public void setValue(Object value) {
-		this.value = value;
-	}
-	
+  public Object getValue() {
+    return value;
+  }
+
+  public void setValue(Object value) {
+    this.value = value;
+  }
 }

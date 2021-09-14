@@ -16,29 +16,27 @@
 package org.kabeja.processing;
 
 import java.util.Map;
-
 import org.kabeja.dxf.DXFDocument;
 
-
 /**
- * This interface describes a PostPorcessor, which will work direct with
- * parsed CAD data.
+ * This interface describes a PostPorcessor, which will work direct with parsed CAD data.
  *
  * <h2>Lifecycle</h2>
+ *
  * <ol>
- *   <li>setProperties()</li>
- *   <li>process()</li>
- *
+ *   <li>setProperties()
+ *   <li>process()
  * </ol>
- * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
  *
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
  */
 public interface PostProcessor extends Configurable {
-    /**
-     * Postprocess the given DXFDocument
-     * @param doc
-     * @param context
-     * @throws ProcessorException
-     */
-    public void process(DXFDocument doc, Map context) throws ProcessorException;
+  /**
+   * Postprocess the given DXFDocument
+   *
+   * @param doc
+   * @param context
+   * @throws ProcessorException
+   */
+  public void process(DXFDocument doc, Map context) throws ProcessorException;
 }

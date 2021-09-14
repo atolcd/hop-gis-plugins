@@ -18,56 +18,48 @@ package org.kabeja.dxf;
 import java.util.Hashtable;
 import java.util.Iterator;
 
-
-/**
- * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
- *
- *
- *
- */
+/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
 public class DXFHeader {
-    private Hashtable variables = new Hashtable();
+  private Hashtable variables = new Hashtable();
 
-    public DXFHeader() {
+  public DXFHeader() {}
+
+  public void setVariable(DXFVariable v) {
+    variables.put(v.getName(), v);
+  }
+
+  public boolean hasVariable(String name) {
+    return variables.containsKey(name);
+  }
+
+  public DXFVariable getVariable(String name) {
+    return (DXFVariable) variables.get(name);
+  }
+
+  public Iterator getVarialbeIterator() {
+    return variables.values().iterator();
+  }
+
+  public boolean isFillMode() {
+    if (hasVariable("$FILLMODE") && (getVariable("$FILLMODE").getDoubleValue("70") > 0)) {
+      return true;
     }
 
-    public void setVariable(DXFVariable v) {
-        variables.put(v.getName(), v);
+    return false;
+  }
+
+  /**
+   * Returns the global linetype scale factor.
+   *
+   * @return the global scalefactor
+   */
+  public double getLinetypeScale() {
+    double gscale = 1.0;
+
+    if (hasVariable("$LTSCALE")) {
+      gscale = getVariable("$LTSCALE").getDoubleValue("40");
     }
 
-    public boolean hasVariable(String name) {
-        return variables.containsKey(name);
-    }
-
-    public DXFVariable getVariable(String name) {
-        return (DXFVariable) variables.get(name);
-    }
-
-    public Iterator getVarialbeIterator() {
-        return variables.values().iterator();
-    }
-
-    public boolean isFillMode() {
-        if (hasVariable("$FILLMODE") &&
-                (getVariable("$FILLMODE").getDoubleValue("70") > 0)) {
-            return true;
-        }
-
-        return false;
-    }
-
-    /**
-     * Returns the global linetype scale factor.
-     *
-     * @return the global scalefactor
-     */
-    public double getLinetypeScale() {
-        double gscale = 1.0;
-
-        if (hasVariable("$LTSCALE")) {
-            gscale = getVariable("$LTSCALE").getDoubleValue("40");
-        }
-
-        return gscale;
-    }
+    return gscale;
+  }
 }

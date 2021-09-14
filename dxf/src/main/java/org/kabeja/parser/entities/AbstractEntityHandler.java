@@ -20,189 +20,183 @@ import org.kabeja.dxf.DXFEntity;
 import org.kabeja.dxf.DXFExtendedData;
 import org.kabeja.parser.DXFValue;
 
-
-/**
- * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth </a>
- *
- */
+/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth </a> */
 public abstract class AbstractEntityHandler implements DXFEntityHandler {
-    public final static int ELEMENT_REFERENCE = 5;
-    public final static int GROUPCODE_START_X = 10;
-    public final static int GROUPCODE_START_Y = 20;
-    public final static int GROUPCODE_START_Z = 30;
-    public final static int END_X = 11;
-    public final static int END_Y = 21;
-    public final static int END_Z = 31;
-    public final static int LAYER_NAME = 8;
-    public final static int TRANSPARENCY = 440;
-    public final static int COLOR_CODE = 62;
-    public final static int COLORNAME = 430;
-    public final static int COLOR_24BIT = 420;
-    public final static int COLOR_TRANSPARENCY = 440;
-    public final static int FLAGS = 70;
-    public final static int EXTRUSION_X = 210;
-    public final static int EXTRUSION_Y = 220;
-    public final static int EXTRUSION_Z = 230;
-    public final static int VISIBILITY = 60;
-    public final static int LINE_TYPE = 6;
-    public final static int LINE_TYPE_SCALE = 48;
-    public final static int LINE_WEIGHT = 370;
-    public final static int GROUPCODE_THICKNESS = 39;
-    public final static int GROUPCODE_STYLENAME = 3;
-    public final static int GROUPCODE_TEXT = 1;
-    public final static int GROUPCODE_ROTATION_ANGLE = 50;
-    public final static int GROUPCODE_MODELSPACE = 67;
-    
-    public final static int GROUPCODE_XDATA_APP_NAME = 1001;
-    public final static int GROUPCODE_XDATA_STRING = 1000;
-    public final static int GROUPCODE_XDATA_BINARY = 1004;
-    public final static int GROUPCODE_XDATA_REAL = 1040;
-    public final static int GROUPCODE_XDATA_INTEGER = 1070;
-    public final static int GROUPCODE_XDATA_LONG = 1071;
-    
-    protected DXFDocument doc;
-    private DXFExtendedData currentExtendedData;
+  public static final int ELEMENT_REFERENCE = 5;
+  public static final int GROUPCODE_START_X = 10;
+  public static final int GROUPCODE_START_Y = 20;
+  public static final int GROUPCODE_START_Z = 30;
+  public static final int END_X = 11;
+  public static final int END_Y = 21;
+  public static final int END_Z = 31;
+  public static final int LAYER_NAME = 8;
+  public static final int TRANSPARENCY = 440;
+  public static final int COLOR_CODE = 62;
+  public static final int COLORNAME = 430;
+  public static final int COLOR_24BIT = 420;
+  public static final int COLOR_TRANSPARENCY = 440;
+  public static final int FLAGS = 70;
+  public static final int EXTRUSION_X = 210;
+  public static final int EXTRUSION_Y = 220;
+  public static final int EXTRUSION_Z = 230;
+  public static final int VISIBILITY = 60;
+  public static final int LINE_TYPE = 6;
+  public static final int LINE_TYPE_SCALE = 48;
+  public static final int LINE_WEIGHT = 370;
+  public static final int GROUPCODE_THICKNESS = 39;
+  public static final int GROUPCODE_STYLENAME = 3;
+  public static final int GROUPCODE_TEXT = 1;
+  public static final int GROUPCODE_ROTATION_ANGLE = 50;
+  public static final int GROUPCODE_MODELSPACE = 67;
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see org.dxf2svg.parser.entities.EntityHandler#setDXFDocument(org.dxf2svg.xml.DXFDocument)
-     */
-    public void setDXFDocument(DXFDocument doc) {
-        this.doc = doc;
-    }
+  public static final int GROUPCODE_XDATA_APP_NAME = 1001;
+  public static final int GROUPCODE_XDATA_STRING = 1000;
+  public static final int GROUPCODE_XDATA_BINARY = 1004;
+  public static final int GROUPCODE_XDATA_REAL = 1040;
+  public static final int GROUPCODE_XDATA_INTEGER = 1070;
+  public static final int GROUPCODE_XDATA_LONG = 1071;
 
-    protected void parseCommonProperty(int groupCode, DXFValue value,
-        DXFEntity entity) {
+  protected DXFDocument doc;
+  private DXFExtendedData currentExtendedData;
 
-	    if(groupCode == GROUPCODE_XDATA_APP_NAME && this.currentExtendedData == null){
-	    	
-	    	this.currentExtendedData = new DXFExtendedData(value.getValue());
-	    	entity.addExtendedData(this.currentExtendedData);
-	    
-	    }else{
-	    	
-	    	if (this.currentExtendedData != null){
-	    		
-	    	 if(groupCode == GROUPCODE_XDATA_STRING){
+  /*
+   * (non-Javadoc)
+   *
+   * @see org.dxf2svg.parser.entities.EntityHandler#setDXFDocument(org.dxf2svg.xml.DXFDocument)
+   */
+  public void setDXFDocument(DXFDocument doc) {
+    this.doc = doc;
+  }
 
-	    		this.currentExtendedData.setType(String.class);
-	    		this.currentExtendedData.setValue(value.getValue());
- 			 
-	 		 }else if(groupCode == GROUPCODE_XDATA_BINARY){
+  protected void parseCommonProperty(int groupCode, DXFValue value, DXFEntity entity) {
 
-		    	this.currentExtendedData.setType(String.class);
-		    	this.currentExtendedData.setValue(value.getValue());
-	 		 		 
-	 		 }else if(groupCode == GROUPCODE_XDATA_REAL){
-		    	this.currentExtendedData.setType(Double.class);
-		    	this.currentExtendedData.setValue(Double.parseDouble(value.getValue()));
+    if (groupCode == GROUPCODE_XDATA_APP_NAME && this.currentExtendedData == null) {
 
-	 		 }else if(groupCode == GROUPCODE_XDATA_INTEGER){
-			    this.currentExtendedData.setType(Integer.class);
-			    this.currentExtendedData.setValue(new Integer(value.getIntegerValue()));
-	 		 		 
-	 		 }else if(groupCode == GROUPCODE_XDATA_LONG){
-				this.currentExtendedData.setType(Long.class);
-				this.currentExtendedData.setValue(new Long(value.getIntegerValue()));
-				
-	 		 }else{
-	 			this.currentExtendedData.setType(String.class);
-	    		this.currentExtendedData.setValue(value.getValue());
-	 		 }
-	    	 
-	    	 this.currentExtendedData = null;
-	    	 
-	    	}
-	    }
-    	
-        switch (groupCode) {
-        case ELEMENT_REFERENCE:
-            entity.setID(value.getValue());
+      this.currentExtendedData = new DXFExtendedData(value.getValue());
+      entity.addExtendedData(this.currentExtendedData);
 
-            break;
+    } else {
 
-        case LAYER_NAME:
-            entity.setLayerName(value.getValue());
+      if (this.currentExtendedData != null) {
 
-            break;
+        if (groupCode == GROUPCODE_XDATA_STRING) {
 
-        case FLAGS:
-            entity.setFlags(value.getIntegerValue());
+          this.currentExtendedData.setType(String.class);
+          this.currentExtendedData.setValue(value.getValue());
 
-            break;
+        } else if (groupCode == GROUPCODE_XDATA_BINARY) {
 
-        case VISIBILITY:
-            entity.setVisibile(!value.getBooleanValue());
+          this.currentExtendedData.setType(String.class);
+          this.currentExtendedData.setValue(value.getValue());
 
-            break;
+        } else if (groupCode == GROUPCODE_XDATA_REAL) {
+          this.currentExtendedData.setType(Double.class);
+          this.currentExtendedData.setValue(Double.parseDouble(value.getValue()));
 
-        case LINE_TYPE:
-            entity.setLineType(value.getValue());
+        } else if (groupCode == GROUPCODE_XDATA_INTEGER) {
+          this.currentExtendedData.setType(Integer.class);
+          this.currentExtendedData.setValue(new Integer(value.getIntegerValue()));
 
-            break;
+        } else if (groupCode == GROUPCODE_XDATA_LONG) {
+          this.currentExtendedData.setType(Long.class);
+          this.currentExtendedData.setValue(new Long(value.getIntegerValue()));
 
-        case LINE_TYPE_SCALE:
-            entity.setLinetypeScaleFactor(value.getDoubleValue());
-
-            break;
-
-        case COLOR_CODE:
-            entity.setColor(value.getIntegerValue());
-
-            break;
-
-        case EXTRUSION_X:
-            entity.setExtrusionX(value.getDoubleValue());
-
-            break;
-
-        case EXTRUSION_Y:
-            entity.setExtrusionY(value.getDoubleValue());
-
-            break;
-
-        case EXTRUSION_Z:
-            entity.setExtrusionZ(value.getDoubleValue());
-
-            break;
-
-        case COLOR_24BIT:
-            break;
-
-        case COLOR_TRANSPARENCY:
-            break;
-
-        case LINE_WEIGHT:
-            entity.setLineWeight(value.getIntegerValue());
-
-            break;
-
-        case GROUPCODE_THICKNESS:
-            entity.setThickness(value.getDoubleValue());
-
-            break;
-
-        case GROUPCODE_MODELSPACE:
-            entity.setModelSpace(value.getBooleanValue());
-
-            break;
+        } else {
+          this.currentExtendedData.setType(String.class);
+          this.currentExtendedData.setValue(value.getValue());
         }
+
+        this.currentExtendedData = null;
+      }
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see org.dxf2svg.parser.entities.EntityHandler#getEntityName()
-     */
-    public abstract String getDXFEntityName();
+    switch (groupCode) {
+      case ELEMENT_REFERENCE:
+        entity.setID(value.getValue());
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see de.miethxml.kabeja.parser.Handler#releaseDXFDocument()
-     */
-    public void releaseDXFDocument() {
-        this.doc = null;
+        break;
+
+      case LAYER_NAME:
+        entity.setLayerName(value.getValue());
+
+        break;
+
+      case FLAGS:
+        entity.setFlags(value.getIntegerValue());
+
+        break;
+
+      case VISIBILITY:
+        entity.setVisibile(!value.getBooleanValue());
+
+        break;
+
+      case LINE_TYPE:
+        entity.setLineType(value.getValue());
+
+        break;
+
+      case LINE_TYPE_SCALE:
+        entity.setLinetypeScaleFactor(value.getDoubleValue());
+
+        break;
+
+      case COLOR_CODE:
+        entity.setColor(value.getIntegerValue());
+
+        break;
+
+      case EXTRUSION_X:
+        entity.setExtrusionX(value.getDoubleValue());
+
+        break;
+
+      case EXTRUSION_Y:
+        entity.setExtrusionY(value.getDoubleValue());
+
+        break;
+
+      case EXTRUSION_Z:
+        entity.setExtrusionZ(value.getDoubleValue());
+
+        break;
+
+      case COLOR_24BIT:
+        break;
+
+      case COLOR_TRANSPARENCY:
+        break;
+
+      case LINE_WEIGHT:
+        entity.setLineWeight(value.getIntegerValue());
+
+        break;
+
+      case GROUPCODE_THICKNESS:
+        entity.setThickness(value.getDoubleValue());
+
+        break;
+
+      case GROUPCODE_MODELSPACE:
+        entity.setModelSpace(value.getBooleanValue());
+
+        break;
     }
+  }
+
+  /*
+   * (non-Javadoc)
+   *
+   * @see org.dxf2svg.parser.entities.EntityHandler#getEntityName()
+   */
+  public abstract String getDXFEntityName();
+
+  /*
+   * (non-Javadoc)
+   *
+   * @see de.miethxml.kabeja.parser.Handler#releaseDXFDocument()
+   */
+  public void releaseDXFDocument() {
+    this.doc = null;
+  }
 }

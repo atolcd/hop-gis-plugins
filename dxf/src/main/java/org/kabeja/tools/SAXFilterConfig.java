@@ -18,42 +18,34 @@ package org.kabeja.tools;
 import java.util.HashMap;
 import java.util.Map;
 
-
-/**
- * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
- *
- */
+/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
 public class SAXFilterConfig {
-    private Map properties;
-    private String filterName;
+  private Map properties;
+  private String filterName;
 
-    public SAXFilterConfig(Map properties) {
-        this.properties = properties;
-    }
+  public SAXFilterConfig(Map properties) {
+    this.properties = properties;
+  }
 
-    public SAXFilterConfig() {
-        this(new HashMap());
-    }
+  public SAXFilterConfig() {
+    this(new HashMap());
+  }
 
-    public Map getProperties() {
-        return this.properties;
-    }
+  public Map getProperties() {
+    return this.properties;
+  }
 
-    public void addProperty(String name, String value) {
-        this.properties.put(name, value);
-    }
+  public void addProperty(String name, String value) {
+    this.properties.put(name, value);
+  }
 
-    /**
-     * @return Returns the filterName.
-     */
-    public String getFilterName() {
-        return filterName;
-    }
+  /** @return Returns the filterName. */
+  public String getFilterName() {
+    return filterName;
+  }
 
-    /**
-     * @param filterName The filterName to set.
-     */
-    public void setFilterName(String filterName) {
-        this.filterName = filterName;
-    }
+  /** @param filterName The filterName to set. */
+  public void setFilterName(String filterName) {
+    this.filterName = filterName;
+  }
 }

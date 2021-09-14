@@ -1,107 +1,103 @@
 package com.atolcd.gis.gpx.type;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.atolcd.gis.gpx.ISpatialElement;
 import com.atolcd.gis.gpx.type.WayPoint.WayPointException;
+import java.util.ArrayList;
+import java.util.List;
 import org.locationtech.jts.geom.CoordinateList;
 import org.locationtech.jts.geom.Geometry;
 import org.locationtech.jts.geom.LineString;
 import org.locationtech.jts.geom.MultiLineString;
 
-public class Track extends AbstractSpatialElement implements ISpatialElement{
-	
-	private Integer number;
-	private List<TrackSegment> segments;
-	
-	public Track(){
-		this.number = null;
-		this.segments = new ArrayList<TrackSegment>();
-	}
-	
-	public Track(MultiLineString geometry) throws WayPointException{
-		
-		this.number = null;
-		this.segments = new ArrayList<TrackSegment>();
-		if(geometry != null && !geometry.isEmpty()){
-			
-			for(int iGeom = 0; iGeom < geometry.getNumGeometries(); iGeom++){
-				this.segments.add(new TrackSegment((LineString) geometry.getGeometryN(iGeom)));
-			}
-		}
-	}
+public class Track extends AbstractSpatialElement implements ISpatialElement {
 
-	public Track(List<TrackSegment> segments){
-		
-		this.number = null;
-		if(segments == null){
-			this.segments = new ArrayList<TrackSegment>();
-		}else{
-			this.segments = segments;
-		}
-		
-		this.number = null;
-	}
+  private Integer number;
+  private List<TrackSegment> segments;
 
-	public List<TrackSegment> getSegments() {
-		return segments;
-	}
+  public Track() {
+    this.number = null;
+    this.segments = new ArrayList<TrackSegment>();
+  }
 
-	public Integer getNumber() {
-		return number;
-	}
+  public Track(MultiLineString geometry) throws WayPointException {
 
-	public void setNumber(Integer number) throws TrackException {
-		this.number = checkNumber(number);
-	}
+    this.number = null;
+    this.segments = new ArrayList<TrackSegment>();
+    if (geometry != null && !geometry.isEmpty()) {
 
-	@SuppressWarnings("unchecked")
-	public Geometry getGeometry() {
-		
-		List<LineString> lineStrings = new ArrayList<LineString>();
-		for(TrackSegment trackSegment : this.segments){
-			
-			CoordinateList coordinates = new CoordinateList();
-			for(WayPoint wayPoint : trackSegment.getPoints()){
-				coordinates.add(wayPoint.getCoordinate());
-			}
-			
-			if(coordinates.size() > 1){
-				lineStrings.add(getGeometryFactory().createLineString(coordinates.toCoordinateArray()));
-			}
+      for (int iGeom = 0; iGeom < geometry.getNumGeometries(); iGeom++) {
+        this.segments.add(new TrackSegment((LineString) geometry.getGeometryN(iGeom)));
+      }
+    }
+  }
 
-		}
-		
-		if(lineStrings.size() > 0){
-			
-			Geometry geometry = getGeometryFactory().createMultiLineString(lineStrings.toArray(new LineString[lineStrings.size()]));
-			geometry.setSRID(4326);
-			return geometry;
-			
-		}else{
-			return null;
-		}
-	
-	}
-	
-	private Integer checkNumber(Integer number) throws TrackException{
-		
-		if(number != null && number < 0){
-			throw new TrackException("Track number should be positive");
-		}
+  public Track(List<TrackSegment> segments) {
 
-		return number;
-	}
-	
-	
-	@SuppressWarnings("serial")
-	public class TrackException extends Exception {
-		
-	    public TrackException(String message) {
-	        super(message);
-	    }
-	    
-	}
+    this.number = null;
+    if (segments == null) {
+      this.segments = new ArrayList<TrackSegment>();
+    } else {
+      this.segments = segments;
+    }
 
+    this.number = null;
+  }
+
+  public List<TrackSegment> getSegments() {
+    return segments;
+  }
+
+  public Integer getNumber() {
+    return number;
+  }
+
+  public void setNumber(Integer number) throws TrackException {
+    this.number = checkNumber(number);
+  }
+
+  @SuppressWarnings("unchecked")
+  public Geometry getGeometry() {
+
+    List<LineString> lineStrings = new ArrayList<LineString>();
+    for (TrackSegment trackSegment : this.segments) {
+
+      CoordinateList coordinates = new CoordinateList();
+      for (WayPoint wayPoint : trackSegment.getPoints()) {
+        coordinates.add(wayPoint.getCoordinate());
+      }
+
+      if (coordinates.size() > 1) {
+        lineStrings.add(getGeometryFactory().createLineString(coordinates.toCoordinateArray()));
+      }
+    }
+
+    if (lineStrings.size() > 0) {
+
+      Geometry geometry =
+          getGeometryFactory()
+              .createMultiLineString(lineStrings.toArray(new LineString[lineStrings.size()]));
+      geometry.setSRID(4326);
+      return geometry;
+
+    } else {
+      return null;
+    }
+  }
+
+  private Integer checkNumber(Integer number) throws TrackException {
+
+    if (number != null && number < 0) {
+      throw new TrackException("Track number should be positive");
+    }
+
+    return number;
+  }
+
+  @SuppressWarnings("serial")
+  public class TrackException extends Exception {
+
+    public TrackException(String message) {
+      super(message);
+    }
+  }
 }

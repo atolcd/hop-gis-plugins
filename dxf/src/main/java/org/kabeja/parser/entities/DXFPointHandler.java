@@ -15,103 +15,93 @@
 */
 package org.kabeja.parser.entities;
 
-import org.kabeja.dxf.DXFCircle;
 import org.kabeja.dxf.DXFEntity;
 import org.kabeja.dxf.DXFPoint;
-import org.kabeja.dxf.helpers.Point;
 import org.kabeja.parser.DXFValue;
 
-
-/**
- * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
- *
- */
+/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
 public class DXFPointHandler extends AbstractEntityHandler {
-    public final static String ENTITY_NAME = "POINT";
-    private DXFPoint point;
+  public static final String ENTITY_NAME = "POINT";
+  private DXFPoint point;
 
-    /**
-     *
-     */
-    public DXFPointHandler() {
-        super();
+  /** */
+  public DXFPointHandler() {
+    super();
 
-        // TODO Auto-generated constructor stub
+    // TODO Auto-generated constructor stub
+  }
+
+  /*
+   * (non-Javadoc)
+   *
+   * @see org.dxf2svg.parser.entities.EntityHandler#endParsing()
+   */
+  public void endDXFEntity() {}
+
+  /*
+   * (non-Javadoc)
+   *
+   * @see org.dxf2svg.parser.entities.EntityHandler#getEntity()
+   */
+  public DXFEntity getDXFEntity() {
+    return point;
+  }
+
+  /*
+   * (non-Javadoc)
+   *
+   * @see org.dxf2svg.parser.entities.EntityHandler#getEntityName()
+   */
+  public String getDXFEntityName() {
+    // TODO Auto-generated method stub
+    return ENTITY_NAME;
+  }
+
+  /*
+   * (non-Javadoc)
+   *
+   * @see org.dxf2svg.parser.entities.EntityHandler#parseGroup(int,
+   *      org.dxf2svg.parser.DXFValue)
+   */
+  public void parseGroup(int groupCode, DXFValue value) {
+
+    switch (groupCode) {
+      case GROUPCODE_START_X:
+        point.setX(value.getDoubleValue());
+
+        break;
+
+      case GROUPCODE_START_Y:
+        point.setY(value.getDoubleValue());
+
+        break;
+
+      case GROUPCODE_START_Z:
+        point.setZ(value.getDoubleValue());
+
+        break;
+
+      default:
+        super.parseCommonProperty(groupCode, value, point);
+
+        break;
     }
+  }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see org.dxf2svg.parser.entities.EntityHandler#endParsing()
-     */
-    public void endDXFEntity() {
-    }
+  /*
+   * (non-Javadoc)
+   *
+   * @see org.dxf2svg.parser.entities.EntityHandler#startParsing()
+   */
+  public void startDXFEntity() {
+    point = new DXFPoint();
+    point.setDXFDocument(doc);
+  }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see org.dxf2svg.parser.entities.EntityHandler#getEntity()
-     */
-    public DXFEntity getDXFEntity() {
-        return point;
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see org.dxf2svg.parser.entities.EntityHandler#getEntityName()
-     */
-    public String getDXFEntityName() {
-        // TODO Auto-generated method stub
-        return ENTITY_NAME;
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see org.dxf2svg.parser.entities.EntityHandler#parseGroup(int,
-     *      org.dxf2svg.parser.DXFValue)
-     */
-    public void parseGroup(int groupCode, DXFValue value) {
-
-        switch (groupCode) {
-        
-        case GROUPCODE_START_X:
-            point.setX(value.getDoubleValue());
-
-            break;
-
-        case GROUPCODE_START_Y:
-        	point.setY(value.getDoubleValue());
-
-            break;
-            
-        case GROUPCODE_START_Z:
-        	point.setZ(value.getDoubleValue());
-
-            break;
-
-        default:
-            super.parseCommonProperty(groupCode, value, point);
-
-            break;
-        }
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see org.dxf2svg.parser.entities.EntityHandler#startParsing()
-     */
-    public void startDXFEntity() {
-        point = new DXFPoint();
-        point.setDXFDocument(doc);
-    }
-
-    /* (non-Javadoc)
-     * @see org.dxf2svg.parser.entities.EntityHandler#isFollowSequence()
-     */
-    public boolean isFollowSequence() {
-        return false;
-    }
+  /* (non-Javadoc)
+   * @see org.dxf2svg.parser.entities.EntityHandler#isFollowSequence()
+   */
+  public boolean isFollowSequence() {
+    return false;
+  }
 }

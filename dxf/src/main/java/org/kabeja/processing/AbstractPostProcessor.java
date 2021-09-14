@@ -15,6 +15,4 @@
 */
 package org.kabeja.processing;
 
-public abstract class AbstractPostProcessor extends AbstractConfigurable
-    implements PostProcessor {
-}
+public abstract class AbstractPostProcessor extends AbstractConfigurable implements PostProcessor {}

@@ -18,28 +18,24 @@ package org.kabeja.parser.entities;
 import org.kabeja.dxf.DXFBody;
 import org.kabeja.dxf.DXFConstants;
 
-
-/**
- * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
- *
- */
+/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
 public class DXFBodyHandler extends DXFRegionHandler {
-    /*
-     * (non-Javadoc)
-     *
-     * @see de.miethxml.kabeja.parser.entities.AbstractEntityHandler#getDXFEntityName()
-     */
-    public String getDXFEntityName() {
-        // TODO Auto-generated method stub
-        return DXFConstants.ENTITY_TYPE_BODY;
-    }
+  /*
+   * (non-Javadoc)
+   *
+   * @see de.miethxml.kabeja.parser.entities.AbstractEntityHandler#getDXFEntityName()
+   */
+  public String getDXFEntityName() {
+    // TODO Auto-generated method stub
+    return DXFConstants.ENTITY_TYPE_BODY;
+  }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see de.miethxml.kabeja.parser.entities.DXFEntityHandler#startDXFEntity()
-     */
-    public void startDXFEntity() {
-        region = new DXFBody();
-    }
+  /*
+   * (non-Javadoc)
+   *
+   * @see de.miethxml.kabeja.parser.entities.DXFEntityHandler#startDXFEntity()
+   */
+  public void startDXFEntity() {
+    region = new DXFBody();
+  }
 }

@@ -18,92 +18,72 @@ package org.kabeja.dxf;
 import org.kabeja.dxf.helpers.Point;
 import org.kabeja.dxf.helpers.Vector;
 
-
-/**
- * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
- *
- */
+/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
 public class DXFTolerance extends DXFEntity {
-    protected Point insertionPoint = new Point();
-    protected String styleNameID = "";
-    protected String text;
-    protected Vector xaxisDirection = new Vector();
+  protected Point insertionPoint = new Point();
+  protected String styleNameID = "";
+  protected String text;
+  protected Vector xaxisDirection = new Vector();
 
-    /* (non-Javadoc)
-     * @see org.kabeja.dxf.DXFEntity#getBounds()
-     */
-    public Bounds getBounds() {
-        Bounds bounds = new Bounds();
-        bounds.setValid(false);
+  /* (non-Javadoc)
+   * @see org.kabeja.dxf.DXFEntity#getBounds()
+   */
+  public Bounds getBounds() {
+    Bounds bounds = new Bounds();
+    bounds.setValid(false);
 
-        return bounds;
-    }
+    return bounds;
+  }
 
-    /* (non-Javadoc)
-     * @see org.kabeja.dxf.DXFEntity#getType()
-     */
-    public String getType() {
-        // TODO Auto-generated method stub
-        return DXFConstants.ENTITY_TYPE_TOLERANCE;
-    }
+  /* (non-Javadoc)
+   * @see org.kabeja.dxf.DXFEntity#getType()
+   */
+  public String getType() {
+    // TODO Auto-generated method stub
+    return DXFConstants.ENTITY_TYPE_TOLERANCE;
+  }
 
-    /**
-     * @return Returns the insertionPoint.
-     */
-    public Point getInsertionPoint() {
-        return insertionPoint;
-    }
+  /** @return Returns the insertionPoint. */
+  public Point getInsertionPoint() {
+    return insertionPoint;
+  }
 
-    /**
-     * @param insertionPoint The insertionPoint to set.
-     */
-    public void setInsertionPoint(Point insertionPoint) {
-        this.insertionPoint = insertionPoint;
-    }
+  /** @param insertionPoint The insertionPoint to set. */
+  public void setInsertionPoint(Point insertionPoint) {
+    this.insertionPoint = insertionPoint;
+  }
 
-    /**
-     * @return Returns the styleID.
-     */
-    public String getStyleID() {
-        return styleNameID;
-    }
+  /** @return Returns the styleID. */
+  public String getStyleID() {
+    return styleNameID;
+  }
 
-    /**
-     * @param styleNameID The styleID to set.
-     */
-    public void setStyleID(String styleNameID) {
-        this.styleNameID = styleNameID;
-    }
+  /** @param styleNameID The styleID to set. */
+  public void setStyleID(String styleNameID) {
+    this.styleNameID = styleNameID;
+  }
 
-    /**
-     * @return Returns the text.
-     */
-    public String getText() {
-        return text;
-    }
+  /** @return Returns the text. */
+  public String getText() {
+    return text;
+  }
 
-    /**
-     * @param text The text to set.
-     */
-    public void setText(String text) {
-        this.text = text;
-    }
+  /** @param text The text to set. */
+  public void setText(String text) {
+    this.text = text;
+  }
 
-    /**
-     * @return Returns the xaxisDirection.
-     */
-    public Vector getXaxisDirection() {
-        return xaxisDirection;
-    }
+  /** @return Returns the xaxisDirection. */
+  public Vector getXaxisDirection() {
+    return xaxisDirection;
+  }
 
-    /**
-     * @param xaxisDirection The xaxisDirection to set.
-     */
-    public void setXaxisDirection(Vector xaxisDirection) {
-        this.xaxisDirection = xaxisDirection;
-    }
+  /** @param xaxisDirection The xaxisDirection to set. */
+  public void setXaxisDirection(Vector xaxisDirection) {
+    this.xaxisDirection = xaxisDirection;
+  }
 
-    public double getLength() {
-        return 0;
-    }
+  public double getLength() {
+    return 0;
+  }
 }

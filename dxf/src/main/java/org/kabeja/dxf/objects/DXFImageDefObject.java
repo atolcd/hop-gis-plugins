@@ -17,32 +17,24 @@ package org.kabeja.dxf.objects;
 
 import org.kabeja.dxf.DXFConstants;
 
-
-/**
- * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
- *
- */
+/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
 public class DXFImageDefObject extends DXFObject {
-    protected String filename;
+  protected String filename;
 
-    /* (non-Javadoc)
-     * @see de.miethxml.kabeja.dxf.objects.DXFObject#getObjectType()
-     */
-    public String getObjectType() {
-        return DXFConstants.OBJECT_TYPE_IMAGEDEF;
-    }
+  /* (non-Javadoc)
+   * @see de.miethxml.kabeja.dxf.objects.DXFObject#getObjectType()
+   */
+  public String getObjectType() {
+    return DXFConstants.OBJECT_TYPE_IMAGEDEF;
+  }
 
-    /**
-     * @return Returns the filename.
-     */
-    public String getFilename() {
-        return filename;
-    }
+  /** @return Returns the filename. */
+  public String getFilename() {
+    return filename;
+  }
 
-    /**
-     * @param filename The filename to set.
-     */
-    public void setFilename(String filename) {
-        this.filename = filename;
-    }
+  /** @param filename The filename to set. */
+  public void setFilename(String filename) {
+    this.filename = filename;
+  }
 }

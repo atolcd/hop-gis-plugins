@@ -6,23 +6,22 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 public class FeatureCollection extends GeoJSON {
 
-    private final Feature[] features;
-    @JsonSerialize()
-    private final Crs crs;
+  private final Feature[] features;
+  @JsonSerialize() private final Crs crs;
 
-    @JsonCreator
-    public FeatureCollection(@JsonProperty("features") Feature[] features, @JsonProperty("crs") Crs crs) {
-        super();
-        this.features = features;
-        this.crs = crs;
-    }
+  @JsonCreator
+  public FeatureCollection(
+      @JsonProperty("features") Feature[] features, @JsonProperty("crs") Crs crs) {
+    super();
+    this.features = features;
+    this.crs = crs;
+  }
 
-    public Feature[] getFeatures() {
-        return features;
-    }
+  public Feature[] getFeatures() {
+    return features;
+  }
 
-    public Crs getCrs() {
-        return crs;
-    }
-
+  public Crs getCrs() {
+    return crs;
+  }
 }

@@ -17,147 +17,145 @@ package org.kabeja.math;
 
 import org.kabeja.dxf.helpers.Point;
 
-
 public class NURBS {
-    protected Point[] controlPoints;
-    protected double[] knots;
-    protected double[] weights;
-    protected int degree;
-    protected boolean closed = false;
+  protected Point[] controlPoints;
+  protected double[] knots;
+  protected double[] weights;
+  protected int degree;
+  protected boolean closed = false;
 
-    public NURBS(Point[] controlPoints, double[] knots, double[] weights,
-        int degree) {
-        this.controlPoints = controlPoints;
+  public NURBS(Point[] controlPoints, double[] knots, double[] weights, int degree) {
+    this.controlPoints = controlPoints;
 
-        this.knots = knots;
-        this.weights = weights;
-        this.degree = degree;
+    this.knots = knots;
+    this.weights = weights;
+    this.degree = degree;
 
-        //some init stuff
-        if (this.weights.length == 0) {
-            this.weights = new double[this.controlPoints.length];
-        }
-
-        for (int i = 0; i < weights.length; i++) {
-            if (weights[i] == 0.0) {
-                weights[i] = 1.0;
-            }
-        }
+    // some init stuff
+    if (this.weights.length == 0) {
+      this.weights = new double[this.controlPoints.length];
     }
 
-    public double[] getBasicFunctions(int i, double u) {
-        double[] n = new double[degree + 1];
-        n[0] = 1.0;
+    for (int i = 0; i < weights.length; i++) {
+      if (weights[i] == 0.0) {
+        weights[i] = 1.0;
+      }
+    }
+  }
 
-        double[] left = new double[degree + 1];
-        double[] right = new double[degree + 1];
+  public double[] getBasicFunctions(int i, double u) {
+    double[] n = new double[degree + 1];
+    n[0] = 1.0;
 
-        for (int j = 1; j <= degree; j++) {
-            left[j] = u - this.knots[(i + 1) - j];
-            right[j] = this.knots[i + j] - u;
+    double[] left = new double[degree + 1];
+    double[] right = new double[degree + 1];
 
-            double saved = 0.0;
+    for (int j = 1; j <= degree; j++) {
+      left[j] = u - this.knots[(i + 1) - j];
+      right[j] = this.knots[i + j] - u;
 
-            for (int r = 0; r < j; r++) {
-                double t = n[r] / (right[r + 1] + left[j - r]);
-                n[r] = saved + (right[r + 1] * t);
-                saved = left[j - r] * t;
-            }
+      double saved = 0.0;
 
-            n[j] = saved;
-        }
+      for (int r = 0; r < j; r++) {
+        double t = n[r] / (right[r + 1] + left[j - r]);
+        n[r] = saved + (right[r + 1] * t);
+        saved = left[j - r] * t;
+      }
 
-        return n;
+      n[j] = saved;
     }
 
-    public Point getPointAt(int i, double u) {
-        Point p = new Point();
-        double[] n = this.getBasicFunctions(i, u);
+    return n;
+  }
 
-        double t = 0.0;
+  public Point getPointAt(int i, double u) {
+    Point p = new Point();
+    double[] n = this.getBasicFunctions(i, u);
 
-        for (int j = 0; j <= this.degree; j++) {
-            int d = i - this.degree + j;
-            double w = this.weights[d];
+    double t = 0.0;
 
-            p.setX(p.getX() + (n[j] * this.controlPoints[d].getX() * w));
-            p.setY(p.getY() + (n[j] * this.controlPoints[d].getY() * w));
-            p.setZ(p.getZ() + (n[j] * this.controlPoints[d].getZ() * w));
-            t += (n[j] * w);
-        }
+    for (int j = 0; j <= this.degree; j++) {
+      int d = i - this.degree + j;
+      double w = this.weights[d];
 
-        p.setX((p.getX() / t));
-        p.setY(p.getY() / t);
-        p.setZ(p.getZ() / t);
-
-        return p;
+      p.setX(p.getX() + (n[j] * this.controlPoints[d].getX() * w));
+      p.setY(p.getY() + (n[j] * this.controlPoints[d].getY() * w));
+      p.setZ(p.getZ() + (n[j] * this.controlPoints[d].getZ() * w));
+      t += (n[j] * w);
     }
 
-    public Point getPointAt(double u) {
-        int interval = this.findSpawnIndex(u);
+    p.setX((p.getX() / t));
+    p.setY(p.getY() / t);
+    p.setZ(p.getZ() / t);
 
-        return this.getPointAt(interval, u);
+    return p;
+  }
+
+  public Point getPointAt(double u) {
+    int interval = this.findSpawnIndex(u);
+
+    return this.getPointAt(interval, u);
+  }
+
+  public int findSpawnIndex(double u) {
+    if (u == this.knots[this.controlPoints.length + 1]) {
+      return this.controlPoints.length;
     }
 
-    public int findSpawnIndex(double u) {
-        if (u == this.knots[this.controlPoints.length + 1]) {
-            return this.controlPoints.length;
-        }
+    int low = this.degree;
+    int high = this.controlPoints.length + 1;
+    int mid = (low + high) / 2;
 
-        int low = this.degree;
-        int high = this.controlPoints.length + 1;
-        int mid = (low + high) / 2;
+    while ((u < this.knots[mid]) || (u >= this.knots[mid + 1])) {
+      if (u < this.knots[mid]) {
+        high = mid;
+      } else {
+        low = mid;
+      }
 
-        while ((u < this.knots[mid]) || (u >= this.knots[mid + 1])) {
-            if (u < this.knots[mid]) {
-                high = mid;
-            } else {
-                low = mid;
-            }
-
-            mid = (low + high) / 2;
-        }
-
-        return mid;
+      mid = (low + high) / 2;
     }
 
-    public Point[] getControlPoints() {
-        return controlPoints;
-    }
+    return mid;
+  }
 
-    public void setControlPoints(Point[] controlPoints) {
-        this.controlPoints = controlPoints;
-    }
+  public Point[] getControlPoints() {
+    return controlPoints;
+  }
 
-    public double[] getKnots() {
-        return knots;
-    }
+  public void setControlPoints(Point[] controlPoints) {
+    this.controlPoints = controlPoints;
+  }
 
-    public void setKnots(double[] knots) {
-        this.knots = knots;
-    }
+  public double[] getKnots() {
+    return knots;
+  }
 
-    public double[] getWeights() {
-        return weights;
-    }
+  public void setKnots(double[] knots) {
+    this.knots = knots;
+  }
 
-    public void setWeights(double[] weights) {
-        this.weights = weights;
-    }
+  public double[] getWeights() {
+    return weights;
+  }
 
-    public int getDegree() {
-        return degree;
-    }
+  public void setWeights(double[] weights) {
+    this.weights = weights;
+  }
 
-    public void setDegree(int degree) {
-        this.degree = degree;
-    }
+  public int getDegree() {
+    return degree;
+  }
 
-    public boolean isClosed() {
-        return closed;
-    }
+  public void setDegree(int degree) {
+    this.degree = degree;
+  }
 
-    public void setClosed(boolean closed) {
-        this.closed = closed;
-    }
+  public boolean isClosed() {
+    return closed;
+  }
+
+  public void setClosed(boolean closed) {
+    this.closed = closed;
+  }
 }

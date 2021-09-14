@@ -16,24 +16,18 @@
 package org.kabeja.ui;
 
 import javax.swing.JComponent;
+
 /**
  * A ViewComponent provides a view and title for the Processing.
- *  @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
  *
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
  */
-
 public interface ViewComponent extends ProcessingUIComponent {
-    public static final String SERVICE = ViewComponent.class.getName();
+  public static final String SERVICE = ViewComponent.class.getName();
 
-    /**
-     *
-     * @return the title of the component
-     */
-    abstract String getTitle();
+  /** @return the title of the component */
+  abstract String getTitle();
 
-    /**
-     *
-     * @return the view of this component
-     */
-    abstract JComponent getView();
+  /** @return the view of this component */
+  abstract JComponent getView();
 }
