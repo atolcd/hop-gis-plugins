@@ -95,6 +95,21 @@ Contributing
 7. Wait for the PR to be supported
 
 
+Code formatting
+---------------------
+
+The java code for this project conforms to [Google's code styleguide](https://google.github.io/styleguide/javaguide.html).
+The `spotless` maven plugin deals with this aspect:
+
+```console
+# Formatting check
+mvn spotless:check
+
+# Formatting (to be done before any commit)
+mvn spotless:apply
+```
+
+
 LICENSE
 ---------------------
 This extension is licensed under `GNU Library or "Lesser" General Public License (LGPL)`.
