@@ -8,22 +8,33 @@ Works with Apache Hop `1.0-SNAPSHOT`.
 
 Building the plugins
 -------------------
-You need `git`, `java 8+` and `maven`.
-
-Check out the project if you have not already done so :
+Check out the project if you have not already done so (with `git` installed):
 
 ```sh
 git clone git://github.com/atolcd/hop-gis-plugins.git
 cd hop-gis-plugins
 ```
 
-To package the plugins, run the following commands from the base project directory :
-
+Run the following commands from the base project directory (with `java 8+` and `maven` installed):
 ```sh
 mvn clean package
 ```
 
-The built package is `assemblies/target/gis-plugin-assemblies-1.0-SNAPSHOT.zip` (version can differ)
+Or with Docker (you need `docker`) :
+```sh
+docker run --network="host" --rm \
+  --name hop-gis-plugins-builder \
+  -u $(id -u):$(id -g) \
+  -v "$(pwd)":/app -w /app \
+  -v ~/.m2:/var/maven/.m2 -v "${HOME}":/var/maven \
+  -e HOME=/var/maven -e MAVEN_CONFIG=/var/maven/.m2 -e MAVEN_OPTS="-Duser.home=/var/maven" \
+  \
+  maven:3-jdk-11 \
+  \
+  mvn clean package
+```
+
+The built package is `assemblies/target/gis-plugin-assemblies-1.0-SNAPSHOT.zip` (version can differ).
 
 
 Installing/upgrading the module
