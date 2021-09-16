@@ -21,7 +21,7 @@ pipeline {
   post {
     success {
       archiveArtifacts allowEmptyArchive: true, fingerprint: true,
-        artifacts: 'assemblies/target/gis-plugin-assemblies-*.jar'
+        artifacts: 'assemblies/target/gis-plugin-assemblies-*.zip'
     }
     always {
       script {
