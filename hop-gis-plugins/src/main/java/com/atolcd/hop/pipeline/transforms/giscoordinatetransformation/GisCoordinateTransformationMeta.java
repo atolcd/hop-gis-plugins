@@ -49,7 +49,8 @@ import org.w3c.dom.Node;
     description = "i18n::GisCoordinateTransformation.Shell.Description",
     image = "GisCoordinateTransformation.svg",
     categoryDescription = "i18n::GisCoordinateTransformation.Shell.CategoryDescription",
-    documentationUrl = "")
+    documentationUrl = "",
+    keywords = "i18n::GisCoordinateTransformation.keywords")
 public class GisCoordinateTransformationMeta extends BaseTransformMeta
     implements ITransformMeta<GisCoordinateTransformation, GisCoordinateTransformationData> {
 

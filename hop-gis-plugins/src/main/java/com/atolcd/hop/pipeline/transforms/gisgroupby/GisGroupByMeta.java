@@ -51,7 +51,7 @@ import org.w3c.dom.Node;
     description = "i18n::GisGroupBy.Shell.Description",
     image = "GisGroupBy.png",
     categoryDescription = "i18n::GisGroupBy.Shell.CategoryDescription",
-    documentationUrl = "")
+    documentationUrl = "", keywords = "i18n::GisGroupBy.keywords")
 public class GisGroupByMeta extends BaseTransformMeta
     implements ITransformMeta<GisGroupBy, GisGroupByData> {
 

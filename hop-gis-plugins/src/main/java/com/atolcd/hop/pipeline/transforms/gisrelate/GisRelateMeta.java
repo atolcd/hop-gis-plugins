@@ -54,7 +54,7 @@ import org.w3c.dom.Node;
     description = "i18n::GisRelate.Shell.Description",
     image = "GisRelate.svg",
     categoryDescription = "i18n::GisRelate.Shell.CategoryDescription",
-    documentationUrl = "")
+    documentationUrl = "", keywords = "i18n::GisRelate.keywords")
 public class GisRelateMeta extends BaseTransformMeta
     implements ITransformMeta<GisRelate, GisRelateData> {
 

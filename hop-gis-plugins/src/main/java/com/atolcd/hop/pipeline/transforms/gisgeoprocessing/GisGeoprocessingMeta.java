@@ -24,7 +24,6 @@ package com.atolcd.hop.pipeline.transforms.gisgeoprocessing;
 
 import com.atolcd.hop.core.row.value.ValueMetaGeometry;
 import com.atolcd.hop.pipeline.transforms.giscoordinatetransformation.GisCoordinateTransformationDialog;
-import java.util.List;
 import org.apache.hop.core.CheckResult;
 import org.apache.hop.core.ICheckResult;
 import org.apache.hop.core.annotations.Transform;
@@ -44,13 +43,16 @@ import org.apache.hop.pipeline.transform.TransformMeta;
 import org.eclipse.swt.widgets.Shell;
 import org.w3c.dom.Node;
 
+import java.util.List;
+
 @Transform(
     id = "GisGeoprocessing",
     name = "i18n::GisGeoprocessing.Shell.Name",
     description = "i18n::GisGeoprocessing.Shell.Description",
     image = "GisGeoprocessing.png",
     categoryDescription = "i18n::GisGeoprocessing.Shell.CategoryDescription",
-    documentationUrl = "")
+    documentationUrl = "",
+    keywords = "i18n::GisGeoprocessing.keywords")
 public class GisGeoprocessingMeta extends BaseTransformMeta
     implements ITransformMeta<GisGeoprocessing, GisGeoprocessingData> {
 

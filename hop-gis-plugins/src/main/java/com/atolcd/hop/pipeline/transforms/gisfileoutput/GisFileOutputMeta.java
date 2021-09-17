@@ -22,11 +22,6 @@ package com.atolcd.hop.pipeline.transforms.gisfileoutput;
  * #L%
  */
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
 import org.apache.hop.core.CheckResult;
 import org.apache.hop.core.Const;
 import org.apache.hop.core.ICheckResult;
@@ -47,13 +42,20 @@ import org.apache.hop.pipeline.transform.TransformMeta;
 import org.eclipse.swt.widgets.Shell;
 import org.w3c.dom.Node;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+
 @Transform(
     id = "GisFileOutput",
     name = "i18n::GisFileOutput.Shell.Name",
     description = "i18n::GisFileOutput.Shell.Description",
     image = "GisFileOutput.png",
     categoryDescription = "i18n::GisFileOutput.Shell.CategoryDescription",
-    documentationUrl = "")
+    documentationUrl = "",
+    keywords = "i18n::GisFileOutput.keywords")
 public class GisFileOutputMeta extends BaseTransformMeta
     implements ITransformMeta<GisFileOutput, GisFileOutputData> {
 
