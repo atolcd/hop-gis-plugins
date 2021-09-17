@@ -31,6 +31,12 @@ import com.atolcd.hop.gis.io.MapInfoReader;
 import com.atolcd.hop.gis.io.ShapefileReader;
 import com.atolcd.hop.gis.io.SpatialiteReader;
 import com.atolcd.hop.gis.io.features.FeatureConverter;
+import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
 import org.apache.hop.core.CheckResult;
 import org.apache.hop.core.Const;
 import org.apache.hop.core.ICheckResult;
@@ -51,13 +57,6 @@ import org.apache.hop.pipeline.transform.ITransformMeta;
 import org.apache.hop.pipeline.transform.TransformMeta;
 import org.eclipse.swt.widgets.Shell;
 import org.w3c.dom.Node;
-
-import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
 
 @Transform(
     id = "GisFileInput",

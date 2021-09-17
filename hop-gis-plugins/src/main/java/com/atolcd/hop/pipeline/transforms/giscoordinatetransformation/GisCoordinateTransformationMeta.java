@@ -23,6 +23,7 @@ package com.atolcd.hop.pipeline.transforms.giscoordinatetransformation;
  */
 
 import com.atolcd.hop.core.row.value.ValueMetaGeometry;
+import java.util.List;
 import org.apache.hop.core.CheckResult;
 import org.apache.hop.core.ICheckResult;
 import org.apache.hop.core.annotations.Transform;
@@ -39,8 +40,6 @@ import org.apache.hop.pipeline.transform.ITransformDialog;
 import org.apache.hop.pipeline.transform.ITransformMeta;
 import org.apache.hop.pipeline.transform.TransformMeta;
 import org.eclipse.swt.widgets.Shell;
-
-import java.util.List;
 
 @Transform(
     id = "GisCoordinateTransformation",

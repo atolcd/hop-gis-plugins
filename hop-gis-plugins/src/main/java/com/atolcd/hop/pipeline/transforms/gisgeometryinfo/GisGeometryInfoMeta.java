@@ -24,6 +24,10 @@ package com.atolcd.hop.pipeline.transforms.gisgeometryinfo;
 
 import com.atolcd.hop.core.row.value.ValueMetaGeometry;
 import com.atolcd.hop.pipeline.transforms.gisfileinput.GisFileInputDialog;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map.Entry;
 import org.apache.hop.core.CheckResult;
 import org.apache.hop.core.Const;
 import org.apache.hop.core.ICheckResult;
@@ -44,11 +48,6 @@ import org.apache.hop.pipeline.transform.ITransformMeta;
 import org.apache.hop.pipeline.transform.TransformMeta;
 import org.eclipse.swt.widgets.Shell;
 import org.w3c.dom.Node;
-
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map.Entry;
 
 @Transform(
     id = "GisGeometryInfo",
