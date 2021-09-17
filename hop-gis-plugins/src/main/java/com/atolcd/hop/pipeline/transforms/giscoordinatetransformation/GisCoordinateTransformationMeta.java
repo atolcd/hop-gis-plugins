@@ -23,15 +23,13 @@ package com.atolcd.hop.pipeline.transforms.giscoordinatetransformation;
  */
 
 import com.atolcd.hop.core.row.value.ValueMetaGeometry;
-import java.util.List;
 import org.apache.hop.core.CheckResult;
 import org.apache.hop.core.ICheckResult;
 import org.apache.hop.core.annotations.Transform;
-import org.apache.hop.core.exception.HopXmlException;
 import org.apache.hop.core.row.IRowMeta;
 import org.apache.hop.core.row.IValueMeta;
 import org.apache.hop.core.variables.IVariables;
-import org.apache.hop.core.xml.XmlHandler;
+import org.apache.hop.metadata.api.HopMetadataProperty;
 import org.apache.hop.metadata.api.IHopMetadataProvider;
 import org.apache.hop.pipeline.Pipeline;
 import org.apache.hop.pipeline.PipelineMeta;
@@ -41,7 +39,8 @@ import org.apache.hop.pipeline.transform.ITransformDialog;
 import org.apache.hop.pipeline.transform.ITransformMeta;
 import org.apache.hop.pipeline.transform.TransformMeta;
 import org.eclipse.swt.widgets.Shell;
-import org.w3c.dom.Node;
+
+import java.util.List;
 
 @Transform(
     id = "GisCoordinateTransformation",
@@ -56,18 +55,34 @@ public class GisCoordinateTransformationMeta extends BaseTransformMeta
 
   private static final Class<?> PKG = GisCoordinateTransformationMeta.class; // Needed by Translator
 
-  private String geometryFieldName; // Colonne contenant la géométrie
-  private String outputGeometryFieldName; // Nom de la colonne contenant la
-  // géométrie après opération
-  private String inputCRSAuthority; // Autorité du CRS d'entrée
-  private String inputCRSCode; // Code du CRS d'entrée
-  private String outputCRSAuthority; // Autorité du CRS de sortie
-  private String outputCRSCode; // Code du CRS de sortie
-  private boolean crsFromGeometry; // Utiliser le système de projection
-  // associé à la géométrie pour la
-  // reprojection
-  private String crsOperation; // Opération à réaliser : Assignation de SRID
-  // ou reprojection
+  /** Colonne contenant la géométrie */
+  @HopMetadataProperty private String geometryFieldName;
+
+  /** Nom de la colonne contenant la géométrie après opération */
+  @HopMetadataProperty private String outputGeometryFieldName;
+
+  /** Autorité du CRS d'entrée */
+  @HopMetadataProperty private String inputCRSAuthority;
+
+  /** Code du CRS d'entrée */
+  @HopMetadataProperty private String inputCRSCode;
+
+  /** Autorité du CRS de sortie */
+  @HopMetadataProperty private String outputCRSAuthority;
+
+  /** Code du CRS de sortie */
+  @HopMetadataProperty private String outputCRSCode;
+
+  /** Utiliser le système de projection associé à la géométrie pour la reprojection */
+  @HopMetadataProperty private boolean crsFromGeometry; //
+
+  /** Opération à réaliser : Assignation de SRID ou reprojection */
+  @HopMetadataProperty private String crsOperation;
+
+  public GisCoordinateTransformationMeta() {
+    this.crsOperation = "ASSIGN";
+    this.crsFromGeometry = false;
+  }
 
   public String getGeometryFieldName() {
     return geometryFieldName;
@@ -134,22 +149,6 @@ public class GisCoordinateTransformationMeta extends BaseTransformMeta
   }
 
   @Override
-  public String getXml() {
-
-    StringBuffer retval = new StringBuffer();
-    retval.append("    " + XmlHandler.addTagValue("crsOperation", crsOperation));
-    retval.append("    " + XmlHandler.addTagValue("geometryFieldName", geometryFieldName));
-    retval.append(
-        "    " + XmlHandler.addTagValue("outputGeometryFieldName", outputGeometryFieldName));
-    retval.append("    " + XmlHandler.addTagValue("inputCRSAuthority", inputCRSAuthority));
-    retval.append("    " + XmlHandler.addTagValue("inputCRSCode", inputCRSCode));
-    retval.append("    " + XmlHandler.addTagValue("outputCRSAuthority", outputCRSAuthority));
-    retval.append("    " + XmlHandler.addTagValue("outputCRSCode", outputCRSCode));
-    retval.append("    " + XmlHandler.addTagValue("crsFromGeometry", crsFromGeometry));
-    return retval.toString();
-  }
-
-  @Override
   public void getFields(
       IRowMeta r,
       String origin,
@@ -167,30 +166,6 @@ public class GisCoordinateTransformationMeta extends BaseTransformMeta
 
     Object retval = super.clone();
     return retval;
-  }
-
-  @Override
-  public void loadXml(Node stepnode, IHopMetadataProvider metadataProvider) throws HopXmlException {
-
-    try {
-
-      crsOperation = XmlHandler.getTagValue(stepnode, "crsOperation");
-      geometryFieldName = XmlHandler.getTagValue(stepnode, "geometryFieldName");
-      outputGeometryFieldName = XmlHandler.getTagValue(stepnode, "outputGeometryFieldName");
-      inputCRSAuthority = XmlHandler.getTagValue(stepnode, "inputCRSAuthority");
-      inputCRSCode = XmlHandler.getTagValue(stepnode, "inputCRSCode");
-      outputCRSAuthority = XmlHandler.getTagValue(stepnode, "outputCRSAuthority");
-      outputCRSCode = XmlHandler.getTagValue(stepnode, "outputCRSCode");
-      crsFromGeometry = "Y".equalsIgnoreCase(XmlHandler.getTagValue(stepnode, "crsFromGeometry"));
-
-    } catch (Exception e) {
-      throw new HopXmlException("Unable to read step info from XML node", e);
-    }
-  }
-
-  public void setDefault() {
-    this.crsOperation = "ASSIGN";
-    this.crsFromGeometry = false;
   }
 
   @Override
