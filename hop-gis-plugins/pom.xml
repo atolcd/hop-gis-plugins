@@ -72,14 +72,9 @@
     </dependency>
 
     <dependency>
-      <groupId>org.eclipse</groupId>
-      <artifactId>jface</artifactId>
-      <version>3.3.0-I20070606-0010</version>
-    </dependency>
-    <dependency>
-      <groupId>org.eclipse.core</groupId>
-      <artifactId>commands</artifactId>
-      <version>3.3.0-I20070605-0010</version>
+      <groupId>org.eclipse.platform</groupId>
+      <artifactId>org.eclipse.core.commands</artifactId>
+      <version>3.9.600</version>
     </dependency>
 
   </dependencies>

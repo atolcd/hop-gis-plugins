@@ -166,8 +166,9 @@
       <url>https://repository.jboss.org</url>
     </repository>
     <repository>
-      <id>pentaho-releases</id>
-      <url>https://nexus.pentaho.org/content/groups/omni</url>
+      <id>spring-repo</id>
+      <name>Spring Repository</name>
+      <url>https://repo.spring.io/release</url>
     </repository>
     <repository>
       <id>maven-us.nuxeo.org</id>
@@ -228,9 +229,9 @@
       <version>${hop.version}</version>
     </dependency>
     <dependency>
-      <groupId>com.oracle</groupId>
-      <artifactId>ojdbc6</artifactId>
-      <version>11.2.0.3</version>
+      <groupId>com.oracle.database.jdbc</groupId>
+      <artifactId>ojdbc8</artifactId>
+      <version>21.3.0.0</version>
     </dependency>
     <dependency>
       <groupId>org.postgresql</groupId>
@@ -283,11 +284,13 @@
       <version>0.8</version>
     </dependency>
 
+    <!--
     <dependency>
       <groupId>com.oracle.spatial</groupId>
       <artifactId>com.springsource.oracle.spatial.geometry</artifactId>
       <version>10.2.0.1</version>
     </dependency>
+    -->
 
     <dependency>
       <groupId>de.micromata.jak</groupId>

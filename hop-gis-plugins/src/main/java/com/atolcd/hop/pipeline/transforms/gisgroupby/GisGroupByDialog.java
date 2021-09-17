@@ -22,11 +22,6 @@ package com.atolcd.hop.pipeline.transforms.gisgroupby;
  * #L%
  */
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 import org.apache.hop.core.Const;
 import org.apache.hop.core.exception.HopException;
 import org.apache.hop.core.row.IRowMeta;
@@ -37,12 +32,11 @@ import org.apache.hop.pipeline.transform.BaseTransformMeta;
 import org.apache.hop.pipeline.transform.ITransformDialog;
 import org.apache.hop.pipeline.transform.TransformMeta;
 import org.apache.hop.ui.core.dialog.ErrorDialog;
+import org.apache.hop.ui.core.dialog.MessageDialogWithToggle;
 import org.apache.hop.ui.core.widget.ColumnInfo;
 import org.apache.hop.ui.core.widget.TableView;
 import org.apache.hop.ui.core.widget.TextVar;
 import org.apache.hop.ui.pipeline.transform.BaseTransformDialog;
-import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.jface.dialogs.MessageDialogWithToggle;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
@@ -63,6 +57,12 @@ import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class GisGroupByDialog extends BaseTransformDialog implements ITransformDialog {
   private static Class<?> PKG = GisGroupByMeta.class;
@@ -668,21 +668,17 @@ public class GisGroupByDialog extends BaseTransformDialog implements ITransformD
           new MessageDialogWithToggle(
               shell,
               BaseMessages.getString(PKG, "GroupByDialog.GroupByWarningDialog.DialogTitle"),
-              null,
               BaseMessages.getString(
                       PKG, "GroupByDialog.GroupByWarningDialog.DialogMessage", Const.CR)
                   + Const.CR,
-              MessageDialog.WARNING,
+              SWT.ICON_WARNING,
               new String[] {
                 BaseMessages.getString(PKG, "GroupByDialog.GroupByWarningDialog.Option1")
               },
-              0,
               BaseMessages.getString(PKG, "GroupByDialog.GroupByWarningDialog.Option2"),
               "N".equalsIgnoreCase(props.getCustomParameter(STRING_SORT_WARNING_PARAMETER, "Y")));
-      // MessageDialogWithToggle.setDefaultImage(SwingGUIResource.getInstance().getImageSpoon());
       md.open();
       props.setCustomParameter(STRING_SORT_WARNING_PARAMETER, md.getToggleState() ? "N" : "Y");
-      // props.saveProps();
     }
 
     dispose();
