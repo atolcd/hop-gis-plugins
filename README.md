@@ -87,25 +87,6 @@ With a french locale :
 ![](items-in-hop-gui.png)
 
 
-Contributing
----------------------
-***Reporting bugs***
-
-1. First check if the version you used is the last one
-2. Next check if the issue has not ever been described in the [issues tracker](https://github.com/atolcd/hop-gis-plugins/issues)
-3. You can [create the issue](https://github.com/atolcd/hop-gis-plugins/issues/new)
-
-***Submitting a Pull Request***
-
-1. Fork the repository on GitHub
-2. Clone your repository (`git clone https://github.com/XXX/hop-gis-plugins.git && cd hop-gis-plugins`)
-3. Create a local branch that will support your dev (`git checkout -b a-new-dev`)
-4. Commit changes to your local branch branch (`git commit -am "Add a new dev"`)
-5. Push the branch to the central repository (`git push origin a-new-dev`)
-6. Open a [Pull Request](https://github.com/atolcd/hop-gis-plugins/pulls)
-7. Wait for the PR to be supported
-
-
 Code formatting
 ---------------------
 
@@ -152,6 +133,12 @@ Next, attach the debugger in your favorite IDE. Example `launch.json` in Visual 
 ```
 
 You are now able to inspect variables values at breakpoints you have set, analyse call stack and so.
+
+
+Contributing
+---------------------
+
+See [dedicated page](CONTRIBUTING.md)
 
 
 LICENSE
