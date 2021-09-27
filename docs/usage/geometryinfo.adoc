@@ -1,0 +1,26 @@
+# GIS File input
+Returns geometry information.
+
+## Fields
+
+[width="90%", options="header"]
+|===
+|Field | Description
+|Name | Name of the transformation
+|Geometry |
+2+|**Information Field**
+|Area |
+|Dimension (2D/3D) |
+|EPSG code (SRID) |
+|Geometry type |
+|Length |
+|Nullity |
+|Number of coordinates |
+|Number of geometries |
+|X max |
+|X min |
+|Y max |
+|Y min |
+|Z max |
+|Z min |
+|===

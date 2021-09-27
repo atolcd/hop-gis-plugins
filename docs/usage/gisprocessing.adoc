@@ -1,0 +1,25 @@
+# Geoprocessing
+Geoprocessing between two geometries.
+
+## Fields
+
+[width="90%", options="header"]
+|===
+|Field | Description
+|Name | Name of the transformation
+|Operator |
+`Centroid`, `Concave hull`, `Convex hull`, `Densify`, `Difference`, `Explode`, `Geometry 2D`, `Get coordinates`, `Get first coordinate`, `Get last coordinate`, `Interior point`, `Intersection`, `Inverse`, `Largest polygon`, `Line merges`, `Linear referencing`, `Longest line`, `Minimum Bounding Circle`, `Minimum Bounding Rectangle`, `Multi-geometry`, `Polygonizes`, `Precision reducer`, `Remove holes`, `Shortest line`, `Simplify (DP)`, `Simplify (Polygons)`, `Simplify (VW)`, `Smallest polygon`, `Snap`, `Split`, `Symetric difference`, `Union`
+2+|**Input parameters**
+|Geometry A |
+|Geometry B |
+|Dynamic distance / area / threshold / decimals? | true/false
+|Distance / threshold / decimals |
+|Number of segments for `Buffer extended` | 8
+|Extremity type for `Buffer extended` | `Flat`, `Round`, `Square`
+|Join type for `Buffer extended` | `Bevel`, `Mitre`, `Roung`
+|Single side for `Buffer extended` |
+2+|**Output parameters**
+|Row filtering | `Do nothing`, `Not null only`
+|Geometry filtering for `differences`, `intersections`, `unions` | `Do nothing`, `Puntal geometries only`, `Lineal geometries only`, `Polygonal geometries only`
+|Output fields |
+|===

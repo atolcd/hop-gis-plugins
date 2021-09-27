@@ -1,0 +1,81 @@
+# GIS File input
+Read GIS files from different formats.
+
+## Common fields
+
+[width="90%", options="header"]
+|===
+|Field | Description
+|Name | Name of the transformation
+|Type | `Drawing eXchange Format`, `ESRI Shapefile`, `GPS eXchange Format`, `GeoJSON`, `GeoPackage`, `MapInfo Interchange Format` or `SpatiaLite SQLite`
+|Filename |
+|Geometry field |
+2+|**Input options**
+|Encoding | `windows-1252`, `UTF-8`, etc.
+|Limit | Num rows to extract or `0` to allow all rows
+2+|**Other parameters**
+2+|Cf. next sections
+|===
+
+## `Drawing eXchange Format` : Other parameters
+
+[width="90%", options="header"]
+|===
+|Parameter | Required | Value
+|Force to multi geometries | ✓ | Yes / **No**
+|Extract attributes | ✓ | Yes / **No**
+|Circles as polygons | ✓ | Yes / **No**
+|Ellipses as polygons | ✓ | Yes / **No**
+|Closed polylines as polygons | ✓ | Yes / **No**
+|===
+
+## `ESRI Shapefile` : Other parameters
+
+[width="90%", options="header"]
+|===
+|Parameter | Required | Value
+|Force to 2D | ✓ | **Yes** / No
+|Force to multi geometries | ✓ | Yes / **No**
+|===
+
+## `GPS eXchange Format` : Other parameters
+
+[width="90%", options="header"]
+|===
+|Parameter | Required | Value
+|Force to 2D | ✓ | **Yes** / No
+|===
+
+## `GeoJSON` : Other parameters
+
+[width="90%", options="header"]
+|===
+|Parameter | Required | Value
+|Force to multi geometries | ✓ | Yes / **No**
+|===
+
+## `GeoPackage` : Other parameters
+
+[width="90%", options="header"]
+|===
+|Parameter | Required | Value
+|Table | ✓ | Table name or `*` to list contents
+|Force to 2D | ✓ | **Yes** / No
+|Force to multi geometries | ✓ | Yes / **No**
+|===
+
+## `MapInfo Interchange Format` : Other parameters
+
+[width="90%", options="header"]
+|===
+|Parameter | Required | Value
+|Force to multi geometries | ✓ | Yes / **No**
+|===
+
+## `SpatiaLite SQLite` : Other parameters
+
+[width="90%", options="header"]
+|===
+|Parameter | Required | Value
+|Table | ✓ | Table name or `*` to list contents
+|===

@@ -1,0 +1,130 @@
+# GIS File output
+Write GIS files to different formats.
+
+## Common fields
+
+[width="90%", options="header"]
+|===
+|Field | Description
+|Name | Name of the transformation
+|Type | `Drawing eXchange Format`, `ESRI Shapefile`, `GPS eXchange Format`, `GeoJSON`, `GeoPackage`, `Keyhole Markup Language` or `Scalable Vector Graphics`
+|Pass output to servlet|
+|Do not create file at start|
+|Filename |
+|Geometry field |
+2+|**Output options**
+|Encoding | `windows-1252`, `UTF-8`, etc.
+2+|**Other static parameters**
+2+|Cf. next sections
+2+|**Other dynamic parameters**
+2+|Cf. next sections
+|===
+
+## `Drawing eXchange Format` : Other parameters
+
+[width="90%", options="header"]
+|===
+|Parameter | Required | Value
+3+|**Static parameters**
+|Force to 2D | ✓ | **Yes** / No
+|Default layer name | ✓ | 0
+|Accuracy | ✓ | 5
+3+|**Dynamic parameters**
+|Layer | |
+|===
+
+## `ESRI Shapefile` : Other parameters
+
+[width="90%", options="header"]
+|===
+|Parameter | Required | Value
+3+|**Static parameters**
+|Force to 2D | ✓ | **Yes** / No
+|PRJ file | ✓ | **Yes** / No
+3+|**Dynamic parameters**
+|===
+
+## `GPS eXchange Format` : Other parameters
+
+[width="90%", options="header"]
+|===
+|Parameter | Required | Value
+3+|**Static parameters**
+|Version | | 1.0 / **1.1**
+|Document name | |
+|Document description| |
+|Author name | |
+|Author email | |
+|Keywords | |
+|Date | |
+3+|**Dynamic parameters**
+|Feature name | |
+|Feature description | |
+|===
+
+## `GeoJSON` : Other parameters
+
+[width="90%", options="header"]
+|===
+|Parameter | Required | Value
+3+|**Static parameters**
+3+|**Dynamic parameters**
+|Id | |
+|===
+
+## `GeoPackage` : Other parameters
+
+[width="90%", options="header"]
+|===
+|Parameter | Required | Value
+3+|**Static parameters**
+|Replace file | ✓ | **Yes** / No
+|Table name | ✓ |
+|Commit after| ✓ | 1000
+|Replace table | ✓ | **Yes** / No
+|Identifier | |
+|Description | |
+|EPSG code | |
+3+|**Dynamic parameters**
+|Id | ✓ |
+|===
+
+
+
+
+
+
+## `Keyhole Markup Language` : Other parameters
+
+[width="90%", options="header"]
+|===
+|Parameter | Required | Value
+3+|**Static parameters**
+|Force to 2D | ✓ | **Yes** / No
+|Document name | |
+|Document description| |
+|Write attributes | ✓ | Yes / **No**
+3+|**Dynamic parameters**
+|Placemark name | |
+|Placemark description | |
+|===
+
+## `Scalable Vector Graphics` : Other parameters
+
+[width="90%", options="header"]
+|===
+|Parameter | Required | Value
+3+|**Static parameters**
+|Width | ✓ | 1000
+|Height | ✓ | 1000
+|Accuracy| ✓ | 5
+|Document title | |
+|Document description | |
+|Stylesheet use | | Embedded / **Linked**
+|Symbol use| | Embedded / **Linked**
+3+|**Dynamic parameters**
+|Feature id | |
+|Feature title | |
+|Feature description | |
+|Feature style | |
+|===

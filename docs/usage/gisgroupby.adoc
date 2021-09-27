@@ -1,0 +1,44 @@
+# Geospatial group by
+Returns geometry information.
+
+## Fields
+
+[width="90%", options="header"]
+|===
+|Field | | Description |
+2+|Name 2+| Name of the transformation
+2+|Include all rows? 2+| true / false
+2+|Temporary files directory 2+| `%%java.io.tmpdir%%`
+2+|TMP-file prefix 2+| grp
+2+|Add line number, restart each group 2+| true / false
+2+|Line number field name 2+|
+2+|Allways give back a result row 2+| true / false
+2+|The fields that make up the group 2+| select 1 or more fields
+4+|**Aggregates** (1 or more fields)
+|_Name_ | _Subject_ | _Type_ | _Value_
+|===
+
+Type :
+
+- Sum
+- Average (mean)
+- Meridian
+- Percentile
+- Minimum
+- Maximum
+- Number of values (N)
+- Concatenate strings separated by ,
+- First non-null value
+- Last non-null value
+- First value
+- Last value
+- Cumulative sum (all rows option only!)
+- Cumulative average (all rows option only!)
+- Standard deviation
+- Concatenate strings separated by
+- Number of Distinct Values (N)
+- Number of rows (without field argument)
+- Geometry union
+- Geometry extent
+- Geometry collect
+- Geometry dissolve

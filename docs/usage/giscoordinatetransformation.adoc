@@ -1,0 +1,35 @@
+# Coordinate system operation
+Assign a coordinate system to geometry or reproject a geometry from a coordinate system to another.
+
+## Fields
+
+**Assign coordinate system to geometry:**
+
+[width="90%", options="header"]
+|===
+|Field | Description
+|Name | Name of the transformation
+|Type | Choose `Assign coordinate system to geometry`
+|Geometry field | Name of the geometry column (eg: `geom`)
+|Output geometry | Output geometry fieldname
+2+|**Input Coordinate system**
+|Code | Coordinate system code to assign (eg: `4326` for `WGS 84`)
+|===
+
+**Reproject geometry:**
+
+[width="90%", options="header"]
+|===
+|Field | Description
+|Name | Name of the transformation
+|Type | Choose `Reproject geometry`
+|Geometry field | Name of the geometry column (eg: `geom`)
+|Output geometry | Output geometry fieldname
+2+|**Input Coordinate system**
+|EPSG auto detect | Use geometry EPSG coordinate system
+|Authority | `epsg`, `ignf` or `esri`)
+|Code | Coordinate system code before transformation (eg: `4326` for `WGS 84`)
+2+|**Ouput Coordinate system**
+|Coordinate system authority after transformation (eg:ignf) | `epsg`, `ignf` or `esri`
+|Code | Coordinate system code after transformation (eg: `2154` for `RGF93`)
+|===

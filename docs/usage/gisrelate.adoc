@@ -1,0 +1,20 @@
+# Geospatial group by
+Spatial relationship and proximity.
+
+## Fields
+
+[width="90%", options="header"]
+|===
+|Field | Description
+|Name | Name of the transformation
+|Spatial relationship |
+`Contains`, `Covers`, `Crosses`, `Distance greater than`, `Distance less than`, `Equals`, `Equals exact`, `Intersects`, `Is covered by`, `Is disjoint`, `Max distance`, `Min distance`, `Overlaps`, `Touches`, `Within`
+2+|**Parameters**
+|Geometry A |
+|Geometry B |
+|Dynamic distance? | true/false
+|Distance |
+2+|**Output parameters**
+|Row filtering | `Do nothing`, `If false`, `If true`
+|Output fields |
+|===
