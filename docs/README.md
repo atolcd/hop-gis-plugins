@@ -9,6 +9,8 @@ Usage:
 - [Geospatial Group by](usage/gisgroupby.adoc)
 - [Spatial relationship](usage/gisrelate.adoc)
 
+[Presentation](presentation/README.md)
+
 Our company
 ---------------------
 [Atol Conseils et Développements](http://www.atolcd.com)
