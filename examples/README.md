@@ -12,15 +12,13 @@ Before running the examples, you must:
 ```sh
 cd examples
 
-PIPELINE_TO_RUN="shp2geojson.hpl"
+PIPELINE_TO_RUN="<hpl file in pipelines-and-workflows>"
 ${HOP_HOME}/hop-run.sh \
   --file=pipelines-and-workflows/${PIPELINE_TO_RUN} \
   --project=hop-gis-plugins-examples \
   --runconfig=local \
   --level=Basic
 ```
-
-A new file has been created : `output/velo_tour_2013.geojson`.
 
 
 ## With Docker
@@ -34,7 +32,7 @@ Next, you can run an example within a temporary container:
 ```sh
 cd examples
 
-PIPELINE_TO_RUN="shp2geojson.hpl"
+PIPELINE_TO_RUN="<hpl file in pipelines-and-workflows>"
 docker run -it --rm  --name hop-gis-plugins-examples \
   --network="host" \
   -u $(id -u):$(id -g) \
@@ -50,8 +48,19 @@ docker run -it --rm  --name hop-gis-plugins-examples \
   atolcd/hop-gis:latest
 ```
 
-As before, you should see : `output/velo_tour_2013.geojson`.
 
+## Provided examples
+
+### Conversion from Shapefile to GeoJSON
+
+![width:1024px](pipelines-and-workflows/shp2geojson.png)
+
+| **Pipeline** |  **`pipelines-and-workflows/shp2geojson.hpl`** |
+|-------------------------|---|
+| Description  | Convert a file from Shapefile format to GeoJSON format |
+| Run example  | `PIPELINE_TO_RUN="shp2geojson.hpl"` |
+| Input | `datasets/velo_tour_2013/velo_tour_2013.*`  |
+| Output |  `output/velo_tour_2013.geojson` |
 
 ## Our company
 [Atol Conseils et Développements](http://www.atolcd.com)
