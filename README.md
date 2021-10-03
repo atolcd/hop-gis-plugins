@@ -72,6 +72,9 @@ You can get them [here](http://www.oracle.com/technetwork/apps-tech/jdbc-112010-
 
 Using the plugins
 ---------------------
+
+See [dedicated page](docs/README.md)
+
 You will find new elements in "Geospatial"'s directory :
 
  - Geospatial Group by
