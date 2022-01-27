@@ -47,6 +47,7 @@ import org.apache.hop.core.row.IRowMeta;
 import org.apache.hop.core.row.value.ValueMetaBase;
 import org.apache.hop.core.variables.IVariables;
 import org.apache.hop.core.xml.XmlHandler;
+import org.apache.hop.metadata.api.HopMetadataProperty;
 import org.apache.hop.metadata.api.IHopMetadataProvider;
 import org.apache.hop.pipeline.Pipeline;
 import org.apache.hop.pipeline.PipelineMeta;
@@ -73,11 +74,20 @@ public class GisFileInputMeta extends BaseTransformMeta
 
   private HashMap<String, GisInputFormatDef> inputFormatDefs;
 
+  @HopMetadataProperty(injectionKeyDescription = "GisFileInput.FileFormat.Label")
   private String inputFormat;
+
   private List<GisInputFormatParameter> inputFormatParameters;
+
+  @HopMetadataProperty(injectionKeyDescription = "GisFileInput.FileName.Label")
   private String inputFileName;
+
+  @HopMetadataProperty(injectionKeyDescription = "GisFileInput.GeometryFieldName.Label")
   private String geometryFieldName;
+
+  @HopMetadataProperty(injectionKeyDescription = "GisFileInput.Encoding.Label")
   private String encoding;
+
   private Long rowLimit;
 
   public GisFileInputMeta() {
