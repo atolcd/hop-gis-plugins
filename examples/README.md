@@ -62,6 +62,19 @@ docker run -it --rm  --name hop-gis-plugins-examples \
 | Input | `datasets/velo_tour_2013/velo_tour_2013.*`  |
 | Output |  `output/velo_tour_2013.geojson` |
 
+
+### Metadata injection in GisFileInput tranform
+
+![width:1024px](pipelines-and-workflows/A000-MI-metadata-injection-test.png)
+
+| **Pipeline** |  **`pipelines-and-workflows/A000-MI-metadata-injection-test.hpl`** |
+|-------------------------|---|
+| Description  | Convert a file from Shapefile format to GeoJSON format |
+| Run example  | `PIPELINE_TO_RUN="A000-MI-metadata-injection-test.hpl"` |
+| Input | `datasets/metadata_injection/test.shp`  |
+| Output |  see logs |
+
+
 ## Our company
 [Atol Conseils et Développements](http://www.atolcd.com)
 Follow us on twitter [@atolcd](https://twitter.com/atolcd)
