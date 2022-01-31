@@ -42,7 +42,7 @@ Installing/upgrading the module
 
 ***Method 1 : Manual installation***
 
-Extract the content of `assemblies-gis-plugins-X.X.X.zip` in ${HOP_HOME}/plugins.
+Extract the content of `gis-plugin-assemblies-X.X.X.zip` in ${HOP_HOME}/plugins.
 Examples of extraction from the root directory of the project :
 
 ```sh
@@ -52,8 +52,8 @@ GIS_PLUGINS_VERSION="1.0.0"
 GIS_PLUGINS_ASSEMBLY="assemblies/target/gis-plugin-assemblies-${GIS_PLUGINS_VERSION}.zip"
 
 # ... Or download a prepared one (must exist :)
-wget https://github.com/atolcd/hop-gis-plugins/releases/download/v${GIS_PLUGINS_VERSION}/assemblies-gis-plugins-${GIS_PLUGINS_VERSION}.zip
-GIS_PLUGINS_ASSEMBLY="assemblies-gis-plugins-${GIS_PLUGINS_VERSION}.zip"
+wget https://github.com/atolcd/hop-gis-plugins/releases/download/v${GIS_PLUGINS_VERSION}/gis-plugin-assemblies-${GIS_PLUGINS_VERSION}.zip
+GIS_PLUGINS_ASSEMBLY="gis-plugin-assemblies-${GIS_PLUGINS_VERSION}.zip"
 
 # Unzip it ate the right place !
 unzip ${GIS_PLUGINS_ASSEMBLY} -d ${HOP_HOME}/plugins/
