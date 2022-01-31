@@ -1,3 +1,4 @@
+ARG HOP_VERSION=1.1.0
 # --------------------
 # Build artefacts - hop-gis-plugins
 # --------------------
@@ -10,7 +11,7 @@ RUN mvn clean package
 # --------------------
 # Build Hop with gis plugins image
 # --------------------
-FROM apache/incubator-hop:0.99
+FROM apache/hop:${HOP_VERSION}
 
 WORKDIR /app
 # Builder
