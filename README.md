@@ -148,10 +148,12 @@ LICENSE
 ---------------------
 This extension is licensed under `GNU Library or "Lesser" General Public License (LGPL)`.
 
-Developed by :
-* [Jérémy Tridard](https://fr.linkedin.com/in/jeremwy) - Adaptation for HOP
-* [Charles-Henry Vagner](https://github.com/cvagner) - Help and review
-* [Cédric Darbon](https://twitter.com/cedricdarbon) - Original author
+Contributors :
+* [Marc Lherbette](https://github.com/scali)
+* [Matt Casters](https://github.com/mattcasters)
+* [Jérémy Tridard](https://github.com/jtridard)
+* [Charles-Henry Vagner](https://github.com/cvagner)
+* [Cédric Darbon](https://twitter.com/cedricdarbon)
 
 
 Our company
