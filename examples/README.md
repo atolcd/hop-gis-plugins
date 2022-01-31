@@ -3,12 +3,17 @@
 You can run the examples from here.
 
 ## With a classic installation
-Before running the examples, you must:
+**Before running the examples**:
 * install Apache Hop Installation
 * set the variable `HOP_HOME` to the installation folder
 * deploy plugins: see "Installing/upgrading the module" of main [README.md](../README.md)
+* register project config:
+```sh
+(cd examples && ${HOP_HOME}/hop-conf.sh --project-create --project hop-gis-plugins-examples --project-home=$(pwd))`
+```
 
 
+**Run an example:**
 ```sh
 cd examples
 
