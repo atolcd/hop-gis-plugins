@@ -3,7 +3,7 @@ Apache Hop GIS Plugins
 
 This project allows you to manage GIS data in Apache Hop, [Hop Orchestration Platform](https://hop.apache.org/). It is a counterpart of [Pentaho Data Integrator GIS Plugins](https://github.com/atolcd/pentaho-gis-plugins).
 
-Works with Apache Hop `1.0-SNAPSHOT`.
+Tested with Apache Hop `0.99`, `1.1.0` and `2.0.0-SNAPSHOT`.
 
 
 Building the plugins
@@ -34,7 +34,7 @@ docker run --network="host" --rm \
   mvn clean package
 ```
 
-The built package is `assemblies/target/gis-plugin-assemblies-1.0-SNAPSHOT.zip` (version can differ).
+The built package is `assemblies/target/gis-plugin-assemblies-X.X.X.zip` (version can differ).
 
 
 Installing/upgrading the module
@@ -42,16 +42,18 @@ Installing/upgrading the module
 
 ***Method 1 : Manual installation***
 
-Extract the content of `assemblies-gis-plugins-1.0-SNAPSHOT.zip` in ${HOP_HOME}/plugins.
+Extract the content of `assemblies-gis-plugins-X.X.X.zip` in ${HOP_HOME}/plugins.
 Examples of extraction from the root directory of the project :
 
 ```sh
+GIS_PLUGINS_VERSION="1.0.0"
+
 # Use compiled version...
-GIS_PLUGINS_ASSEMBLY="assemblies/target/gis-plugin-assemblies-1.0-SNAPSHOT.zip"
+GIS_PLUGINS_ASSEMBLY="assemblies/target/gis-plugin-assemblies-${GIS_PLUGINS_VERSION}.zip"
 
 # ... Or download a prepared one (must exist :)
-wget https://github.com/atolcd/hop-gis-plugins/releases/download/v1.0-SNAPSHOT/assemblies-gis-plugins-1.0-SNAPSHOT.zip
-GIS_PLUGINS_ASSEMBLY="assemblies-gis-plugins-1.0-SNAPSHOT.zip"
+wget https://github.com/atolcd/hop-gis-plugins/releases/download/v${GIS_PLUGINS_VERSION}/assemblies-gis-plugins-${GIS_PLUGINS_VERSION}.zip
+GIS_PLUGINS_ASSEMBLY="assemblies-gis-plugins-${GIS_PLUGINS_VERSION}.zip"
 
 # Unzip it ate the right place !
 unzip ${GIS_PLUGINS_ASSEMBLY} -d ${HOP_HOME}/plugins/
