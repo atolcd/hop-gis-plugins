@@ -42,11 +42,11 @@ Installing/upgrading the module
 
 ***Method 1 : Manual installation***
 
-Extract the content of `gis-plugin-assemblies-X.X.X.zip` in ${HOP_HOME}/plugins.
+Extract the content of `gis-plugin-assemblies-X.X.X.zip` in ${HOP_HOME}/plugins/transforms.
 Examples of extraction from the root directory of the project :
 
 ```sh
-GIS_PLUGINS_VERSION="1.0.0"
+GIS_PLUGINS_VERSION="2.3.0"
 
 # Use compiled version...
 GIS_PLUGINS_ASSEMBLY="assemblies/target/gis-plugin-assemblies-${GIS_PLUGINS_VERSION}.zip"
@@ -56,7 +56,7 @@ wget https://github.com/atolcd/hop-gis-plugins/releases/download/v${GIS_PLUGINS_
 GIS_PLUGINS_ASSEMBLY="gis-plugin-assemblies-${GIS_PLUGINS_VERSION}.zip"
 
 # Unzip it ate the right place !
-unzip ${GIS_PLUGINS_ASSEMBLY} -d ${HOP_HOME}/plugins/
+unzip ${GIS_PLUGINS_ASSEMBLY} -d ${HOP_HOME}/plugins/transforms
 ```
 
 To upgrade the plugins, delete files you added before and start a fresh installation.
@@ -64,10 +64,14 @@ To upgrade the plugins, delete files you added before and start a fresh installa
 
 ***Oracle JDBC usage***
 
-If you plan to connect to an Oracle database, add needed jars in lib folder of PDI :
+If you plan to connect to an Oracle database, add needed jars in plugins/databases/oracle/lib folder of HOP :
 
- - ${HOP_HOME}/lib/ojdbc6.jar
- - ${HOP_HOME}/lib/orai18n.jar
+ - ojdbc6.jar
+ - orai18n.jar
+ - sdoapi-11.2.0.jar
+ - sdoutl-11.2.0.jar
+ - xdb6.jar
+ - xmlparserv2.jar
 
 You can get them [here](http://www.oracle.com/technetwork/apps-tech/jdbc-112010-090769.html)
 
