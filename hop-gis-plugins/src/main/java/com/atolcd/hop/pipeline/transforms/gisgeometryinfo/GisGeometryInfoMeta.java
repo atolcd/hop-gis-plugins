@@ -218,5 +218,4 @@ public class GisGeometryInfoMeta extends BaseTransformMeta<GisGeometryInfo, GisG
       Shell shell, IVariables variables, ITransformMeta meta, PipelineMeta transMeta, String name) {
     return new GisFileInputDialog(shell, variables, meta, transMeta, name);
   }
-
 }

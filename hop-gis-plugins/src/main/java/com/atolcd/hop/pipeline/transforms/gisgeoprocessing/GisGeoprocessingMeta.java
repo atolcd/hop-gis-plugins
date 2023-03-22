@@ -34,10 +34,8 @@ import org.apache.hop.core.row.IValueMeta;
 import org.apache.hop.core.variables.IVariables;
 import org.apache.hop.core.xml.XmlHandler;
 import org.apache.hop.metadata.api.IHopMetadataProvider;
-import org.apache.hop.pipeline.Pipeline;
 import org.apache.hop.pipeline.PipelineMeta;
 import org.apache.hop.pipeline.transform.BaseTransformMeta;
-import org.apache.hop.pipeline.transform.ITransform;
 import org.apache.hop.pipeline.transform.ITransformDialog;
 import org.apache.hop.pipeline.transform.ITransformMeta;
 import org.apache.hop.pipeline.transform.TransformMeta;
@@ -52,7 +50,8 @@ import org.w3c.dom.Node;
     categoryDescription = "i18n::GisGeoprocessing.Shell.CategoryDescription",
     documentationUrl = "",
     keywords = "i18n::GisGeoprocessing.keywords")
-public class GisGeoprocessingMeta extends BaseTransformMeta<GisGeoprocessing, GisGeoprocessingData> {
+public class GisGeoprocessingMeta
+    extends BaseTransformMeta<GisGeoprocessing, GisGeoprocessingData> {
 
   private String operator;
 
@@ -389,5 +388,4 @@ public class GisGeoprocessingMeta extends BaseTransformMeta<GisGeoprocessing, Gi
       Shell shell, IVariables variables, ITransformMeta meta, PipelineMeta transMeta, String name) {
     return new GisCoordinateTransformationDialog(shell, variables, meta, transMeta, name);
   }
-
 }
