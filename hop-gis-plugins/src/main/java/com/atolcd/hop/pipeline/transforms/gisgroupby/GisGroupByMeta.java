@@ -53,8 +53,7 @@ import org.w3c.dom.Node;
     categoryDescription = "i18n::GisGroupBy.Shell.CategoryDescription",
     documentationUrl = "",
     keywords = "i18n::GisGroupBy.keywords")
-public class GisGroupByMeta extends BaseTransformMeta
-    implements ITransformMeta<GisGroupBy, GisGroupByData> {
+public class GisGroupByMeta extends BaseTransformMeta<GisGroupBy, GisGroupByData> {
 
   private static Class<?> PKG = GisGroupByMeta.class;
 
@@ -646,18 +645,4 @@ public class GisGroupByMeta extends BaseTransformMeta
     this.alwaysGivingBackOneRow = alwaysGivingBackOneRow;
   }
 
-  @Override
-  public ITransform createTransform(
-      TransformMeta transformMeta,
-      GisGroupByData data,
-      int cnr,
-      PipelineMeta pipelineMeta,
-      Pipeline pipeline) {
-    return new GisGroupBy(transformMeta, this, data, cnr, pipelineMeta, pipeline);
-  }
-
-  @Override
-  public GisGroupByData getTransformData() {
-    return new GisGroupByData();
-  }
 }

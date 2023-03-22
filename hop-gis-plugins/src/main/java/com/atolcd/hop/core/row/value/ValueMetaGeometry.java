@@ -38,7 +38,6 @@ import java.sql.Types;
 import java.util.Date;
 import oracle.spatial.geometry.JGeometry;
 import oracle.spatial.util.WKT;
-import oracle.sql.STRUCT;
 import org.apache.hop.core.Const;
 import org.apache.hop.core.database.DatabaseMeta;
 import org.apache.hop.core.database.IDatabase;
@@ -67,6 +66,8 @@ import org.locationtech.jts.io.WKTWriter;
 import org.postgis.PGgeometryLW;
 import org.postgis.binary.BinaryParser;
 import org.postgis.binary.BinaryWriter;
+import org.apache.commons.lang3.SerializationUtils;
+import java.lang.ClassLoader;
 
 @ValueMetaPlugin(
     id = "" + ValueMetaGeometry.TYPE_GEOMETRY,
@@ -623,9 +624,14 @@ public class ValueMetaGeometry extends ValueMetaBase implements GeometryInterfac
 
         if (resultSet.getObject(index + 1) != null) {
 
-          STRUCT st = (oracle.sql.STRUCT) resultSet.getObject(index + 1);
-          JGeometry ociGeometry = JGeometry.load(st);
-          srid = ociGeometry.getSRID();
+	  Object st = resultSet.getObject(index + 1);
+	  System.out.println("AD: st classloader = " + st.getClass().getClassLoader());
+	  Class<?> structClass = st.getClass().getClassLoader().loadClass("oracle.sql.STRUCT");
+	  Class<?> jGeometryClass = st.getClass().getClassLoader().loadClass("oracle.spatial.geometry.JGeometry");
+	  
+	  Object ociGeometry = jGeometryClass.getMethod("load",structClass).invoke(null,structClass.cast(st));
+
+	  srid = (Integer) jGeometryClass.getMethod("getSRID").invoke(ociGeometry);
 
           // TODO : gerer la 3D sans passer par du WKT
           /*
@@ -634,18 +640,22 @@ public class ValueMetaGeometry extends ValueMetaBase implements GeometryInterfac
            * 3005 MULTILINE 2006 3006 MULTIPOLYGON 2007 3007
            */
 
-          if (ociGeometry.getDimensions() > 2) {
+          //if (ociGeometry.getDimensions() > 2) {
+	  if ((int) jGeometryClass.getMethod("getDimensions").invoke(ociGeometry) > 2) {
             throw new HopDatabaseException(
                 toStringMeta()
                     + " : Unable to get Geometry "
-                    + ociGeometry.getDimensions()
+                    + (int) jGeometryClass.getMethod("getDimensions").invoke(ociGeometry)
                     + "D  from resultset at index "
                     + index
                     + " for "
                     + databaseInterface.getDriverClass().toString());
           }
 
-          String wkt = new String(ociWktReaderWriter.fromJGeometry(ociGeometry));
+	  Class<?> wktClass = st.getClass().getClassLoader().loadClass("oracle.spatial.util.WKT");
+	  Object ociWktReaderWriter = wktClass.newInstance();
+          byte[] z = (byte[]) wktClass.getMethod("fromJGeometry",jGeometryClass).invoke(ociWktReaderWriter,jGeometryClass.cast(ociGeometry));
+	  String wkt = new String(z);
           geometry = new WKTReader().read(wkt);
         }
 

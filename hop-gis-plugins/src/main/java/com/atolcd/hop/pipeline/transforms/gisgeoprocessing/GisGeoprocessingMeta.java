@@ -52,8 +52,7 @@ import org.w3c.dom.Node;
     categoryDescription = "i18n::GisGeoprocessing.Shell.CategoryDescription",
     documentationUrl = "",
     keywords = "i18n::GisGeoprocessing.keywords")
-public class GisGeoprocessingMeta extends BaseTransformMeta
-    implements ITransformMeta<GisGeoprocessing, GisGeoprocessingData> {
+public class GisGeoprocessingMeta extends BaseTransformMeta<GisGeoprocessing, GisGeoprocessingData> {
 
   private String operator;
 
@@ -391,20 +390,4 @@ public class GisGeoprocessingMeta extends BaseTransformMeta
     return new GisCoordinateTransformationDialog(shell, variables, meta, transMeta, name);
   }
 
-  @Override
-  public ITransform createTransform(
-      TransformMeta stepMeta,
-      GisGeoprocessingData data,
-      int cnr,
-      PipelineMeta pipelineMeta,
-      Pipeline pipeline) {
-    // TODO Auto-generated method stub
-    return new GisGeoprocessing(stepMeta, this, data, cnr, pipelineMeta, pipeline);
-  }
-
-  @Override
-  public GisGeoprocessingData getTransformData() {
-    // TODO Auto-generated method stub
-    return new GisGeoprocessingData();
-  }
 }

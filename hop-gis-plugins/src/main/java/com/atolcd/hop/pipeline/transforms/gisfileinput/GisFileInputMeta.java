@@ -67,8 +67,7 @@ import org.w3c.dom.Node;
     categoryDescription = "i18n::GisFileInput.Shell.CategoryDescription",
     documentationUrl = "",
     keywords = "i18n::GisFileInput.keywords")
-public class GisFileInputMeta extends BaseTransformMeta
-    implements ITransformMeta<GisFileInput, GisFileInputData> {
+public class GisFileInputMeta extends BaseTransformMeta<GisFileInput,GisFileInputData> {
 
   private static Class<?> PKG = GisFileInputMeta.class;
 
@@ -464,18 +463,4 @@ public class GisFileInputMeta extends BaseTransformMeta
     return new GisFileInputDialog(shell, variables, meta, transMeta, name);
   }
 
-  @Override
-  public ITransform createTransform(
-      TransformMeta stepMeta,
-      GisFileInputData data,
-      int cnr,
-      PipelineMeta pipelineMeta,
-      Pipeline pipeline) {
-    return new GisFileInput(stepMeta, this, data, cnr, pipelineMeta, pipeline);
-  }
-
-  @Override
-  public GisFileInputData getTransformData() {
-    return new GisFileInputData();
-  }
 }

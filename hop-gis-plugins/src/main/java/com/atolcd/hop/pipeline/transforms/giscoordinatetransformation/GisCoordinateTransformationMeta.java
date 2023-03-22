@@ -49,8 +49,7 @@ import org.eclipse.swt.widgets.Shell;
     categoryDescription = "i18n::GisCoordinateTransformation.Shell.CategoryDescription",
     documentationUrl = "",
     keywords = "i18n::GisCoordinateTransformation.keywords")
-public class GisCoordinateTransformationMeta extends BaseTransformMeta
-    implements ITransformMeta<GisCoordinateTransformation, GisCoordinateTransformationData> {
+public class GisCoordinateTransformationMeta extends BaseTransformMeta<GisCoordinateTransformation,GisCoordinateTransformationData> {
 
   private static final Class<?> PKG = GisCoordinateTransformationMeta.class; // Needed by Translator
 
@@ -202,18 +201,4 @@ public class GisCoordinateTransformationMeta extends BaseTransformMeta
     return new GisCoordinateTransformationDialog(shell, variables, meta, transMeta, name);
   }
 
-  @Override
-  public ITransform createTransform(
-      TransformMeta transformMeta,
-      GisCoordinateTransformationData data,
-      int cnr,
-      PipelineMeta pipelineMeta,
-      Pipeline pipeline) {
-    return new GisCoordinateTransformation(transformMeta, this, data, cnr, pipelineMeta, pipeline);
-  }
-
-  @Override
-  public GisCoordinateTransformationData getTransformData() {
-    return new GisCoordinateTransformationData();
-  }
 }

@@ -49,8 +49,7 @@ import org.cts.registry.RegistryManager;
 import org.locationtech.jts.geom.Geometry;
 
 public class GisCoordinateTransformation
-    extends BaseTransform<GisCoordinateTransformationMeta, GisCoordinateTransformationData>
-    implements ITransform<GisCoordinateTransformationMeta, GisCoordinateTransformationData> {
+    extends BaseTransform<GisCoordinateTransformationMeta, GisCoordinateTransformationData> {
 
   private static final Class<?> PKG = GisCoordinateTransformation.class;
 

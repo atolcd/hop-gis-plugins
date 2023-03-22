@@ -68,8 +68,7 @@ import org.locationtech.jts.simplify.DouglasPeuckerSimplifier;
 import org.locationtech.jts.simplify.VWSimplifier;
 import org.opensphere.geometry.algorithm.ConcaveHull;
 
-public class GisGeoprocessing extends BaseTransform<GisGeoprocessingMeta, GisGeoprocessingData>
-    implements ITransform<GisGeoprocessingMeta, GisGeoprocessingData> {
+public class GisGeoprocessing extends BaseTransform<GisGeoprocessingMeta, GisGeoprocessingData> {
 
   private static GeometryFactory geometryFactory = new GeometryFactory();
 

@@ -42,8 +42,7 @@ import org.apache.hop.pipeline.transform.BaseTransform;
 import org.apache.hop.pipeline.transform.ITransform;
 import org.apache.hop.pipeline.transform.TransformMeta;
 
-public class GisFileInput extends BaseTransform<GisFileInputMeta, GisFileInputData>
-    implements ITransform<GisFileInputMeta, GisFileInputData> {
+public class GisFileInput extends BaseTransform<GisFileInputMeta, GisFileInputData> {
   private static Class<?> PKG = GisFileInput.class;
 
   private AbstractFileReader fileReader;

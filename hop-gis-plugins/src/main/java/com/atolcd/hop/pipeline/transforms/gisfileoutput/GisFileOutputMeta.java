@@ -55,8 +55,7 @@ import org.w3c.dom.Node;
     categoryDescription = "i18n::GisFileOutput.Shell.CategoryDescription",
     documentationUrl = "",
     keywords = "i18n::GisFileOutput.keywords")
-public class GisFileOutputMeta extends BaseTransformMeta
-    implements ITransformMeta<GisFileOutput, GisFileOutputData> {
+public class GisFileOutputMeta extends BaseTransformMeta<GisFileOutput,GisFileOutputData> {
 
   private HashMap<String, GisOutputFormatDef> outputFormatDefs;
   private String outputFormat;
@@ -526,20 +525,4 @@ public class GisFileOutputMeta extends BaseTransformMeta
     return new GisFileOutputDialog(shell, variables, meta, PipelineMeta, name);
   }
 
-  @Override
-  public ITransform createTransform(
-      TransformMeta transformMeta,
-      GisFileOutputData data,
-      int cnr,
-      PipelineMeta pipelineMeta,
-      Pipeline pipeline) {
-    // TODO Auto-generated method stub
-    return new GisFileOutput(transformMeta, this, data, cnr, pipelineMeta, pipeline);
-  }
-
-  @Override
-  public GisFileOutputData getTransformData() {
-    // TODO Auto-generated method stub
-    return new GisFileOutputData();
-  }
 }

@@ -65,8 +65,7 @@ import org.locationtech.jts.operation.union.UnaryUnionOp;
  * @author Matt
  * @since 2-jun-2003
  */
-public class GisGroupBy extends BaseTransform<GisGroupByMeta, GisGroupByData>
-    implements ITransform<GisGroupByMeta, GisGroupByData> {
+public class GisGroupBy extends BaseTransform<GisGroupByMeta, GisGroupByData> {
   private static Class<?> PKG = GisGroupByMeta.class; // for i18n purposes,
   // needed by
   // Translator2!!

@@ -37,8 +37,7 @@ import org.locationtech.jts.geom.Coordinate;
 import org.locationtech.jts.geom.Geometry;
 import org.locationtech.jts.geom.GeometryFactory;
 
-public class GisRelate extends BaseTransform<GisRelateMeta, GisRelateData>
-    implements ITransform<GisRelateMeta, GisRelateData> {
+public class GisRelate extends BaseTransform<GisRelateMeta, GisRelateData> {
 
   private static final Class<?> PKG = GisRelate.class; // Needed by Translator
 

@@ -3,7 +3,7 @@
   <parent>
     <artifactId>hop-gis-plugins-holder</artifactId>
     <groupId>com.atolcd.hop</groupId>
-    <version>1.0.0</version>
+    <version>2.3.0-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
@@ -17,8 +17,8 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.7.0</version>
         <configuration>
-          <source>8</source>
-          <target>8</target>
+          <source>11</source>
+          <target>11</target>
         </configuration>
       </plugin>
       <plugin>

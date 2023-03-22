@@ -37,8 +37,7 @@ import org.apache.hop.pipeline.transform.ITransform;
 import org.apache.hop.pipeline.transform.TransformMeta;
 import org.locationtech.jts.geom.Geometry;
 
-public class GisGeometryInfo extends BaseTransform<GisGeometryInfoMeta, GisGeometryInfoData>
-    implements ITransform<GisGeometryInfoMeta, GisGeometryInfoData> {
+public class GisGeometryInfo extends BaseTransform<GisGeometryInfoMeta, GisGeometryInfoData> {
 
   private Integer geometryFieldIndex;
   private LinkedHashMap<String, Integer> outputMap = new LinkedHashMap<String, Integer>();

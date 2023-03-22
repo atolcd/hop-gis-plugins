@@ -46,8 +46,7 @@ import org.apache.hop.pipeline.transform.BaseTransform;
 import org.apache.hop.pipeline.transform.ITransform;
 import org.apache.hop.pipeline.transform.TransformMeta;
 
-public class GisFileOutput extends BaseTransform<GisFileOutputMeta, GisFileOutputData>
-    implements ITransform<GisFileOutputMeta, GisFileOutputData> {
+public class GisFileOutput extends BaseTransform<GisFileOutputMeta, GisFileOutputData> {
 
   private List<Feature> gisFeatures = new ArrayList<Feature>();
 
