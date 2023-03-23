@@ -623,7 +623,6 @@ public class ValueMetaGeometry extends ValueMetaBase implements GeometryInterfac
         if (resultSet.getObject(index + 1) != null) {
 
           Object st = resultSet.getObject(index + 1);
-          System.out.println("AD: st classloader = " + st.getClass().getClassLoader());
           Class<?> structClass = st.getClass().getClassLoader().loadClass("oracle.sql.STRUCT");
           Class<?> jGeometryClass =
               st.getClass().getClassLoader().loadClass("oracle.spatial.geometry.JGeometry");
