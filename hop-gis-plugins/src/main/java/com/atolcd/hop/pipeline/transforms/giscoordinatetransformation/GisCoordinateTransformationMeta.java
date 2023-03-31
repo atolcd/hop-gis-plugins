@@ -32,10 +32,8 @@ import org.apache.hop.core.row.IValueMeta;
 import org.apache.hop.core.variables.IVariables;
 import org.apache.hop.metadata.api.HopMetadataProperty;
 import org.apache.hop.metadata.api.IHopMetadataProvider;
-import org.apache.hop.pipeline.Pipeline;
 import org.apache.hop.pipeline.PipelineMeta;
 import org.apache.hop.pipeline.transform.BaseTransformMeta;
-import org.apache.hop.pipeline.transform.ITransform;
 import org.apache.hop.pipeline.transform.ITransformDialog;
 import org.apache.hop.pipeline.transform.ITransformMeta;
 import org.apache.hop.pipeline.transform.TransformMeta;
@@ -49,8 +47,8 @@ import org.eclipse.swt.widgets.Shell;
     categoryDescription = "i18n::GisCoordinateTransformation.Shell.CategoryDescription",
     documentationUrl = "",
     keywords = "i18n::GisCoordinateTransformation.keywords")
-public class GisCoordinateTransformationMeta extends BaseTransformMeta
-    implements ITransformMeta<GisCoordinateTransformation, GisCoordinateTransformationData> {
+public class GisCoordinateTransformationMeta
+    extends BaseTransformMeta<GisCoordinateTransformation, GisCoordinateTransformationData> {
 
   private static final Class<?> PKG = GisCoordinateTransformationMeta.class; // Needed by Translator
 
@@ -200,20 +198,5 @@ public class GisCoordinateTransformationMeta extends BaseTransformMeta
   public ITransformDialog getDialog(
       Shell shell, IVariables variables, ITransformMeta meta, PipelineMeta transMeta, String name) {
     return new GisCoordinateTransformationDialog(shell, variables, meta, transMeta, name);
-  }
-
-  @Override
-  public ITransform createTransform(
-      TransformMeta transformMeta,
-      GisCoordinateTransformationData data,
-      int cnr,
-      PipelineMeta pipelineMeta,
-      Pipeline pipeline) {
-    return new GisCoordinateTransformation(transformMeta, this, data, cnr, pipelineMeta, pipeline);
-  }
-
-  @Override
-  public GisCoordinateTransformationData getTransformData() {
-    return new GisCoordinateTransformationData();
   }
 }
