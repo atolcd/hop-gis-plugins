@@ -3,7 +3,7 @@ Apache Hop GIS Plugins
 
 This project allows you to manage GIS data in Apache Hop, [Hop Orchestration Platform](https://hop.apache.org/). It is a counterpart of [Pentaho Data Integrator GIS Plugins](https://github.com/atolcd/pentaho-gis-plugins).
 
-Tested with Apache Hop `0.99`, `1.1.0` and `2.0.0-SNAPSHOT`.
+Tested with Apache Hop `2.5.0-SNAPSHOT`.
 
 
 Building the plugins
@@ -15,7 +15,7 @@ git clone git://github.com/atolcd/hop-gis-plugins.git
 cd hop-gis-plugins
 ```
 
-Run the following commands from the base project directory (with `java 8+` and `maven` installed):
+Run the following commands from the base project directory (with `java 11` and `maven` installed):
 ```sh
 mvn clean package
 ```
@@ -46,7 +46,7 @@ Extract the content of `gis-plugin-assemblies-X.X.X.zip` in ${HOP_HOME}/plugins.
 Examples of extraction from the root directory of the project :
 
 ```sh
-GIS_PLUGINS_VERSION="1.0.0"
+GIS_PLUGINS_VERSION="1.1.0"
 
 # Use compiled version...
 GIS_PLUGINS_ASSEMBLY="assemblies/target/gis-plugin-assemblies-${GIS_PLUGINS_VERSION}.zip"
@@ -66,7 +66,7 @@ To upgrade the plugins, delete files you added before and start a fresh installa
 
 If you plan to connect to an Oracle database, add needed jars in lib folder of PDI :
 
- - ${HOP_HOME}/lib/ojdbc6.jar
+ - ${HOP_HOME}/lib/ojdbc11.jar
  - ${HOP_HOME}/lib/orai18n.jar
 
 You can get them [here](http://www.oracle.com/technetwork/apps-tech/jdbc-112010-090769.html)
