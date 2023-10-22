@@ -36,7 +36,6 @@ import org.apache.hop.core.row.RowDataUtil;
 import org.apache.hop.pipeline.Pipeline;
 import org.apache.hop.pipeline.PipelineMeta;
 import org.apache.hop.pipeline.transform.BaseTransform;
-import org.apache.hop.pipeline.transform.ITransform;
 import org.apache.hop.pipeline.transform.TransformMeta;
 import org.locationtech.jts.algorithm.MinimumBoundingCircle;
 import org.locationtech.jts.densify.Densifier;
@@ -68,8 +67,7 @@ import org.locationtech.jts.simplify.DouglasPeuckerSimplifier;
 import org.locationtech.jts.simplify.VWSimplifier;
 import org.opensphere.geometry.algorithm.ConcaveHull;
 
-public class GisGeoprocessing extends BaseTransform<GisGeoprocessingMeta, GisGeoprocessingData>
-    implements ITransform<GisGeoprocessingMeta, GisGeoprocessingData> {
+public class GisGeoprocessing extends BaseTransform<GisGeoprocessingMeta, GisGeoprocessingData> {
 
   private static GeometryFactory geometryFactory = new GeometryFactory();
 

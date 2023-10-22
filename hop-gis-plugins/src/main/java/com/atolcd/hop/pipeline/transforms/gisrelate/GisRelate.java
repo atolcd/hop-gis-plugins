@@ -31,14 +31,12 @@ import org.apache.hop.core.row.RowDataUtil;
 import org.apache.hop.pipeline.Pipeline;
 import org.apache.hop.pipeline.PipelineMeta;
 import org.apache.hop.pipeline.transform.BaseTransform;
-import org.apache.hop.pipeline.transform.ITransform;
 import org.apache.hop.pipeline.transform.TransformMeta;
 import org.locationtech.jts.geom.Coordinate;
 import org.locationtech.jts.geom.Geometry;
 import org.locationtech.jts.geom.GeometryFactory;
 
-public class GisRelate extends BaseTransform<GisRelateMeta, GisRelateData>
-    implements ITransform<GisRelateMeta, GisRelateData> {
+public class GisRelate extends BaseTransform<GisRelateMeta, GisRelateData> {
 
   private static final Class<?> PKG = GisRelate.class; // Needed by Translator
 

@@ -51,7 +51,6 @@ import org.apache.hop.i18n.BaseMessages;
 import org.apache.hop.pipeline.Pipeline;
 import org.apache.hop.pipeline.PipelineMeta;
 import org.apache.hop.pipeline.transform.BaseTransform;
-import org.apache.hop.pipeline.transform.ITransform;
 import org.apache.hop.pipeline.transform.TransformMeta;
 import org.locationtech.jts.dissolve.LineDissolver;
 import org.locationtech.jts.geom.Geometry;
@@ -65,8 +64,7 @@ import org.locationtech.jts.operation.union.UnaryUnionOp;
  * @author Matt
  * @since 2-jun-2003
  */
-public class GisGroupBy extends BaseTransform<GisGroupByMeta, GisGroupByData>
-    implements ITransform<GisGroupByMeta, GisGroupByData> {
+public class GisGroupBy extends BaseTransform<GisGroupByMeta, GisGroupByData> {
   private static Class<?> PKG = GisGroupByMeta.class; // for i18n purposes,
   // needed by
   // Translator2!!

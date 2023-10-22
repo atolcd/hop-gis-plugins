@@ -5,7 +5,7 @@
   <groupId>com.atolcd.hop</groupId>
   <artifactId>hop-gis-plugins-holder</artifactId>
   <packaging>pom</packaging>
-  <version>1.0.0</version>
+  <version>1.1.0</version>
 
   <name>HOP GIS Plugins and modified deps</name>
   <description>HOP GIS Plugins and modified deps by Atol Conseils &amp; Développements</description>
@@ -14,21 +14,21 @@
 
   <properties>
     <!-- Set this to the Hop version you want to debug against-->
-    <hop.version>1.1.0-SNAPSHOT</hop.version>
+    <hop.version>2.7.0-SNAPSHOT</hop.version>
 
     <!-- Path You will be using to debug the application >
     <hop.debug.path>TODO ?</hop.debug.path-->
 
     <!-- Third-party dependencies-->
-    <org.eclipse.platform.version>3.114.0</org.eclipse.platform.version>
+    <org.eclipse.platform.version>3.122.0</org.eclipse.platform.version>
     <maven-assembly-plugin.version>3.1.0</maven-assembly-plugin.version>
 
     <!-- Jandex For annotation Detection -->
-    <jandex.version>2.2.2.Final</jandex.version>
+    <jandex.version>3.0.5</jandex.version>
 
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <spotless.version>2.13.0</spotless.version>
+    <spotless.version>2.35.0</spotless.version>
 
   </properties>
 

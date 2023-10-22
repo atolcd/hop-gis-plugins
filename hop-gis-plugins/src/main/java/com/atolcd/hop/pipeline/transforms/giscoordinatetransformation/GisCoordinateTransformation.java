@@ -34,7 +34,6 @@ import org.apache.hop.core.row.RowDataUtil;
 import org.apache.hop.pipeline.Pipeline;
 import org.apache.hop.pipeline.PipelineMeta;
 import org.apache.hop.pipeline.transform.BaseTransform;
-import org.apache.hop.pipeline.transform.ITransform;
 import org.apache.hop.pipeline.transform.TransformMeta;
 import org.cts.CRSFactory;
 import org.cts.crs.CRSException;
@@ -49,8 +48,7 @@ import org.cts.registry.RegistryManager;
 import org.locationtech.jts.geom.Geometry;
 
 public class GisCoordinateTransformation
-    extends BaseTransform<GisCoordinateTransformationMeta, GisCoordinateTransformationData>
-    implements ITransform<GisCoordinateTransformationMeta, GisCoordinateTransformationData> {
+    extends BaseTransform<GisCoordinateTransformationMeta, GisCoordinateTransformationData> {
 
   private static final Class<?> PKG = GisCoordinateTransformation.class;
 

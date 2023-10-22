@@ -3,7 +3,7 @@
   <parent>
     <artifactId>hop-gis-plugins-holder</artifactId>
     <groupId>com.atolcd.hop</groupId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
