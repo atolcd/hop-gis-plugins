@@ -1,4 +1,4 @@
-ARG HOP_VERSION=1.1.0
+ARG HOP_VERSION=2.6.0
 # --------------------
 # Build artefacts - hop-gis-plugins
 # --------------------
@@ -16,5 +16,5 @@ FROM apache/hop:${HOP_VERSION}
 WORKDIR /app
 # Builder
 COPY --from=builder /app/assemblies/target/gis-plugin-assemblies-*.zip /tmp/
-RUN unzip /tmp/gis-plugin-assemblies-*.zip -d ${DEPLOYMENT_PATH}/hop/plugins/ &&\
+RUN unzip /tmp/gis-plugin-assemblies-*.zip -d ${DEPLOYMENT_PATH}/plugins/ &&\
   rm /tmp/gis-plugin-assemblies-*.zip
