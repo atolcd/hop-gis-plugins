@@ -8,12 +8,10 @@ on:
     paths-ignore:
       - 'docker/**'
       - 'examples/**'
-      - 'jenkins/**'
   pull_request:
     paths-ignore:
       - 'docker/**'
       - 'examples/**'
-      - 'jenkins/**'
 
 jobs:
   build:
