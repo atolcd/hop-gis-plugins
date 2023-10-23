@@ -4,7 +4,7 @@
 
   <groupId>com.atolcd.hop</groupId>
   <artifactId>gis-plugin-assemblies</artifactId>
-  <version>1.1.0</version>
+  <version>1.2.0</version>
   <packaging>pom</packaging>
 
   <name>HOP GIS Plugins assemblies</name>
@@ -12,7 +12,7 @@
   <parent>
     <groupId>com.atolcd.hop</groupId>
     <artifactId>hop-gis-plugins-holder</artifactId>
-    <version>1.1.0</version>
+    <version>1.2.0</version>
   </parent>
 
   <properties>

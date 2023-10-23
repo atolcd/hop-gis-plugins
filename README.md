@@ -46,7 +46,7 @@ Extract the content of `gis-plugin-assemblies-X.X.X.zip` in ${HOP_HOME}/plugins.
 Examples of extraction from the root directory of the project :
 
 ```sh
-GIS_PLUGINS_VERSION="1.1.0"
+GIS_PLUGINS_VERSION="1.2.0"
 
 # Use compiled version...
 GIS_PLUGINS_ASSEMBLY="assemblies/target/gis-plugin-assemblies-${GIS_PLUGINS_VERSION}.zip"
