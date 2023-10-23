@@ -19,7 +19,9 @@ import org.kabeja.dxf.DXFPolyline;
 import org.kabeja.dxf.DXFVertex;
 import org.kabeja.math.MathUtils;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class PolylineSegment {
   public static double DELTA = 0.001;
   private boolean bulged = false;
@@ -52,67 +54,93 @@ public class PolylineSegment {
     }
   }
 
-  /** @return Returns the bulge. */
+  /**
+   * @return Returns the bulge.
+   */
   public double getBulge() {
     return this.start.getBulge();
   }
 
-  /** @return Returns the bulged. */
+  /**
+   * @return Returns the bulged.
+   */
   public boolean isBulged() {
     return bulged;
   }
 
-  /** @param bulged The bulged to set. */
+  /**
+   * @param bulged The bulged to set.
+   */
   public void setBulged(boolean bulged) {
     this.bulged = bulged;
   }
 
-  /** @return Returns the point1. */
+  /**
+   * @return Returns the point1.
+   */
   public Point getPoint1() {
     return point1;
   }
 
-  /** @param point1 The point1 to set. */
+  /**
+   * @param point1 The point1 to set.
+   */
   public void setPoint1(Point point1) {
     this.point1 = point1;
   }
 
-  /** @return Returns the point2. */
+  /**
+   * @return Returns the point2.
+   */
   public Point getPoint2() {
     return point2;
   }
 
-  /** @param point2 The point2 to set. */
+  /**
+   * @param point2 The point2 to set.
+   */
   public void setPoint2(Point point2) {
     this.point2 = point2;
   }
 
-  /** @return Returns the point3. */
+  /**
+   * @return Returns the point3.
+   */
   public Point getPoint3() {
     return point3;
   }
 
-  /** @param point3 The point3 to set. */
+  /**
+   * @param point3 The point3 to set.
+   */
   public void setPoint3(Point point3) {
     this.point3 = point3;
   }
 
-  /** @return Returns the point4. */
+  /**
+   * @return Returns the point4.
+   */
   public Point getPoint4() {
     return point4;
   }
 
-  /** @param point4 The point4 to set. */
+  /**
+   * @param point4 The point4 to set.
+   */
   public void setPoint4(Point point4) {
     this.point4 = point4;
   }
 
-  /** @return Returns the radius. */
+  /**
+   * @return Returns the radius.
+   */
   public double getRadius() {
     return radius;
   }
 
-  /** @param radius The radius to set. */
+  /**
+   * @param radius The radius to set.
+   */
   public void setRadius(double radius) {
     this.radius = radius;
   }
@@ -225,7 +253,9 @@ public class PolylineSegment {
     return value;
   }
 
-  /** @return Returns the bulgeHeight. */
+  /**
+   * @return Returns the bulgeHeight.
+   */
   public double getBulgeHeight() {
     return bulgeHeight;
   }

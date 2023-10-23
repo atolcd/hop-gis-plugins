@@ -20,7 +20,9 @@ import org.kabeja.dxf.DXFEntity;
 import org.kabeja.dxf.helpers.Point;
 import org.kabeja.parser.DXFValue;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public class DXFCircleHandler extends AbstractEntityHandler {
   public static final String ENTITY_NAME = "CIRCLE";
   public static final int RADIUS = 40;

@@ -21,7 +21,9 @@ import org.kabeja.dxf.DXFPolyline;
 import org.kabeja.dxf.DXFVertex;
 import org.kabeja.math.MathUtils;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class DXFUtils {
   /** */
   public DXFUtils() {

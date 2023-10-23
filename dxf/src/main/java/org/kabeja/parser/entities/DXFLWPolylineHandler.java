@@ -9,7 +9,9 @@ import org.kabeja.dxf.DXFLWPolyline;
 import org.kabeja.dxf.DXFVertex;
 import org.kabeja.parser.DXFValue;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public class DXFLWPolylineHandler extends AbstractEntityHandler {
   public static final String ENTITY_NAME = "LWPOLYLINE";
   public static final int VERTEX_BULGE = 42;

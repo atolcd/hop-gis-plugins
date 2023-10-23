@@ -15,7 +15,9 @@
 */
 package org.kabeja.dxf;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class DXFStyle {
   private String name = "";
   private String fontFile = "";
@@ -27,92 +29,128 @@ public class DXFStyle {
   private int flags = 0;
   private double lastHeight = 0.0;
 
-  /** @return Returns the bigFontFile. */
+  /**
+   * @return Returns the bigFontFile.
+   */
   public String getBigFontFile() {
     return bigFontFile;
   }
 
-  /** @param bigFontFile The bigFontFile to set. */
+  /**
+   * @param bigFontFile The bigFontFile to set.
+   */
   public void setBigFontFile(String bigFontFile) {
     this.bigFontFile = bigFontFile;
   }
 
-  /** @return Returns the fontFile. */
+  /**
+   * @return Returns the fontFile.
+   */
   public String getFontFile() {
     return fontFile;
   }
 
-  /** @param fontFile The fontFile to set. */
+  /**
+   * @param fontFile The fontFile to set.
+   */
   public void setFontFile(String fontFile) {
     this.fontFile = fontFile;
   }
 
-  /** @return Returns the lastHeight. */
+  /**
+   * @return Returns the lastHeight.
+   */
   public double getLastHeight() {
     return lastHeight;
   }
 
-  /** @param lastHeight The lastHeight to set. */
+  /**
+   * @param lastHeight The lastHeight to set.
+   */
   public void setLastHeight(double lastHeight) {
     this.lastHeight = lastHeight;
   }
 
-  /** @return Returns the name. */
+  /**
+   * @return Returns the name.
+   */
   public String getName() {
     return name;
   }
 
-  /** @param name The name to set. */
+  /**
+   * @param name The name to set.
+   */
   public void setName(String name) {
     this.name = name;
   }
 
-  /** @return Returns the obliqueAngle. */
+  /**
+   * @return Returns the obliqueAngle.
+   */
   public double getObliqueAngle() {
     return obliqueAngle;
   }
 
-  /** @param obliqueAngle The obliqueAngle to set. */
+  /**
+   * @param obliqueAngle The obliqueAngle to set.
+   */
   public void setObliqueAngle(double obliqueAngle) {
     this.obliqueAngle = obliqueAngle;
   }
 
-  /** @return Returns the textGenerationFlag. */
+  /**
+   * @return Returns the textGenerationFlag.
+   */
   public int getTextGenerationFlag() {
     return textGenerationFlag;
   }
 
-  /** @param textGenerationFlag The textGenerationFlag to set. */
+  /**
+   * @param textGenerationFlag The textGenerationFlag to set.
+   */
   public void setTextGenerationFlag(int textGenerationFlag) {
     this.textGenerationFlag = textGenerationFlag;
   }
 
-  /** @return Returns the textHeight. */
+  /**
+   * @return Returns the textHeight.
+   */
   public double getTextHeight() {
     return textHeight;
   }
 
-  /** @param textHeight The textHeight to set. */
+  /**
+   * @param textHeight The textHeight to set.
+   */
   public void setTextHeight(double textHeight) {
     this.textHeight = textHeight;
   }
 
-  /** @return Returns the widthFactor. */
+  /**
+   * @return Returns the widthFactor.
+   */
   public double getWidthFactor() {
     return widthFactor;
   }
 
-  /** @param widthFactor The widthFactor to set. */
+  /**
+   * @param widthFactor The widthFactor to set.
+   */
   public void setWidthFactor(double widthFactor) {
     this.widthFactor = widthFactor;
   }
 
-  /** @return Returns the flags. */
+  /**
+   * @return Returns the flags.
+   */
   public int getFlags() {
     return flags;
   }
 
-  /** @param flags The flags to set. */
+  /**
+   * @param flags The flags to set.
+   */
   public void setFlags(int flags) {
     this.flags = flags;
   }

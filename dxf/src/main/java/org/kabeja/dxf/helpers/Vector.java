@@ -15,7 +15,9 @@
 */
 package org.kabeja.dxf.helpers;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class Vector extends Point {
   public Vector() {
     super();

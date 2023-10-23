@@ -17,7 +17,9 @@ package org.kabeja.dxf;
 
 import org.kabeja.dxf.helpers.Point;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class DXFInsert extends DXFEntity {
   private Point insertPoint = new Point();
   private double scale_x = 1.0;
@@ -103,102 +105,142 @@ public class DXFInsert extends DXFEntity {
     return bounds;
   }
 
-  /** @return Returns the blockID. */
+  /**
+   * @return Returns the blockID.
+   */
   public String getBlockID() {
     return blockID;
   }
 
-  /** @param blockID The blockID to set. */
+  /**
+   * @param blockID The blockID to set.
+   */
   public void setBlockID(String blockID) {
     this.blockID = blockID;
   }
 
-  /** @return Returns the column_spacing. */
+  /**
+   * @return Returns the column_spacing.
+   */
   public double getColumnSpacing() {
     return column_spacing;
   }
 
-  /** @param column_spacing The column_spacing to set. */
+  /**
+   * @param column_spacing The column_spacing to set.
+   */
   public void setColumnSpacing(double column_spacing) {
     this.column_spacing = column_spacing;
   }
 
-  /** @return Returns the columns. */
+  /**
+   * @return Returns the columns.
+   */
   public int getColumns() {
     return columns;
   }
 
-  /** @param columns The columns to set. */
+  /**
+   * @param columns The columns to set.
+   */
   public void setColumns(int columns) {
     this.columns = columns;
   }
 
-  /** @return Returns the p. */
+  /**
+   * @return Returns the p.
+   */
   public Point getPoint() {
     return insertPoint;
   }
 
-  /** @param p The p to set. */
+  /**
+   * @param p The p to set.
+   */
   public void setPoint(Point p) {
     this.insertPoint = p;
   }
 
-  /** @return Returns the rotate. */
+  /**
+   * @return Returns the rotate.
+   */
   public double getRotate() {
     return rotate;
   }
 
-  /** @param rotate The rotate to set. */
+  /**
+   * @param rotate The rotate to set.
+   */
   public void setRotate(double rotate) {
     this.rotate = rotate;
   }
 
-  /** @return Returns the row_spacing. */
+  /**
+   * @return Returns the row_spacing.
+   */
   public double getRowSpacing() {
     return row_spacing;
   }
 
-  /** @param row_spacing The row_spacing to set. */
+  /**
+   * @param row_spacing The row_spacing to set.
+   */
   public void setRowSpacing(double row_spacing) {
     this.row_spacing = row_spacing;
   }
 
-  /** @return Returns the rows. */
+  /**
+   * @return Returns the rows.
+   */
   public int getRows() {
     return rows;
   }
 
-  /** @param rows The rows to set. */
+  /**
+   * @param rows The rows to set.
+   */
   public void setRows(int rows) {
     this.rows = rows;
   }
 
-  /** @return Returns the scale_x. */
+  /**
+   * @return Returns the scale_x.
+   */
   public double getScaleX() {
     return scale_x;
   }
 
-  /** @param scale_x The scale_x to set. */
+  /**
+   * @param scale_x The scale_x to set.
+   */
   public void setScaleX(double scale_x) {
     this.scale_x = scale_x;
   }
 
-  /** @return Returns the scale_y. */
+  /**
+   * @return Returns the scale_y.
+   */
   public double getScaleY() {
     return scale_y;
   }
 
-  /** @param scale_y The scale_y to set. */
+  /**
+   * @param scale_y The scale_y to set.
+   */
   public void setScaleY(double scale_y) {
     this.scale_y = scale_y;
   }
 
-  /** @return Returns the scale_z. */
+  /**
+   * @return Returns the scale_z.
+   */
   public double getScaleZ() {
     return scale_z;
   }
 
-  /** @param scale_z The scale_z to set. */
+  /**
+   * @param scale_z The scale_z to set.
+   */
   public void setScaleZ(double scale_z) {
     this.scale_z = scale_z;
   }

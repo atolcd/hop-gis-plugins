@@ -60,42 +60,58 @@ public class Bounds {
     this.min_z = b.getMinimumZ();
   }
 
-  /** @return Returns the max_x. */
+  /**
+   * @return Returns the max_x.
+   */
   public double getMaximumX() {
     return max_x;
   }
 
-  /** @param max_x The max_x to set. */
+  /**
+   * @param max_x The max_x to set.
+   */
   public void setMaximumX(double max_x) {
     this.max_x = max_x;
   }
 
-  /** @return Returns the max_y. */
+  /**
+   * @return Returns the max_y.
+   */
   public double getMaximumY() {
     return max_y;
   }
 
-  /** @param max_y The max_y to set. */
+  /**
+   * @param max_y The max_y to set.
+   */
   public void setMaximumY(double max_y) {
     this.max_y = max_y;
   }
 
-  /** @return Returns the min_x. */
+  /**
+   * @return Returns the min_x.
+   */
   public double getMinimumX() {
     return min_x;
   }
 
-  /** @param min_x The min_x to set. */
+  /**
+   * @param min_x The min_x to set.
+   */
   public void setMinimumX(double min_x) {
     this.min_x = min_x;
   }
 
-  /** @return Returns the min_y. */
+  /**
+   * @return Returns the min_y.
+   */
   public double getMinimumY() {
     return min_y;
   }
 
-  /** @param min_y The min_y to set. */
+  /**
+   * @param min_y The min_y to set.
+   */
   public void setMinimumY(double min_y) {
     this.min_y = min_y;
   }
@@ -196,7 +212,9 @@ public class Bounds {
     return Math.abs(getMaximumZ() - getMinimumZ());
   }
 
-  /** @return Returns the set. */
+  /**
+   * @return Returns the set.
+   */
   public boolean isValid() {
     // later 3D bounds
     //		if ((this.max_x == Double.NEGATIVE_INFINITY)
@@ -217,7 +235,9 @@ public class Bounds {
     return set;
   }
 
-  /** @param set The set to set. */
+  /**
+   * @param set The set to set.
+   */
   public void setValid(boolean set) {
     this.set = set;
   }

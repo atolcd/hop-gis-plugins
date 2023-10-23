@@ -21,7 +21,9 @@ import org.kabeja.math.TransformContext;
 import org.xml.sax.ContentHandler;
 import org.xml.sax.SAXException;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class DXFShape extends DXFEntity {
   protected Point insertPoint = new Point();
   protected double rotation = 0.0;
@@ -54,62 +56,86 @@ public class DXFShape extends DXFEntity {
     return DXFConstants.ENTITY_TYPE_SHAPE;
   }
 
-  /** @return Returns the height. */
+  /**
+   * @return Returns the height.
+   */
   public double getHeight() {
     return height;
   }
 
-  /** @param height The height to set. */
+  /**
+   * @param height The height to set.
+   */
   public void setHeight(double height) {
     this.height = height;
   }
 
-  /** @return Returns the insertPoint. */
+  /**
+   * @return Returns the insertPoint.
+   */
   public Point getInsertPoint() {
     return insertPoint;
   }
 
-  /** @param insertPoint The insertPoint to set. */
+  /**
+   * @param insertPoint The insertPoint to set.
+   */
   public void setInsertPoint(Point insertPoint) {
     this.insertPoint = insertPoint;
   }
 
-  /** @return Returns the name. */
+  /**
+   * @return Returns the name.
+   */
   public String getName() {
     return name;
   }
 
-  /** @param name The name to set. */
+  /**
+   * @param name The name to set.
+   */
   public void setName(String name) {
     this.name = name;
   }
 
-  /** @return Returns the obliqueAngle. */
+  /**
+   * @return Returns the obliqueAngle.
+   */
   public double getObliqueAngle() {
     return obliqueAngle;
   }
 
-  /** @param obliqueAngle The obliqueAngle to set. */
+  /**
+   * @param obliqueAngle The obliqueAngle to set.
+   */
   public void setObliqueAngle(double obliqueAngle) {
     this.obliqueAngle = obliqueAngle;
   }
 
-  /** @return Returns the rotation. */
+  /**
+   * @return Returns the rotation.
+   */
   public double getRotation() {
     return rotation;
   }
 
-  /** @param rotation The rotation to set. */
+  /**
+   * @param rotation The rotation to set.
+   */
   public void setRotation(double rotation) {
     this.rotation = rotation;
   }
 
-  /** @return Returns the scaleFactor. */
+  /**
+   * @return Returns the scaleFactor.
+   */
   public double getScaleFactor() {
     return scaleFactor;
   }
 
-  /** @param scaleFactor The scaleFactor to set. */
+  /**
+   * @param scaleFactor The scaleFactor to set.
+   */
   public void setScaleFactor(double scaleFactor) {
     this.scaleFactor = scaleFactor;
   }

@@ -48,6 +48,7 @@ public class GisGroupByData extends BaseTransformData {
   public IRowMeta groupMeta;
   public IRowMeta groupAggMeta; // for speed: groupMeta+aggMeta
   public int[] groupnrs;
+
   /**
    * array, length is equal to aggMeta value meta list size and metadata subject fields length.
    * Values corresponds to input values used to calculate target results.

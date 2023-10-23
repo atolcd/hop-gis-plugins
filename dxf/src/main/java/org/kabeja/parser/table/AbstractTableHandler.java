@@ -17,7 +17,9 @@ package org.kabeja.parser.table;
 
 import org.kabeja.dxf.DXFDocument;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public abstract class AbstractTableHandler implements DXFTableHandler {
   protected DXFDocument doc;
 

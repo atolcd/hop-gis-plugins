@@ -18,7 +18,9 @@ package org.kabeja.parser.dxf.filter;
 import java.util.Map;
 import org.kabeja.parser.dxf.DXFHandler;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public interface DXFStreamFilter extends DXFHandler {
   /**
    * The next DXFHandler in the chain.

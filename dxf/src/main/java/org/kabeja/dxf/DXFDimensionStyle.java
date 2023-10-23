@@ -18,7 +18,9 @@ package org.kabeja.dxf;
 import java.util.HashMap;
 import java.util.Iterator;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class DXFDimensionStyle {
   /** the size of the dimension text */
   public static final String PROPERTY_DIMTXT = "140";

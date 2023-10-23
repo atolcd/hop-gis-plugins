@@ -22,7 +22,9 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Hashtable;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public class FontManager {
   private static FontManager instance = new FontManager();
   private String fontDescription = "conf/font.properties";

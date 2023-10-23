@@ -19,7 +19,9 @@ import org.kabeja.dxf.DXFAttrib;
 import org.kabeja.dxf.DXFConstants;
 import org.kabeja.parser.DXFValue;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public class DXFAttribHandler extends DXFTextHandler {
   public static final int ATTRIB_VERTICAL_ALIGN = 74;
   public static final int ATTRIB_TEXT_LENGTH = 73;

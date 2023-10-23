@@ -18,7 +18,9 @@ package org.kabeja.parser.entities;
 import org.kabeja.dxf.DXF3DSolid;
 import org.kabeja.dxf.DXFConstants;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public class DXF3DSolidHandler extends DXFRegionHandler {
   /*
    * (non-Javadoc)

@@ -18,7 +18,9 @@ package org.kabeja.dxf;
 import org.kabeja.dxf.helpers.Point;
 import org.kabeja.dxf.helpers.Vector;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class DXFRay extends DXFEntity {
   protected Point basePoint = new Point();
   protected Vector direction = new Vector();
@@ -42,22 +44,30 @@ public class DXFRay extends DXFEntity {
     return DXFConstants.ENTITY_TYPE_RAY;
   }
 
-  /** @return Returns the basePoint. */
+  /**
+   * @return Returns the basePoint.
+   */
   public Point getBasePoint() {
     return basePoint;
   }
 
-  /** @param basePoint The basePoint to set. */
+  /**
+   * @param basePoint The basePoint to set.
+   */
   public void setBasePoint(Point basePoint) {
     this.basePoint = basePoint;
   }
 
-  /** @return Returns the direction. */
+  /**
+   * @return Returns the direction.
+   */
   public Vector getDirection() {
     return direction;
   }
 
-  /** @param direction The direction to set. */
+  /**
+   * @param direction The direction to set.
+   */
   public void setDirection(Vector direction) {
     this.direction = direction;
   }

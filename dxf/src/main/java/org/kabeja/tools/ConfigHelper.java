@@ -21,7 +21,9 @@ import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.XMLReaderFactory;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public class ConfigHelper {
   public static final String JAVA_14_SAX_DRIVER = "org.apache.crimson.parser.XMLReaderImpl";
   public static final String JAVA_15_SAX_DRIVER =

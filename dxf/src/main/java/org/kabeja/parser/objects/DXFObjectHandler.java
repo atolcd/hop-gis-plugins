@@ -19,7 +19,9 @@ import org.kabeja.dxf.objects.DXFObject;
 import org.kabeja.parser.DXFValue;
 import org.kabeja.parser.Handler;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public interface DXFObjectHandler extends Handler {
   public String getObjectType();
 

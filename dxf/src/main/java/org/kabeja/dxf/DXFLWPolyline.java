@@ -4,7 +4,9 @@
  */
 package org.kabeja.dxf;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class DXFLWPolyline extends DXFPolyline {
   private double constantwidth = 0.0;
   private double elevation = 0.0;
@@ -19,12 +21,16 @@ public class DXFLWPolyline extends DXFPolyline {
     return this.constantwidth;
   }
 
-  /** @return Returns the elevation. */
+  /**
+   * @return Returns the elevation.
+   */
   public double getElevation() {
     return elevation;
   }
 
-  /** @param elevation The elevation to set. */
+  /**
+   * @param elevation The elevation to set.
+   */
   public void setElevation(double elevation) {
     this.elevation = elevation;
   }

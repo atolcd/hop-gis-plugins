@@ -19,7 +19,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import org.kabeja.dxf.helpers.Point;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class DXFBlock {
   public static String TYPE = "BLOCK";
   private Point referencePoint;
@@ -58,22 +60,30 @@ public class DXFBlock {
     return bounds;
   }
 
-  /** @return Returns the description. */
+  /**
+   * @return Returns the description.
+   */
   public String getDescription() {
     return description;
   }
 
-  /** @param description The description to set. */
+  /**
+   * @param description The description to set.
+   */
   public void setDescription(String description) {
     this.description = description;
   }
 
-  /** @return Returns the p. */
+  /**
+   * @return Returns the p.
+   */
   public Point getReferencePoint() {
     return referencePoint;
   }
 
-  /** @param p The p to set. */
+  /**
+   * @param p The p to set.
+   */
   public void setReferencePoint(Point p) {
     this.referencePoint = p;
   }
@@ -82,32 +92,44 @@ public class DXFBlock {
     entities.add(entity);
   }
 
-  /** @return a iterator over all entities of this block */
+  /**
+   * @return a iterator over all entities of this block
+   */
   public Iterator<DXFEntity> getDXFEntitiesIterator() {
     return entities.iterator();
   }
 
-  /** @return Returns the layerID. */
+  /**
+   * @return Returns the layerID.
+   */
   public String getLayerID() {
     return layerID;
   }
 
-  /** @param layerID The layerID to set. */
+  /**
+   * @param layerID The layerID to set.
+   */
   public void setLayerID(String layerID) {
     this.layerID = layerID;
   }
 
-  /** @return Returns the name. */
+  /**
+   * @return Returns the name.
+   */
   public String getName() {
     return name;
   }
 
-  /** @param name The name to set. */
+  /**
+   * @param name The name to set.
+   */
   public void setName(String name) {
     this.name = name;
   }
 
-  /** @param doc The doc to set. */
+  /**
+   * @param doc The doc to set.
+   */
   public void setDXFDocument(DXFDocument doc) {
     this.doc = doc;
 
@@ -119,7 +141,9 @@ public class DXFBlock {
     }
   }
 
-  /** @return the parent document */
+  /**
+   * @return the parent document
+   */
   public DXFDocument getDXFDocument() {
     return this.doc;
   }

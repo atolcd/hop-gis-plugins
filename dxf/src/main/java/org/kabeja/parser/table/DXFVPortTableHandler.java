@@ -19,7 +19,9 @@ import org.kabeja.dxf.DXFConstants;
 import org.kabeja.dxf.DXFViewport;
 import org.kabeja.parser.DXFValue;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public class DXFVPortTableHandler extends AbstractTableHandler {
   public static final int GROUPCODE_VPORT_NAME = 2;
   public static final int GROUPCODE_VPORT_LOWER_LEFT_X = 10;

@@ -23,7 +23,9 @@ import org.kabeja.dxf.DXFEntity;
 import org.kabeja.dxf.DXFLayer;
 import org.kabeja.dxf.DXFViewport;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public class ViewportFilter extends AbstractPostProcessor {
   /*
    * (non-Javadoc)

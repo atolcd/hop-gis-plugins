@@ -21,7 +21,9 @@ import org.kabeja.dxf.DXFSpline;
 import org.kabeja.dxf.helpers.SplinePoint;
 import org.kabeja.parser.DXFValue;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public class DXFSplineHandler extends AbstractEntityHandler {
   public static final int CONTROL_POINT_X = 10;
   public static final int CONTROL_POINT_Y = 20;

@@ -19,7 +19,9 @@ import org.kabeja.dxf.DXFDocument;
 import org.kabeja.dxf.objects.DXFObject;
 import org.kabeja.parser.DXFValue;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public abstract class AbstractDXFObjectHandler implements DXFObjectHandler {
   public static final int GROUPCODE_SOFTPOINTER_ID = 330;
   public static final int GROUPCODE_HARDOWNER_ID = 360;

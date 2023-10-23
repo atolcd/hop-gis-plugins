@@ -19,7 +19,9 @@ import org.kabeja.dxf.DXFDimension;
 import org.kabeja.dxf.DXFEntity;
 import org.kabeja.parser.DXFValue;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public class DXFDimensionHandler extends AbstractEntityHandler {
   protected static final int GROUPCODE_REFERENCE_POINT_X = 10;
   protected static final int GROUPCODE_REFERENCE_POINT_Y = 20;

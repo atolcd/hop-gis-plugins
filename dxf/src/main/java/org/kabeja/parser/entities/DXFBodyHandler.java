@@ -18,7 +18,9 @@ package org.kabeja.parser.entities;
 import org.kabeja.dxf.DXFBody;
 import org.kabeja.dxf.DXFConstants;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public class DXFBodyHandler extends DXFRegionHandler {
   /*
    * (non-Javadoc)

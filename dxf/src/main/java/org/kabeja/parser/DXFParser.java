@@ -31,7 +31,9 @@ import org.kabeja.parser.dxf.DXFHandler;
 import org.kabeja.parser.dxf.filter.DXFStreamFilter;
 import org.kabeja.tools.CodePageParser;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class DXFParser implements HandlerManager, Handler, Parser, DXFHandler {
   public static final String PARSER_NAME = "DXFParser";
   public static final String EXTENSION = "dxf";

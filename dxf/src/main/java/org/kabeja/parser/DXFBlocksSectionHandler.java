@@ -20,7 +20,9 @@ import org.kabeja.dxf.DXFConstants;
 import org.kabeja.dxf.DXFDocument;
 import org.kabeja.dxf.DXFEntity;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class DXFBlocksSectionHandler extends DXFEntitiesSectionHandler {
   public static final String SECTION_KEY = "BLOCKS";
   public static final String BLOCK_START = "BLOCK";

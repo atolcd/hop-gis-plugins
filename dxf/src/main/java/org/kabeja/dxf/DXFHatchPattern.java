@@ -31,7 +31,9 @@ public class DXFHatchPattern {
   private List patterns = new ArrayList();
   private DXFHatch hatch;
 
-  /** @return Returns the id. */
+  /**
+   * @return Returns the id.
+   */
   public String getID() {
     if (this.id == null) {
       this.id = "HATCH_PATTERN_ID_" + DXFHatchPattern.idCount;
@@ -41,7 +43,9 @@ public class DXFHatchPattern {
     return id;
   }
 
-  /** @param id The id to set. */
+  /**
+   * @param id The id to set.
+   */
   public void setID(String id) {
     this.id = id;
   }
@@ -72,7 +76,9 @@ public class DXFHatchPattern {
     this.hatch = hatch;
   }
 
-  /** @return the count of the used line families */
+  /**
+   * @return the count of the used line families
+   */
   public int getLineFamilyCount() {
     return this.patterns.size();
   }

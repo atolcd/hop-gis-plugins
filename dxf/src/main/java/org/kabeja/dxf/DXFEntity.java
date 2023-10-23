@@ -19,7 +19,9 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public abstract class DXFEntity {
   protected DXFDocument doc;
   protected String id = "";
@@ -86,32 +88,44 @@ public abstract class DXFEntity {
   //        throws SAXException;
   public abstract Bounds getBounds();
 
-  /** @return Returns the lineType. */
+  /**
+   * @return Returns the lineType.
+   */
   public String getLineType() {
     return lineType;
   }
 
-  /** @param lineType The lineType to set. */
+  /**
+   * @param lineType The lineType to set.
+   */
   public void setLineType(String lineType) {
     this.lineType = lineType;
   }
 
-  /** @return Returns the visibile. */
+  /**
+   * @return Returns the visibile.
+   */
   public boolean isVisibile() {
     return visibile;
   }
 
-  /** @param visibile The visibile to set. */
+  /**
+   * @param visibile The visibile to set.
+   */
   public void setVisibile(boolean visibile) {
     this.visibile = visibile;
   }
 
-  /** @return Returns the flags. */
+  /**
+   * @return Returns the flags.
+   */
   public int getFlags() {
     return flags;
   }
 
-  /** @param flags The flags to set. */
+  /**
+   * @param flags The flags to set.
+   */
   public void setFlags(int flags) {
     this.flags = flags;
   }
@@ -203,7 +217,9 @@ public abstract class DXFEntity {
     return thickness;
   }
 
-  /** @param thickness The thickness /height of the entity to set. */
+  /**
+   * @param thickness The thickness /height of the entity to set.
+   */
   public void setThickness(double thickness) {
     this.thickness = thickness;
   }
@@ -212,12 +228,16 @@ public abstract class DXFEntity {
     return false;
   }
 
-  /** @return Returns the modelSpace. */
+  /**
+   * @return Returns the modelSpace.
+   */
   public boolean isModelSpace() {
     return modelSpace;
   }
 
-  /** @param modelSpace The modelSpace to set. */
+  /**
+   * @param modelSpace The modelSpace to set.
+   */
   public void setModelSpace(boolean modelSpace) {
     this.modelSpace = modelSpace;
   }

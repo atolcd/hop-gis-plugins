@@ -19,7 +19,9 @@ import java.util.HashMap;
 import java.util.Map;
 import org.xml.sax.helpers.XMLFilterImpl;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public abstract class AbstractSAXFilter extends XMLFilterImpl implements SAXFilter {
   protected Map properties = new HashMap();
 

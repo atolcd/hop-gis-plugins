@@ -26,10 +26,14 @@ import org.kabeja.dxf.DXFDocument;
 public interface DXFDocumentViewComponent extends Component {
   public static final String SERVICE = DXFDocumentViewComponent.class.getName();
 
-  /** @return the title of the component */
+  /**
+   * @return the title of the component
+   */
   abstract String getTitle();
 
-  /** @return the view of this component */
+  /**
+   * @return the view of this component
+   */
   abstract JComponent getView();
 
   /**

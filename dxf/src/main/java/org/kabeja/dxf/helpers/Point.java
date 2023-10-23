@@ -17,7 +17,9 @@ package org.kabeja.dxf.helpers;
 
 import org.kabeja.dxf.DXFConstants;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class Point {
   protected double x = 0.0;
   protected double y = 0.0;
@@ -31,32 +33,44 @@ public class Point {
     this.z = z;
   }
 
-  /** @return Returns the x. */
+  /**
+   * @return Returns the x.
+   */
   public double getX() {
     return x;
   }
 
-  /** @param x The x to set. */
+  /**
+   * @param x The x to set.
+   */
   public void setX(double x) {
     this.x = x;
   }
 
-  /** @return Returns the y. */
+  /**
+   * @return Returns the y.
+   */
   public double getY() {
     return y;
   }
 
-  /** @param y The y to set. */
+  /**
+   * @param y The y to set.
+   */
   public void setY(double y) {
     this.y = y;
   }
 
-  /** @return Returns the z. */
+  /**
+   * @return Returns the z.
+   */
   public double getZ() {
     return z;
   }
 
-  /** @param z The z to set. */
+  /**
+   * @param z The z to set.
+   */
   public void setZ(double z) {
     this.z = z;
   }

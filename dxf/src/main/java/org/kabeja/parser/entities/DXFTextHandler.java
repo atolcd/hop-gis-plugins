@@ -20,7 +20,9 @@ import org.kabeja.dxf.DXFEntity;
 import org.kabeja.dxf.DXFText;
 import org.kabeja.parser.DXFValue;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public class DXFTextHandler extends AbstractEntityHandler {
   public static final int TEXT_VALUE = 1;
   public static final int TEXT_HEIGHT = 40;

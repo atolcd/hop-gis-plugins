@@ -19,7 +19,9 @@ import org.kabeja.dxf.DXFEntity;
 import org.kabeja.dxf.DXFSolid;
 import org.kabeja.parser.DXFValue;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public class DXFSolidHandler extends AbstractEntityHandler {
   public static final int POINT2_X = 11;
   public static final int POINT2_Y = 21;
@@ -32,6 +34,7 @@ public class DXFSolidHandler extends AbstractEntityHandler {
   public static final int POINT4_Z = 33;
   protected String ENTITY_NAME = "SOLID";
   protected DXFSolid solid;
+
   /*
    * (non-Javadoc)
    *

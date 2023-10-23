@@ -18,7 +18,9 @@ package org.kabeja.math;
 import org.kabeja.dxf.helpers.Point;
 import org.kabeja.dxf.helpers.Vector;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class MathUtils {
   public static final double DISTANCE_DELTA = 0.00001;
 

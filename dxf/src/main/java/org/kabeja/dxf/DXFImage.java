@@ -8,7 +8,9 @@ import java.util.ArrayList;
 import org.kabeja.dxf.helpers.Point;
 import org.kabeja.dxf.objects.DXFImageDefObject;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class DXFImage extends DXFEntity {
   protected Point insertPoint = new Point();
   protected Point vectorV = new Point();
@@ -72,87 +74,121 @@ public class DXFImage extends DXFEntity {
     return this.imageDefID;
   }
 
-  /** @return Returns the imageSizeAlongU. */
+  /**
+   * @return Returns the imageSizeAlongU.
+   */
   public double getImageSizeAlongU() {
     return imageSizeAlongU;
   }
 
-  /** @param imageSizeAlongU The imageSizeAlongU to set. */
+  /**
+   * @param imageSizeAlongU The imageSizeAlongU to set.
+   */
   public void setImageSizeAlongU(double imageSizeAlongU) {
     this.imageSizeAlongU = imageSizeAlongU;
   }
 
-  /** @return Returns the imageSizeAlongV. */
+  /**
+   * @return Returns the imageSizeAlongV.
+   */
   public double getImageSizeAlongV() {
     return imageSizeAlongV;
   }
 
-  /** @param imageSizeAlongV The imageSizeAlongV to set. */
+  /**
+   * @param imageSizeAlongV The imageSizeAlongV to set.
+   */
   public void setImageSizeAlongV(double imageSizeAlongV) {
     this.imageSizeAlongV = imageSizeAlongV;
   }
 
-  /** @return Returns the vectorU. */
+  /**
+   * @return Returns the vectorU.
+   */
   public Point getVectorU() {
     return vectorU;
   }
 
-  /** @param vectorU The vectorU to set. */
+  /**
+   * @param vectorU The vectorU to set.
+   */
   public void setVectorU(Point vectorU) {
     this.vectorU = vectorU;
   }
 
-  /** @return Returns the vectorV. */
+  /**
+   * @return Returns the vectorV.
+   */
   public Point getVectorV() {
     return vectorV;
   }
 
-  /** @param vectorV The vectorV to set. */
+  /**
+   * @param vectorV The vectorV to set.
+   */
   public void setVectorV(Point vectorV) {
     this.vectorV = vectorV;
   }
 
-  /** @return Returns the brightness. */
+  /**
+   * @return Returns the brightness.
+   */
   public double getBrightness() {
     return brightness;
   }
 
-  /** @param brightness The brightness to set. */
+  /**
+   * @param brightness The brightness to set.
+   */
   public void setBrightness(double brightness) {
     this.brightness = brightness;
   }
 
-  /** @return Returns the clipping. */
+  /**
+   * @return Returns the clipping.
+   */
   public boolean isClipping() {
     return clipping;
   }
 
-  /** @param clipping The clipping to set. */
+  /**
+   * @param clipping The clipping to set.
+   */
   public void setClipping(boolean clipping) {
     this.clipping = clipping;
   }
 
-  /** @return Returns the contrast. */
+  /**
+   * @return Returns the contrast.
+   */
   public double getContrast() {
     return contrast;
   }
 
-  /** @param contrast The contrast to set. */
+  /**
+   * @param contrast The contrast to set.
+   */
   public void setContrast(double contrast) {
     this.contrast = contrast;
   }
 
-  /** @return Returns the fade. */
+  /**
+   * @return Returns the fade.
+   */
   public double getFade() {
     return fade;
   }
 
-  /** @param fade The fade to set. */
+  /**
+   * @param fade The fade to set.
+   */
   public void setFade(double fade) {
     this.fade = fade;
   }
 
-  /** @return Returns the clipBoundary. */
+  /**
+   * @return Returns the clipBoundary.
+   */
   public ArrayList getClipBoundary() {
     return clipBoundary;
   }
@@ -161,23 +197,31 @@ public class DXFImage extends DXFEntity {
     clipBoundary.add(p);
   }
 
-  /** @return Returns the polygonalClipping. */
+  /**
+   * @return Returns the polygonalClipping.
+   */
   public boolean isPolygonalClipping() {
     return polygonalClipping;
   }
 
-  /** @param polygonalClipping The polygonalClipping to set. */
+  /**
+   * @param polygonalClipping The polygonalClipping to set.
+   */
   public void setPolygonalClipping(boolean polygonalClipping) {
     this.polygonalClipping = polygonalClipping;
     this.rectangularClipping = !polygonalClipping;
   }
 
-  /** @return Returns the rectangularClipping. */
+  /**
+   * @return Returns the rectangularClipping.
+   */
   public boolean isRectangularClipping() {
     return rectangularClipping;
   }
 
-  /** @param rectangularClipping The rectangularClipping to set. */
+  /**
+   * @param rectangularClipping The rectangularClipping to set.
+   */
   public void setRectangularClipping(boolean rectangularClipping) {
     this.rectangularClipping = rectangularClipping;
     this.polygonalClipping = !rectangularClipping;

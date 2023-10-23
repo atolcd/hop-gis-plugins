@@ -17,7 +17,9 @@ package org.kabeja.ui;
 
 import java.util.Map;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public interface PropertiesListener {
   /**
    * Will be called every time the properties have changed

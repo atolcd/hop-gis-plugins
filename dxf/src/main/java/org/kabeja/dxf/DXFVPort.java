@@ -17,7 +17,9 @@ package org.kabeja.dxf;
 
 import org.kabeja.dxf.helpers.Point;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class DXFVPort {
   private String name = "";
   private Point lowerLeftCorner = new Point();
@@ -41,202 +43,282 @@ public class DXFVPort {
   private boolean grid;
   private boolean active = false;
 
-  /** @return Returns the backClippingPlane. */
+  /**
+   * @return Returns the backClippingPlane.
+   */
   public double getBackClippingPlane() {
     return backClippingPlane;
   }
 
-  /** @param backClippingPlane The backClippingPlane to set. */
+  /**
+   * @param backClippingPlane The backClippingPlane to set.
+   */
   public void setBackClippingPlane(double backClippingPlane) {
     this.backClippingPlane = backClippingPlane;
   }
 
-  /** @return Returns the centerPoint. */
+  /**
+   * @return Returns the centerPoint.
+   */
   public Point getCenterPoint() {
     return centerPoint;
   }
 
-  /** @param centerPoint The centerPoint to set. */
+  /**
+   * @param centerPoint The centerPoint to set.
+   */
   public void setCenterPoint(Point centerPoint) {
     this.centerPoint = centerPoint;
   }
 
-  /** @return Returns the circleZoom. */
+  /**
+   * @return Returns the circleZoom.
+   */
   public double getCircleZoom() {
     return circleZoom;
   }
 
-  /** @param circleZoom The circleZoom to set. */
+  /**
+   * @param circleZoom The circleZoom to set.
+   */
   public void setCircleZoom(double circleZoom) {
     this.circleZoom = circleZoom;
   }
 
-  /** @return Returns the fastZoom. */
+  /**
+   * @return Returns the fastZoom.
+   */
   public double getFastZoom() {
     return fastZoom;
   }
 
-  /** @param fastZoom The fastZoom to set. */
+  /**
+   * @param fastZoom The fastZoom to set.
+   */
   public void setFastZoom(double fastZoom) {
     this.fastZoom = fastZoom;
   }
 
-  /** @return Returns the frontClippingPlane. */
+  /**
+   * @return Returns the frontClippingPlane.
+   */
   public double getFrontClippingPlane() {
     return frontClippingPlane;
   }
 
-  /** @param frontClippingPlane The frontClippingPlane to set. */
+  /**
+   * @param frontClippingPlane The frontClippingPlane to set.
+   */
   public void setFrontClippingPlane(double frontClippingPlane) {
     this.frontClippingPlane = frontClippingPlane;
   }
 
-  /** @return Returns the grid. */
+  /**
+   * @return Returns the grid.
+   */
   public boolean isGrid() {
     return grid;
   }
 
-  /** @param grid The grid to set. */
+  /**
+   * @param grid The grid to set.
+   */
   public void setGrid(boolean grid) {
     this.grid = grid;
   }
 
-  /** @return Returns the gridSpacingPoint. */
+  /**
+   * @return Returns the gridSpacingPoint.
+   */
   public Point getGridSpacingPoint() {
     return gridSpacingPoint;
   }
 
-  /** @param gridSpacingPoint The gridSpacingPoint to set. */
+  /**
+   * @param gridSpacingPoint The gridSpacingPoint to set.
+   */
   public void setGridSpacingPoint(Point gridSpacingPoint) {
     this.gridSpacingPoint = gridSpacingPoint;
   }
 
-  /** @return Returns the height. */
+  /**
+   * @return Returns the height.
+   */
   public double getHeight() {
     return height;
   }
 
-  /** @param height The height to set. */
+  /**
+   * @param height The height to set.
+   */
   public void setHeight(double height) {
     this.height = height;
   }
 
-  /** @return Returns the lensLength. */
+  /**
+   * @return Returns the lensLength.
+   */
   public double getLensLength() {
     return lensLength;
   }
 
-  /** @param lensLength The lensLength to set. */
+  /**
+   * @param lensLength The lensLength to set.
+   */
   public void setLensLength(double lensLength) {
     this.lensLength = lensLength;
   }
 
-  /** @return Returns the lowerLeftCorner. */
+  /**
+   * @return Returns the lowerLeftCorner.
+   */
   public Point getLowerLeftCorner() {
     return lowerLeftCorner;
   }
 
-  /** @param lowerLeftCorner The lowerLeftCorner to set. */
+  /**
+   * @param lowerLeftCorner The lowerLeftCorner to set.
+   */
   public void setLowerLeftCorner(Point lowerLeftCorner) {
     this.lowerLeftCorner = lowerLeftCorner;
   }
 
-  /** @return Returns the name. */
+  /**
+   * @return Returns the name.
+   */
   public String getName() {
     return name;
   }
 
-  /** @param name The name to set. */
+  /**
+   * @param name The name to set.
+   */
   public void setName(String name) {
     this.name = name;
   }
 
-  /** @return Returns the ratio. */
+  /**
+   * @return Returns the ratio.
+   */
   public double getAspectRatio() {
     return ratio;
   }
 
-  /** @param ratio The ratio to set. */
+  /**
+   * @param ratio The ratio to set.
+   */
   public void setAspectRatio(double ratio) {
     this.ratio = ratio;
   }
 
-  /** @return Returns the rotationAngle. */
+  /**
+   * @return Returns the rotationAngle.
+   */
   public double getRotationAngle() {
     return rotationAngle;
   }
 
-  /** @param rotationAngle The rotationAngle to set. */
+  /**
+   * @param rotationAngle The rotationAngle to set.
+   */
   public void setRotationAngle(double rotationAngle) {
     this.rotationAngle = rotationAngle;
   }
 
-  /** @return Returns the snap. */
+  /**
+   * @return Returns the snap.
+   */
   public boolean isSnap() {
     return snap;
   }
 
-  /** @param snap The snap to set. */
+  /**
+   * @param snap The snap to set.
+   */
   public void setSnap(boolean snap) {
     this.snap = snap;
   }
 
-  /** @return Returns the snapBasePoint. */
+  /**
+   * @return Returns the snapBasePoint.
+   */
   public Point getSnapBasePoint() {
     return snapBasePoint;
   }
 
-  /** @param snapBasePoint The snapBasePoint to set. */
+  /**
+   * @param snapBasePoint The snapBasePoint to set.
+   */
   public void setSnapBasePoint(Point snapBasePoint) {
     this.snapBasePoint = snapBasePoint;
   }
 
-  /** @return Returns the upperRightCorner. */
+  /**
+   * @return Returns the upperRightCorner.
+   */
   public Point getUpperRightCorner() {
     return upperRightCorner;
   }
 
-  /** @param upperRightCorner The upperRightCorner to set. */
+  /**
+   * @param upperRightCorner The upperRightCorner to set.
+   */
   public void setUpperRightCorner(Point upperRightCorner) {
     this.upperRightCorner = upperRightCorner;
   }
 
-  /** @return Returns the viewDirectionPoint. */
+  /**
+   * @return Returns the viewDirectionPoint.
+   */
   public Point getViewDirectionPoint() {
     return viewDirectionPoint;
   }
 
-  /** @param viewDirectionPoint The viewDirectionPoint to set. */
+  /**
+   * @param viewDirectionPoint The viewDirectionPoint to set.
+   */
   public void setViewDirectionPoint(Point viewDirectionPoint) {
     this.viewDirectionPoint = viewDirectionPoint;
   }
 
-  /** @return Returns the viewTargetPoint. */
+  /**
+   * @return Returns the viewTargetPoint.
+   */
   public Point getViewTargetPoint() {
     return viewTargetPoint;
   }
 
-  /** @param viewTargetPoint The viewTargetPoint to set. */
+  /**
+   * @param viewTargetPoint The viewTargetPoint to set.
+   */
   public void setViewTargetPoint(Point viewTargetPoint) {
     this.viewTargetPoint = viewTargetPoint;
   }
 
-  /** @return Returns the viewTwistAngle. */
+  /**
+   * @return Returns the viewTwistAngle.
+   */
   public double getViewTwistAngle() {
     return viewTwistAngle;
   }
 
-  /** @param viewTwistAngle The viewTwistAngle to set. */
+  /**
+   * @param viewTwistAngle The viewTwistAngle to set.
+   */
   public void setViewTwistAngle(double viewTwistAngle) {
     this.viewTwistAngle = viewTwistAngle;
   }
 
-  /** @return Returns the active. */
+  /**
+   * @return Returns the active.
+   */
   public boolean isActive() {
     return active;
   }
 
-  /** @param active The active to set. */
+  /**
+   * @param active The active to set.
+   */
   public void setActive(boolean active) {
     this.active = active;
   }

@@ -20,7 +20,9 @@ import org.kabeja.dxf.DXFEntity;
 import org.kabeja.dxf.DXFRegion;
 import org.kabeja.parser.DXFValue;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public class DXFRegionHandler extends AbstractEntityHandler {
   protected static final int DATA = 1;
   protected static final int APPEND_DATA = 3;

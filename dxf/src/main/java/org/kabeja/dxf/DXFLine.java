@@ -18,7 +18,9 @@ package org.kabeja.dxf;
 import org.kabeja.dxf.helpers.Point;
 import org.kabeja.math.MathUtils;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class DXFLine extends DXFEntity {
   private Point start;
   private Point end;
@@ -34,17 +36,23 @@ public class DXFLine extends DXFEntity {
     this.start = start;
   }
 
-  /** @return Returns the end. */
+  /**
+   * @return Returns the end.
+   */
   public Point getEndPoint() {
     return end;
   }
 
-  /** @param end The end to set. */
+  /**
+   * @param end The end to set.
+   */
   public void setEndPoint(Point end) {
     this.end = end;
   }
 
-  /** @return Returns the start. */
+  /**
+   * @return Returns the start.
+   */
   public Point getStartPoint() {
     return start;
   }

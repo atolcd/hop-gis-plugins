@@ -31,7 +31,9 @@ public class DXFExtrusion {
   protected Vector x;
   protected Vector y;
 
-  /** @return the x value of the extrusion direction. */
+  /**
+   * @return the x value of the extrusion direction.
+   */
   public double getX() {
     return n.getX();
   }
@@ -41,7 +43,9 @@ public class DXFExtrusion {
     n.setX(x);
   }
 
-  /** @return the y value of the extrusion direction. */
+  /**
+   * @return the y value of the extrusion direction.
+   */
   public double getY() {
     return n.getY();
   }
@@ -51,7 +55,9 @@ public class DXFExtrusion {
     n.setY(y);
   }
 
-  /** @return the z value of the extrusion direction. */
+  /**
+   * @return the z value of the extrusion direction.
+   */
   public double getZ() {
     return n.getZ();
   }

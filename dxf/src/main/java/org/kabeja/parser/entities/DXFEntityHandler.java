@@ -37,7 +37,9 @@ import org.kabeja.parser.Handler;
  * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
  */
 public interface DXFEntityHandler extends Handler {
-  /** @return the DXFEntity name (LINE,POLYLINE,TEXT,...) */
+  /**
+   * @return the DXFEntity name (LINE,POLYLINE,TEXT,...)
+   */
   public abstract String getDXFEntityName();
 
   public void setDXFDocument(DXFDocument doc);

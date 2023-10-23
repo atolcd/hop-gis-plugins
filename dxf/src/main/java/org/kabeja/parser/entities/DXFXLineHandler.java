@@ -18,7 +18,9 @@ package org.kabeja.parser.entities;
 import org.kabeja.dxf.DXFConstants;
 import org.kabeja.dxf.DXFXLine;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public class DXFXLineHandler extends DXFRayHandler {
   /* (non-Javadoc)
    * @see de.miethxml.kabeja.parser.entities.DXFEntityHandler#getDXFEntityName()

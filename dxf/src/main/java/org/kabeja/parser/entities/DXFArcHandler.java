@@ -19,7 +19,9 @@ import org.kabeja.dxf.DXFArc;
 import org.kabeja.dxf.DXFEntity;
 import org.kabeja.parser.DXFValue;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public class DXFArcHandler extends AbstractEntityHandler {
   public static final String ENTITY_NAME = "ARC";
   public static final int RADIUS = 40;

@@ -18,7 +18,9 @@ package org.kabeja.tools;
 import java.util.HashMap;
 import java.util.Map;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public class SAXFilterConfig {
   private Map properties;
   private String filterName;
@@ -39,12 +41,16 @@ public class SAXFilterConfig {
     this.properties.put(name, value);
   }
 
-  /** @return Returns the filterName. */
+  /**
+   * @return Returns the filterName.
+   */
   public String getFilterName() {
     return filterName;
   }
 
-  /** @param filterName The filterName to set. */
+  /**
+   * @param filterName The filterName to set.
+   */
   public void setFilterName(String filterName) {
     this.filterName = filterName;
   }

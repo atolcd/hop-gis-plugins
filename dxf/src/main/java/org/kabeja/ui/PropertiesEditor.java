@@ -39,7 +39,9 @@ public interface PropertiesEditor {
    */
   public Map getProperties();
 
-  /** @param listener */
+  /**
+   * @param listener
+   */
   public void addPropertiesListener(PropertiesListener listener);
 
   public void removePropertiesListener(PropertiesListener listener);

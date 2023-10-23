@@ -21,7 +21,9 @@ import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class DXFLayer {
   private Hashtable entities = new Hashtable();
   private String name = "";
@@ -34,12 +36,16 @@ public class DXFLayer {
 
   public DXFLayer() {}
 
-  /** @return Returns the name. */
+  /**
+   * @return Returns the name.
+   */
   public String getName() {
     return name;
   }
 
-  /** @param name The name to set. */
+  /**
+   * @param name The name to set.
+   */
   public void setName(String name) {
     this.name = name;
   }
@@ -154,7 +160,9 @@ public class DXFLayer {
     return entities.containsKey(type);
   }
 
-  /** @return a iterator over all entity types of this layer */
+  /**
+   * @return a iterator over all entity types of this layer
+   */
   public Iterator getDXFEntityTypeIterator() {
     return entities.keySet().iterator();
   }
@@ -204,12 +212,16 @@ public class DXFLayer {
     return ltype;
   }
 
-  /** @return Returns the flags. */
+  /**
+   * @return Returns the flags.
+   */
   public int getFlags() {
     return flags;
   }
 
-  /** @param flags The flags to set. */
+  /**
+   * @param flags The flags to set.
+   */
   public void setFlags(int flags) {
     this.flags = flags;
   }

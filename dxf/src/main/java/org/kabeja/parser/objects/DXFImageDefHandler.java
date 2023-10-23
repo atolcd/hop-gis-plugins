@@ -20,7 +20,9 @@ import org.kabeja.dxf.objects.DXFImageDefObject;
 import org.kabeja.dxf.objects.DXFObject;
 import org.kabeja.parser.DXFValue;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public class DXFImageDefHandler extends AbstractDXFObjectHandler {
   public static final int GROUPCODE_FILENAME = 1;
   protected DXFImageDefObject imageDef;

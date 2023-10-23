@@ -21,7 +21,9 @@ import org.kabeja.dxf.DXFLeader;
 import org.kabeja.dxf.helpers.Point;
 import org.kabeja.parser.DXFValue;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public class DXFLeaderHandler extends AbstractEntityHandler {
   public static final int GROUPCODE_ARROW_HEAD_FLAG = 71;
   public static final int GROUPCODE_LEADER_PATH_TYPE = 72;

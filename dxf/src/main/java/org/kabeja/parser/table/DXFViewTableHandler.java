@@ -19,7 +19,9 @@ import org.kabeja.dxf.DXFConstants;
 import org.kabeja.dxf.DXFView;
 import org.kabeja.parser.DXFValue;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public class DXFViewTableHandler extends AbstractTableHandler {
   public static final int GROUPCODE_NAME = 2;
   public static final int GROUPCODE_CENTER_X = 10;

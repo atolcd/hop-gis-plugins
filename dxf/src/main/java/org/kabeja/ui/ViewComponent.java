@@ -25,9 +25,13 @@ import javax.swing.JComponent;
 public interface ViewComponent extends ProcessingUIComponent {
   public static final String SERVICE = ViewComponent.class.getName();
 
-  /** @return the title of the component */
+  /**
+   * @return the title of the component
+   */
   abstract String getTitle();
 
-  /** @return the view of this component */
+  /**
+   * @return the view of this component
+   */
   abstract JComponent getView();
 }

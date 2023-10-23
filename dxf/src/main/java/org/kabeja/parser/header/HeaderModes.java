@@ -15,7 +15,9 @@
 */
 package org.kabeja.parser.header;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public class HeaderModes {
   public static final int ACADVER = 1;
 }

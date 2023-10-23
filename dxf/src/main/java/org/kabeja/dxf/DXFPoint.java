@@ -17,7 +17,9 @@ package org.kabeja.dxf;
 
 import org.kabeja.dxf.helpers.Point;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class DXFPoint extends DXFEntity {
   protected Point p = new Point();
 
@@ -33,32 +35,44 @@ public class DXFPoint extends DXFEntity {
     this.p = p;
   }
 
-  /** @return Returns the x. */
+  /**
+   * @return Returns the x.
+   */
   public double getX() {
     return this.p.getX();
   }
 
-  /** @param x The x to set. */
+  /**
+   * @param x The x to set.
+   */
   public void setX(double x) {
     this.p.setX(x);
   }
 
-  /** @return Returns the y. */
+  /**
+   * @return Returns the y.
+   */
   public double getY() {
     return this.p.getY();
   }
 
-  /** @param y The y to set. */
+  /**
+   * @param y The y to set.
+   */
   public void setY(double y) {
     this.p.setY(y);
   }
 
-  /** @return Returns the z. */
+  /**
+   * @return Returns the z.
+   */
   public double getZ() {
     return this.p.getZ();
   }
 
-  /** @param z The z to set. */
+  /**
+   * @param z The z to set.
+   */
   public void setZ(double z) {
     this.p.setZ(z);
   }

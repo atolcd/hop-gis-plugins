@@ -20,7 +20,9 @@ import org.kabeja.dxf.DXFEntity;
 import org.kabeja.dxf.DXFViewport;
 import org.kabeja.parser.DXFValue;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public class DXFViewportHandler extends AbstractEntityHandler {
   public static final int GROUPCODE_CENTER_X = 10;
   public static final int GROUPCODE_CENTER_Y = 20;

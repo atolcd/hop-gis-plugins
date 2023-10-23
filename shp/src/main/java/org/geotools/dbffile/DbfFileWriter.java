@@ -222,12 +222,16 @@ public class DbfFileWriter implements DbfConsts {
 
   int dp = 2; // default number of decimals to write
 
-  /** @return the charset */
+  /**
+   * @return the charset
+   */
   public Charset getCharset() {
     return charset;
   }
 
-  /** @param charset the charset to set */
+  /**
+   * @param charset the charset to set
+   */
   public void setCharset(Charset charset) {
     this.charset = charset;
   }

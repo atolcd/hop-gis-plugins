@@ -4,7 +4,9 @@
  */
 package org.kabeja.dxf;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class DXFXLine extends DXFRay {
   public Bounds getBounds() {
     // the xline is a infinite straight line

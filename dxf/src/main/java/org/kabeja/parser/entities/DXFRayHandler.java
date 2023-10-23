@@ -20,7 +20,9 @@ import org.kabeja.dxf.DXFEntity;
 import org.kabeja.dxf.DXFRay;
 import org.kabeja.parser.DXFValue;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public class DXFRayHandler extends AbstractEntityHandler {
   protected DXFRay ray;
 

@@ -17,7 +17,9 @@ package org.kabeja.dxf.objects;
 
 import org.kabeja.dxf.DXFDocument;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public abstract class DXFObject {
   protected DXFDocument doc;
   protected String softID;
@@ -46,12 +48,16 @@ public abstract class DXFObject {
 
   public abstract String getObjectType();
 
-  /** @return Returns the handleID. */
+  /**
+   * @return Returns the handleID.
+   */
   public String getID() {
     return handleID;
   }
 
-  /** @param handleID The handleID to set. */
+  /**
+   * @param handleID The handleID to set.
+   */
   public void setID(String handleID) {
     this.handleID = handleID;
   }

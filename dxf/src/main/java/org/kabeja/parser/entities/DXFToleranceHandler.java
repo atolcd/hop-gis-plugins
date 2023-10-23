@@ -20,7 +20,9 @@ import org.kabeja.dxf.DXFEntity;
 import org.kabeja.dxf.DXFTolerance;
 import org.kabeja.parser.DXFValue;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public class DXFToleranceHandler extends AbstractEntityHandler {
   public static final int GROUPCODE_X_AXIS_DIRECTOPN_X = 11;
   public static final int GROUPCODE_X_AXIS_DIRECTOPN_Y = 21;

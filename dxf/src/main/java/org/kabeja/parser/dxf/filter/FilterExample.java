@@ -22,7 +22,9 @@ import org.kabeja.parser.DXFParser;
 import org.kabeja.parser.ParserBuilder;
 
 public class FilterExample {
-  /** @param args */
+  /**
+   * @param args
+   */
   public static void main(String[] args) {
     try {
       DXFParser parser = (DXFParser) ParserBuilder.createDefaultParser();

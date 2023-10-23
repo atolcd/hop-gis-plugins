@@ -19,7 +19,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import org.kabeja.dxf.DXFConstants;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public class CodePageParser {
   public static final String CODEPAGE_CODE = "$DWGCODEPAGE";
   public static final String GROUPCODE = "3";

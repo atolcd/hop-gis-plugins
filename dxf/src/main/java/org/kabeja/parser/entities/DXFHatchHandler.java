@@ -28,7 +28,9 @@ import org.kabeja.dxf.helpers.HatchBoundaryLoop;
 import org.kabeja.dxf.helpers.HatchLineFamily;
 import org.kabeja.parser.DXFValue;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public class DXFHatchHandler extends AbstractEntityHandler {
   public static final String END_SEQUENCE = "SEQEND";
   public static final int END_SEQUENCE_CODE = -2;

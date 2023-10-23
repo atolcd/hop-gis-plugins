@@ -21,7 +21,9 @@ import org.kabeja.dxf.DXFDocument;
 import org.kabeja.dxf.DXFEntity;
 import org.kabeja.parser.entities.DXFEntityHandler;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class DXFEntitiesSectionHandler extends AbstractSectionHandler
     implements DXFSectionHandler, HandlerManager {
   private static String SECTION_KEY = "ENTITIES";

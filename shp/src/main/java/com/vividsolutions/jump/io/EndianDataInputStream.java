@@ -48,6 +48,7 @@ import java.io.IOException;
 public class EndianDataInputStream {
   private java.io.DataInputStream inputStream;
   private byte[] workSpace = new byte[8]; // chars are 16 bits, so we always
+
   // quash the 1st 8 bits
 
   /** Creates new EndianDataInputStream */

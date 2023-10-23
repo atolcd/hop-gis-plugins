@@ -18,7 +18,9 @@ package org.kabeja.dxf;
 import org.kabeja.dxf.helpers.Point;
 import org.kabeja.dxf.helpers.Vector;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class DXFTolerance extends DXFEntity {
   protected Point insertionPoint = new Point();
   protected String styleNameID = "";
@@ -43,42 +45,58 @@ public class DXFTolerance extends DXFEntity {
     return DXFConstants.ENTITY_TYPE_TOLERANCE;
   }
 
-  /** @return Returns the insertionPoint. */
+  /**
+   * @return Returns the insertionPoint.
+   */
   public Point getInsertionPoint() {
     return insertionPoint;
   }
 
-  /** @param insertionPoint The insertionPoint to set. */
+  /**
+   * @param insertionPoint The insertionPoint to set.
+   */
   public void setInsertionPoint(Point insertionPoint) {
     this.insertionPoint = insertionPoint;
   }
 
-  /** @return Returns the styleID. */
+  /**
+   * @return Returns the styleID.
+   */
   public String getStyleID() {
     return styleNameID;
   }
 
-  /** @param styleNameID The styleID to set. */
+  /**
+   * @param styleNameID The styleID to set.
+   */
   public void setStyleID(String styleNameID) {
     this.styleNameID = styleNameID;
   }
 
-  /** @return Returns the text. */
+  /**
+   * @return Returns the text.
+   */
   public String getText() {
     return text;
   }
 
-  /** @param text The text to set. */
+  /**
+   * @param text The text to set.
+   */
   public void setText(String text) {
     this.text = text;
   }
 
-  /** @return Returns the xaxisDirection. */
+  /**
+   * @return Returns the xaxisDirection.
+   */
   public Vector getXaxisDirection() {
     return xaxisDirection;
   }
 
-  /** @param xaxisDirection The xaxisDirection to set. */
+  /**
+   * @param xaxisDirection The xaxisDirection to set.
+   */
   public void setXaxisDirection(Vector xaxisDirection) {
     this.xaxisDirection = xaxisDirection;
   }

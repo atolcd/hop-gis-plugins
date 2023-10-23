@@ -24,7 +24,9 @@ import java.util.List;
 import org.kabeja.dxf.objects.DXFDictionary;
 import org.kabeja.dxf.objects.DXFObject;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class DXFDocument {
   public static String PROPERTY_ENCODING = "encoding";
   public static final double DEFAULT_MARGIN = 5;
@@ -99,7 +101,9 @@ public class DXFDocument {
     return this.layers.containsKey(layerName);
   }
 
-  /** @return the iterator over all DXFLayer of this document */
+  /**
+   * @return the iterator over all DXFLayer of this document
+   */
   public Iterator getDXFLayerIterator() {
     return layers.values().iterator();
   }
@@ -112,7 +116,9 @@ public class DXFDocument {
     return (DXFLineType) lineTypes.get(name);
   }
 
-  /** @return the iterator over all DXFLineTypes */
+  /**
+   * @return the iterator over all DXFLineTypes
+   */
   public Iterator getDXFLineTypeIterator() {
     return lineTypes.values().iterator();
   }
@@ -133,7 +139,9 @@ public class DXFDocument {
     return (DXFBlock) blocks.get(name);
   }
 
-  /** @return the iterator over all DXFBlocks */
+  /**
+   * @return the iterator over all DXFBlocks
+   */
   public Iterator getDXFBlockIterator() {
     return blocks.values().iterator();
   }
@@ -385,7 +393,9 @@ public class DXFDocument {
     this.patterns.put(pattern.getID(), pattern);
   }
 
-  /** @return java.util.Iterator over all DXFHatchPattern of the document */
+  /**
+   * @return java.util.Iterator over all DXFHatchPattern of the document
+   */
   public Iterator getDXFHatchPatternIterator() {
     return this.patterns.values().iterator();
   }

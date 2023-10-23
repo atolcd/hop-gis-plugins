@@ -18,7 +18,9 @@ package org.kabeja.parser;
 import java.util.HashMap;
 import org.kabeja.parser.objects.DXFObjectHandler;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class DXFObjectsSectionHandler extends AbstractSectionHandler implements HandlerManager {
   private static String SECTION_KEY = "OBJECTS";
   public static final int OBJECT_START = 0;

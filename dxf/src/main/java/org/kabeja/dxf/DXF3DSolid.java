@@ -15,7 +15,9 @@
 */
 package org.kabeja.dxf;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class DXF3DSolid extends DXFRegion {
   /* (non-Javadoc)
    * @see de.miethxml.kabeja.dxf.DXFEntity#getType()

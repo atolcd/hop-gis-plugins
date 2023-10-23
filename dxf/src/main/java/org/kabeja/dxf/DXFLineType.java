@@ -15,7 +15,9 @@
 */
 package org.kabeja.dxf;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class DXFLineType {
   private String name = "";
   private String descritpion = "";
@@ -67,22 +69,30 @@ public class DXFLineType {
     this.totalPatternLength = patternLength;
   }
 
-  /** @return Returns the alignment. */
+  /**
+   * @return Returns the alignment.
+   */
   public int getAlignment() {
     return alignment;
   }
 
-  /** @param alignment The alignment to set. */
+  /**
+   * @param alignment The alignment to set.
+   */
   public void setAlignment(int alignment) {
     this.alignment = alignment;
   }
 
-  /** @return Returns the scale. */
+  /**
+   * @return Returns the scale.
+   */
   public double getScale() {
     return scale;
   }
 
-  /** @param scale The scale to set. */
+  /**
+   * @param scale The scale to set.
+   */
   public void setScale(double scale) {
     this.scale = scale;
   }

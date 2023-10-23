@@ -82,6 +82,7 @@ public class ValueMetaGeometry extends ValueMetaBase implements GeometryInterfac
   public static WKT ociWktReaderWriter = new WKT();
 
   public static final int TYPE_GEOMETRY = 43663879; // Value is "GEOMETRY" on
+
   // a phone keypad
 
   public ValueMetaGeometry() {

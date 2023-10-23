@@ -19,7 +19,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class TextDocument {
   protected List paragraphs = new ArrayList();
 

@@ -21,7 +21,9 @@ import java.util.List;
 import org.kabeja.dxf.helpers.DXFSplineConverter;
 import org.kabeja.dxf.helpers.SplinePoint;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class DXFSpline extends DXFEntity {
   protected static final int APPROXIMATION_STEPS = 10;
   protected int degree;
@@ -98,93 +100,129 @@ public class DXFSpline extends DXFEntity {
     return (this.flags & 16) == 16;
   }
 
-  /** @return Returns the controlPointSize. */
+  /**
+   * @return Returns the controlPointSize.
+   */
   public int getControlPointSize() {
     return controlPointSize;
   }
 
-  /** @param controlPointSize The controlPointSize to set. */
+  /**
+   * @param controlPointSize The controlPointSize to set.
+   */
   public void setControlPointSize(int controlPointSize) {
     this.controlPointSize = controlPointSize;
   }
 
-  /** @return Returns the degree. */
+  /**
+   * @return Returns the degree.
+   */
   public int getDegree() {
     return degree;
   }
 
-  /** @param degree The degree to set. */
+  /**
+   * @param degree The degree to set.
+   */
   public void setDegree(int degree) {
     this.degree = degree;
   }
 
-  /** @return Returns the fitPointSize. */
+  /**
+   * @return Returns the fitPointSize.
+   */
   public int getFitPointSize() {
     return fitPointSize;
   }
 
-  /** @param fitPointSize The fitPointSize to set. */
+  /**
+   * @param fitPointSize The fitPointSize to set.
+   */
   public void setFitPointSize(int fitPointSize) {
     this.fitPointSize = fitPointSize;
   }
 
-  /** @return Returns the fitTolerance. */
+  /**
+   * @return Returns the fitTolerance.
+   */
   public double getFitTolerance() {
     return fitTolerance;
   }
 
-  /** @param fitTolerance The fitTolerance to set. */
+  /**
+   * @param fitTolerance The fitTolerance to set.
+   */
   public void setFitTolerance(double fitTolerance) {
     this.fitTolerance = fitTolerance;
   }
 
-  /** @return Returns the knots. */
+  /**
+   * @return Returns the knots.
+   */
   public double[] getKnots() {
     return knots;
   }
 
-  /** @param knots The knots to set. */
+  /**
+   * @param knots The knots to set.
+   */
   public void setKnots(double[] knots) {
     this.knots = knots;
     this.polyline = null;
   }
 
-  /** @return Returns the nodePointsSize. */
+  /**
+   * @return Returns the nodePointsSize.
+   */
   public int getNodePointsSize() {
     return nodePointsSize;
   }
 
-  /** @param nodePointsSize The nodePointsSize to set. */
+  /**
+   * @param nodePointsSize The nodePointsSize to set.
+   */
   public void setNodePointsSize(int nodePointsSize) {
     this.nodePointsSize = nodePointsSize;
   }
 
-  /** @return Returns the weights. */
+  /**
+   * @return Returns the weights.
+   */
   public double[] getWeights() {
     return weights;
   }
 
-  /** @param weights The weights to set. */
+  /**
+   * @param weights The weights to set.
+   */
   public void setWeights(double[] weights) {
     this.weights = weights;
   }
 
-  /** @return Returns the controlPointTolerance. */
+  /**
+   * @return Returns the controlPointTolerance.
+   */
   public double getControlPointTolerance() {
     return controlPointTolerance;
   }
 
-  /** @param controlPointTolerance The controlPointTolerance to set. */
+  /**
+   * @param controlPointTolerance The controlPointTolerance to set.
+   */
   public void setControlPointTolerance(double controlPointTolerance) {
     this.controlPointTolerance = controlPointTolerance;
   }
 
-  /** @return Returns the knotsTolerance. */
+  /**
+   * @return Returns the knotsTolerance.
+   */
   public double getKnotsTolerance() {
     return knotsTolerance;
   }
 
-  /** @param knotsTolerance The knotsTolerance to set. */
+  /**
+   * @param knotsTolerance The knotsTolerance to set.
+   */
   public void setKnotsTolerance(double knotsTolerance) {
     this.knotsTolerance = knotsTolerance;
   }

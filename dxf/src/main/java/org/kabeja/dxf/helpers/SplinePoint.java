@@ -15,7 +15,9 @@
 */
 package org.kabeja.dxf.helpers;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class SplinePoint extends Point {
   public static final int TYPE_CONTROLPOINT = 0;
   public static final int TYPE_FITPOINT = 1;
@@ -23,22 +25,30 @@ public class SplinePoint extends Point {
   public static final int TYPE_ENDTANGENT = 3;
   protected int type = 0;
 
-  /** @return Returns the controlPoint. */
+  /**
+   * @return Returns the controlPoint.
+   */
   public boolean isControlPoint() {
     return this.type == TYPE_CONTROLPOINT;
   }
 
-  /** @return Returns the endTangent. */
+  /**
+   * @return Returns the endTangent.
+   */
   public boolean isEndTangent() {
     return this.type == TYPE_ENDTANGENT;
   }
 
-  /** @return Returns the fitPoint. */
+  /**
+   * @return Returns the fitPoint.
+   */
   public boolean isFitPoint() {
     return this.type == TYPE_FITPOINT;
   }
 
-  /** @return Returns the startTangent. */
+  /**
+   * @return Returns the startTangent.
+   */
   public boolean isStartTangent() {
     return this.type == TYPE_STARTTANGENT;
   }

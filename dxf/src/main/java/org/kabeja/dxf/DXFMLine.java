@@ -21,7 +21,9 @@ import org.kabeja.dxf.helpers.DXFMLineSegment;
 import org.kabeja.dxf.helpers.MLineConverter;
 import org.kabeja.dxf.helpers.Point;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class DXFMLine extends DXFEntity {
   public static final int JUSTIFICATION_TOP = 0;
   public static final int JUSTIFICATION_ZERO = 1;

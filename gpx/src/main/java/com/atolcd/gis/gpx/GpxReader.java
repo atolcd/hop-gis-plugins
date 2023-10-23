@@ -29,8 +29,13 @@ import org.locationtech.jts.geom.Envelope;
 public class GpxReader extends AbstractReaderWriter {
 
   public Document read(String filename, String charsetName)
-      throws JDOMException, IOException, GpxException, WayPointException, RouteException,
-          TrackException, AuthorException {
+      throws JDOMException,
+          IOException,
+          GpxException,
+          WayPointException,
+          RouteException,
+          TrackException,
+          AuthorException {
 
     Document gpxDocument = new Document();
 

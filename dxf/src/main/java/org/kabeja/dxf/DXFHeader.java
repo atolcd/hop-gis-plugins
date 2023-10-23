@@ -18,7 +18,9 @@ package org.kabeja.dxf;
 import java.util.Hashtable;
 import java.util.Iterator;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class DXFHeader {
   private Hashtable variables = new Hashtable();
 

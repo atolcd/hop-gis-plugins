@@ -19,7 +19,9 @@ import org.kabeja.dxf.helpers.DXFTextParser;
 import org.kabeja.dxf.helpers.Point;
 import org.kabeja.dxf.helpers.TextDocument;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class DXFText extends DXFEntity {
   public static final double DEFAULT_FONT_SIZE = 8;
   public static final int VALIGN_BASELINE = 0;
@@ -162,47 +164,65 @@ public class DXFText extends DXFEntity {
     return bounds;
   }
 
-  /** @return Returns the align. */
+  /**
+   * @return Returns the align.
+   */
   public int getAlign() {
     return align;
   }
 
-  /** @param align The align to set. */
+  /**
+   * @param align The align to set.
+   */
   public void setAlign(int align) {
     this.align = align;
   }
 
-  /** @return Returns the align_x. */
+  /**
+   * @return Returns the align_x.
+   */
   public double getAlignX() {
     return align_p1.getX();
   }
 
-  /** @param align_x The align_x to set. */
+  /**
+   * @param align_x The align_x to set.
+   */
   public void setAlignX(double align_x) {
     align_p1.setX(align_x);
   }
 
-  /** @return Returns the align_y. */
+  /**
+   * @return Returns the align_y.
+   */
   public double getAlignY() {
     return align_p1.getY();
   }
 
-  /** @param align_y The align_y to set. */
+  /**
+   * @param align_y The align_y to set.
+   */
   public void setAlignY(double align_y) {
     align_p1.setY(align_y);
   }
 
-  /** @return Returns the align_z. */
+  /**
+   * @return Returns the align_z.
+   */
   public double getAlignZ() {
     return align_p1.getZ();
   }
 
-  /** @param align_z The align_z to set. */
+  /**
+   * @param align_z The align_z to set.
+   */
   public void setAlignZ(double align_z) {
     align_p1.setZ(align_z);
   }
 
-  /** @return Returns the height. */
+  /**
+   * @return Returns the height.
+   */
   public double getHeight() {
     if (height != 0.0) {
       return height;
@@ -213,68 +233,94 @@ public class DXFText extends DXFEntity {
     }
   }
 
-  /** @param height The height to set. */
+  /**
+   * @param height The height to set.
+   */
   public void setHeight(double height) {
     this.height = height;
   }
 
-  /** @return Returns the oblique_angle. */
+  /**
+   * @return Returns the oblique_angle.
+   */
   public double getObliqueAngle() {
     return oblique_angle;
   }
 
-  /** @param oblique_angle The oblique_angle to set. */
+  /**
+   * @param oblique_angle The oblique_angle to set.
+   */
   public void setObliqueAngle(double oblique_angle) {
     this.oblique_angle = oblique_angle;
   }
 
-  /** @return Returns the rotation. */
+  /**
+   * @return Returns the rotation.
+   */
   public double getRotation() {
     return rotation;
   }
 
-  /** @param rotation The rotation to set. */
+  /**
+   * @param rotation The rotation to set.
+   */
   public void setRotation(double rotation) {
     this.rotation = rotation;
   }
 
-  /** @return Returns the scale_x. */
+  /**
+   * @return Returns the scale_x.
+   */
   public double getScaleX() {
     return scale_x;
   }
 
-  /** @param scale_x The scale_x to set. */
+  /**
+   * @param scale_x The scale_x to set.
+   */
   public void setScaleX(double scale_x) {
     this.scale_x = scale_x;
   }
 
-  /** @return Returns the text. */
+  /**
+   * @return Returns the text.
+   */
   public String getText() {
     return text;
   }
 
-  /** @param text The text to set. */
+  /**
+   * @param text The text to set.
+   */
   public void setText(String text) {
     this.text = text;
     this.textDoc = DXFTextParser.parseDXFText(this);
   }
 
-  /** @return Returns the textStyle. */
+  /**
+   * @return Returns the textStyle.
+   */
   public String getTextStyle() {
     return textStyle;
   }
 
-  /** @param textStyle The textStyle to set. */
+  /**
+   * @param textStyle The textStyle to set.
+   */
   public void setTextStyle(String textStyle) {
     this.textStyle = textStyle;
   }
 
-  /** @return Returns the valign. */
+  /**
+   * @return Returns the valign.
+   */
   public int getValign() {
     return valign;
   }
 
-  /** @param valign The valign to set. */
+  /**
+   * @param valign The valign to set.
+   */
   public void setValign(int valign) {
     this.valign = valign;
   }
@@ -311,12 +357,16 @@ public class DXFText extends DXFEntity {
     return DXFConstants.ENTITY_TYPE_TEXT;
   }
 
-  /** @return Returns the alignmentPointSet. */
+  /**
+   * @return Returns the alignmentPointSet.
+   */
   public boolean isAlignmentPointSet() {
     return alignmentPointSet;
   }
 
-  /** @param alignmentPointSet The alignmentPointSet to set. */
+  /**
+   * @param alignmentPointSet The alignmentPointSet to set.
+   */
   public void setAlignmentPoint(boolean alignmentPoint) {
     this.alignmentPointSet = alignmentPoint;
   }

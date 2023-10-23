@@ -24,7 +24,9 @@ import org.kabeja.dxf.DXFImage;
 import org.kabeja.dxf.DXFLayer;
 import org.kabeja.dxf.objects.DXFImageDefObject;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public class ImageFilter extends AbstractPostProcessor {
   /*
    * (non-Javadoc)

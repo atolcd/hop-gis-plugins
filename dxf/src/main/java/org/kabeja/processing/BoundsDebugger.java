@@ -25,7 +25,9 @@ import org.kabeja.dxf.DXFEntity;
 import org.kabeja.dxf.DXFLayer;
 import org.kabeja.dxf.DXFText;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public class BoundsDebugger extends AbstractPostProcessor {
   public static final String LAYER_NAME = "kabeja_bounds_debug";
 

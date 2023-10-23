@@ -7,7 +7,9 @@ package org.kabeja.dxf;
 
 import org.kabeja.dxf.helpers.Point;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth </a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth </a>
+ */
 public class DXFDimension extends DXFEntity {
   protected final int TYPE_LINEAR = 0;
   protected final int TYPE_ALIGNMENT = 1;
@@ -40,132 +42,184 @@ public class DXFDimension extends DXFEntity {
 
   public DXFDimension() {}
 
-  /** @return Returns the attechmentLocation. */
+  /**
+   * @return Returns the attechmentLocation.
+   */
   public int getAttechmentLocation() {
     return attechmentLocation;
   }
 
-  /** @param attechmentLocation The attechmentLocation to set. */
+  /**
+   * @param attechmentLocation The attechmentLocation to set.
+   */
   public void setAttechmentLocation(int attechmentLocation) {
     this.attechmentLocation = attechmentLocation;
   }
 
-  /** @return Returns the dimensionStyle. */
+  /**
+   * @return Returns the dimensionStyle.
+   */
   public String getDimensionStyleID() {
     return dimensionStyle;
   }
 
-  /** @param dimensionStyle The dimensionStyle to set. */
+  /**
+   * @param dimensionStyle The dimensionStyle to set.
+   */
   public void setDimensionStyleID(String dimensionStyle) {
     this.dimensionStyle = dimensionStyle;
   }
 
-  /** @return Returns the exactTextLineSpacing. */
+  /**
+   * @return Returns the exactTextLineSpacing.
+   */
   public boolean isExactTextLineSpacing() {
     return exactTextLineSpacing;
   }
 
-  /** @param exactTextLineSpacing The exactTextLineSpacing to set. */
+  /**
+   * @param exactTextLineSpacing The exactTextLineSpacing to set.
+   */
   public void setExactTextLineSpacing(boolean exactTextLineSpacing) {
     this.exactTextLineSpacing = exactTextLineSpacing;
   }
 
-  /** @return Returns the horizontalDirection. */
+  /**
+   * @return Returns the horizontalDirection.
+   */
   public double getHorizontalDirection() {
     return horizontalDirection;
   }
 
-  /** @param horizontalDirection The horizontalDirection to set. */
+  /**
+   * @param horizontalDirection The horizontalDirection to set.
+   */
   public void setHorizontalDirection(double horizontalDirection) {
     this.horizontalDirection = horizontalDirection;
   }
 
-  /** @return Returns the insertPoint. */
+  /**
+   * @return Returns the insertPoint.
+   */
   public Point getInsertPoint() {
     return insertPoint;
   }
 
-  /** @param insertPoint The insertPoint to set. */
+  /**
+   * @param insertPoint The insertPoint to set.
+   */
   public void setInsertPoint(Point insertPoint) {
     this.insertPoint = insertPoint;
   }
 
-  /** @return Returns the referencePoint. */
+  /**
+   * @return Returns the referencePoint.
+   */
   public Point getReferencePoint() {
     return referencePoint;
   }
 
-  /** @param referencePoint The referencePoint to set. */
+  /**
+   * @param referencePoint The referencePoint to set.
+   */
   public void setReferencePoint(Point referencePoint) {
     this.referencePoint = referencePoint;
   }
 
-  /** @return Returns the referencePoint3. */
+  /**
+   * @return Returns the referencePoint3.
+   */
   public Point getReferencePoint3() {
     return referencePoint3;
   }
 
-  /** @param referencePoint3 The referencePoint3 to set. */
+  /**
+   * @param referencePoint3 The referencePoint3 to set.
+   */
   public void setReferencePoint3(Point referencePoint3) {
     this.referencePoint3 = referencePoint3;
   }
 
-  /** @return Returns the referencePoint4. */
+  /**
+   * @return Returns the referencePoint4.
+   */
   public Point getReferencePoint4() {
     return referencePoint4;
   }
 
-  /** @param referencePoint4 The referencePoint4 to set. */
+  /**
+   * @param referencePoint4 The referencePoint4 to set.
+   */
   public void setReferencePoint4(Point referencePoint4) {
     this.referencePoint4 = referencePoint4;
   }
 
-  /** @return Returns the referencePoint5. */
+  /**
+   * @return Returns the referencePoint5.
+   */
   public Point getReferencePoint5() {
     return referencePoint5;
   }
 
-  /** @param referencePoint5 The referencePoint5 to set. */
+  /**
+   * @param referencePoint5 The referencePoint5 to set.
+   */
   public void setReferencePoint5(Point referencePoint5) {
     this.referencePoint5 = referencePoint5;
   }
 
-  /** @return Returns the referencePoint6. */
+  /**
+   * @return Returns the referencePoint6.
+   */
   public Point getReferencePoint6() {
     return referencePoint6;
   }
 
-  /** @param referencePoint6 The referencePoint6 to set. */
+  /**
+   * @param referencePoint6 The referencePoint6 to set.
+   */
   public void setReferencePoint6(Point referencePoint6) {
     this.referencePoint6 = referencePoint6;
   }
 
-  /** @return Returns the rotate. */
+  /**
+   * @return Returns the rotate.
+   */
   public double getRotate() {
     return rotate;
   }
 
-  /** @param rotate The rotate to set. */
+  /**
+   * @param rotate The rotate to set.
+   */
   public void setRotate(double rotate) {
     this.rotate = rotate;
   }
 
-  /** @return Returns the textPoint. */
+  /**
+   * @return Returns the textPoint.
+   */
   public Point getTextPoint() {
     return textPoint;
   }
 
-  /** @param textPoint The textPoint to set. */
+  /**
+   * @param textPoint The textPoint to set.
+   */
   public void setTextPoint(Point textPoint) {
     this.textPoint = textPoint;
   }
 
-  /** @return Returns the type. */
+  /**
+   * @return Returns the type.
+   */
   public int getDimensionType() {
     return dimType;
   }
 
-  /** @param type The type to set. */
+  /**
+   * @param type The type to set.
+   */
   public void setDimensionType(int type) {
     this.dimType = type;
   }

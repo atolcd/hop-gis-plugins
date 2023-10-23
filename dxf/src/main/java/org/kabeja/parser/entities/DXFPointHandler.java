@@ -19,7 +19,9 @@ import org.kabeja.dxf.DXFEntity;
 import org.kabeja.dxf.DXFPoint;
 import org.kabeja.parser.DXFValue;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public class DXFPointHandler extends AbstractEntityHandler {
   public static final String ENTITY_NAME = "POINT";
   private DXFPoint point;

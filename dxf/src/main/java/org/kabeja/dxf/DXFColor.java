@@ -15,7 +15,9 @@
 */
 package org.kabeja.dxf;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class DXFColor {
   private static int[][] rgbs = {
     {255, 0, 0},

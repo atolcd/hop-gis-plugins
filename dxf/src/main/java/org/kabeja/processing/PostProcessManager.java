@@ -20,7 +20,9 @@ import java.util.Iterator;
 import java.util.Map;
 import org.kabeja.dxf.DXFDocument;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public class PostProcessManager {
   private ArrayList processors = new ArrayList();
 

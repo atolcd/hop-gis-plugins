@@ -6,7 +6,9 @@ package org.kabeja.dxf;
 
 import org.kabeja.math.MathUtils;
 
-/** @author simon */
+/**
+ * @author simon
+ */
 public class DXF3DFace extends DXFSolid {
   public String getType() {
     return DXFConstants.ENTITY_TYPE_3DFACE;

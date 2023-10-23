@@ -11,7 +11,9 @@ import org.kabeja.dxf.helpers.Point;
 import org.kabeja.dxf.helpers.Vector;
 import org.kabeja.math.MathUtils;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth </a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth </a>
+ */
 public class DXFPolyline extends DXFEntity {
   protected static final double QUARTER_CIRCLE_ANGLE = Math.tan(0.39269908169872414D);
   protected ArrayList vertices = new ArrayList();
@@ -148,22 +150,30 @@ public class DXFPolyline extends DXFEntity {
     return DXFConstants.ENTITY_TYPE_POLYLINE;
   }
 
-  /** @return Returns the endWidth. */
+  /**
+   * @return Returns the endWidth.
+   */
   public double getEndWidth() {
     return endWidth;
   }
 
-  /** @param endWidth The endWidth to set. */
+  /**
+   * @param endWidth The endWidth to set.
+   */
   public void setEndWidth(double endWidth) {
     this.endWidth = endWidth;
   }
 
-  /** @return Returns the startWidth. */
+  /**
+   * @return Returns the startWidth.
+   */
   public double getStartWidth() {
     return startWidth;
   }
 
-  /** @param startWidth The startWidth to set. */
+  /**
+   * @param startWidth The startWidth to set.
+   */
   public void setStartWidth(double startWidth) {
     this.startWidth = startWidth;
   }
@@ -241,32 +251,44 @@ public class DXFPolyline extends DXFEntity {
     return this.constantWidth;
   }
 
-  /** @return Returns the surefaceType. */
+  /**
+   * @return Returns the surefaceType.
+   */
   public int getSurefaceType() {
     return surefaceType;
   }
 
-  /** @param surefaceType The surefaceType to set. */
+  /**
+   * @param surefaceType The surefaceType to set.
+   */
   public void setSurefaceType(int surefaceType) {
     this.surefaceType = surefaceType;
   }
 
-  /** @return Returns the columns. */
+  /**
+   * @return Returns the columns.
+   */
   public int getSurefaceDensityColumns() {
     return surefaceDensityColumns;
   }
 
-  /** @param columns The columns to set. */
+  /**
+   * @param columns The columns to set.
+   */
   public void setSurefaceDensityColumns(int columns) {
     this.surefaceDensityColumns = columns;
   }
 
-  /** @return Returns the rows. */
+  /**
+   * @return Returns the rows.
+   */
   public int getSurefaceDensityRows() {
     return surefaceDensityRows;
   }
 
-  /** @param rows The rows to set. */
+  /**
+   * @param rows The rows to set.
+   */
   public void setSurefaceDensityRows(int rows) {
     this.surefaceDensityRows = rows;
   }
@@ -393,22 +415,30 @@ public class DXFPolyline extends DXFEntity {
     return null;
   }
 
-  /** @return Returns the column. */
+  /**
+   * @return Returns the column.
+   */
   public int getColumns() {
     return columns;
   }
 
-  /** @param column The column to set. */
+  /**
+   * @param column The column to set.
+   */
   public void setColumns(int column) {
     this.columns = column;
   }
 
-  /** @return Returns the rows. */
+  /**
+   * @return Returns the rows.
+   */
   public int getRows() {
     return rows;
   }
 
-  /** @param rows The rows to set. */
+  /**
+   * @param rows The rows to set.
+   */
   public void setRows(int rows) {
     this.rows = rows;
   }

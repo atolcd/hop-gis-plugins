@@ -142,7 +142,9 @@ public class DXFDictionary extends DXFObject {
     return null;
   }
 
-  /** @return iterator over all DXFObjects in this dictionary */
+  /**
+   * @return iterator over all DXFObjects in this dictionary
+   */
   public Iterator getDXFObjectIterator() {
     Iterator i =
         new Iterator() {

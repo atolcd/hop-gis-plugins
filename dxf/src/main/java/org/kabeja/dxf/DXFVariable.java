@@ -18,7 +18,9 @@ package org.kabeja.dxf;
 import java.util.Hashtable;
 import java.util.Iterator;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class DXFVariable {
   private Hashtable values = new Hashtable();
   private String name = "";
@@ -51,7 +53,9 @@ public class DXFVariable {
     values.put(name, value);
   }
 
-  /** @return a iterator over all keys of this DXFValue */
+  /**
+   * @return a iterator over all keys of this DXFValue
+   */
   public Iterator getValueKeyIterator() {
     return values.keySet().iterator();
   }

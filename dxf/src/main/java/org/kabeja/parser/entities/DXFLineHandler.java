@@ -21,10 +21,13 @@ import org.kabeja.dxf.DXFLine;
 import org.kabeja.dxf.helpers.Point;
 import org.kabeja.parser.DXFValue;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public class DXFLineHandler extends AbstractEntityHandler {
   public static final String ENTITY_NAME = "LINE";
   private DXFLine line;
+
   // private DXFDocument doc;
   // private String layerID = "";
 

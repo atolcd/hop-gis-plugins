@@ -9,7 +9,9 @@ import org.kabeja.dxf.helpers.Vector;
 import org.kabeja.math.MathUtils;
 import org.kabeja.math.ParametricPlane;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class DXFEllipse extends DXFEntity {
   public static final double DEFAULT_END_PARAMETER = Math.PI * 2;
   public static final double DEFAULT_START_PARAMETER = 0.0;

@@ -19,7 +19,9 @@ import org.kabeja.dxf.DXFConstants;
 import org.kabeja.dxf.DXFLayer;
 import org.kabeja.parser.DXFValue;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public class DXFLayerTableHandler extends AbstractTableHandler {
   public static final String TABLE_KEY = "LAYER";
   public static final int GROUPCODE_LAYER_NAME = 2;

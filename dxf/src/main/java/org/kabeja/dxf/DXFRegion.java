@@ -18,11 +18,15 @@ package org.kabeja.dxf;
 import java.util.ArrayList;
 import java.util.List;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class DXFRegion extends DXFEntity {
   protected List acisData = new ArrayList();
 
-  /** @return always invalid bounds */
+  /**
+   * @return always invalid bounds
+   */
   public Bounds getBounds() {
     Bounds bounds = new Bounds();
     bounds.setValid(false);
@@ -30,7 +34,9 @@ public class DXFRegion extends DXFEntity {
     return bounds;
   }
 
-  /** @see org.kabeja.dxf.DXFEntity#getType() */
+  /**
+   * @see org.kabeja.dxf.DXFEntity#getType()
+   */
   public String getType() {
     return DXFConstants.ENTITY_TYPE_REGION;
   }

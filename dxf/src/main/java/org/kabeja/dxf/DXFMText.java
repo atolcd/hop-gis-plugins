@@ -19,7 +19,9 @@ import org.kabeja.dxf.helpers.DXFTextParser;
 import org.kabeja.dxf.helpers.DXFUtils;
 import org.kabeja.dxf.helpers.TextDocument;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class DXFMText extends DXFText {
   public static final int ATTACHMENT_TOP_LEFT = 1;
   public static final int ATTACHMENT_TOP_CENTER = 2;

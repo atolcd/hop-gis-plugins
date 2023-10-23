@@ -21,7 +21,9 @@ import org.kabeja.dxf.DXFImage;
 import org.kabeja.dxf.helpers.Point;
 import org.kabeja.parser.DXFValue;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public class DXFImageHandler extends AbstractEntityHandler {
   public static final int GROUPCODE_IMAGEDEF_HARDREFERENCE = 340;
   public static final int GROUPCODE_VECTOR_U_X = 11;

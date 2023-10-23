@@ -205,82 +205,114 @@ public class GisGroupByMeta extends BaseTransformMeta<GisGroupBy, GisGroupByData
     super(); // allocate BaseStepMeta
   }
 
-  /** @return Returns the aggregateField. */
+  /**
+   * @return Returns the aggregateField.
+   */
   public String[] getAggregateField() {
     return aggregateField;
   }
 
-  /** @param aggregateField The aggregateField to set. */
+  /**
+   * @param aggregateField The aggregateField to set.
+   */
   public void setAggregateField(String[] aggregateField) {
     this.aggregateField = aggregateField;
   }
 
-  /** @return Returns the aggregateIgnored. */
+  /**
+   * @return Returns the aggregateIgnored.
+   */
   public boolean isAggregateIgnored() {
     return aggregateIgnored;
   }
 
-  /** @param aggregateIgnored The aggregateIgnored to set. */
+  /**
+   * @param aggregateIgnored The aggregateIgnored to set.
+   */
   public void setAggregateIgnored(boolean aggregateIgnored) {
     this.aggregateIgnored = aggregateIgnored;
   }
 
-  /** @return Returns the aggregateIgnoredField. */
+  /**
+   * @return Returns the aggregateIgnoredField.
+   */
   public String getAggregateIgnoredField() {
     return aggregateIgnoredField;
   }
 
-  /** @param aggregateIgnoredField The aggregateIgnoredField to set. */
+  /**
+   * @param aggregateIgnoredField The aggregateIgnoredField to set.
+   */
   public void setAggregateIgnoredField(String aggregateIgnoredField) {
     this.aggregateIgnoredField = aggregateIgnoredField;
   }
 
-  /** @return Returns the aggregateType. */
+  /**
+   * @return Returns the aggregateType.
+   */
   public int[] getAggregateType() {
     return aggregateType;
   }
 
-  /** @param aggregateType The aggregateType to set. */
+  /**
+   * @param aggregateType The aggregateType to set.
+   */
   public void setAggregateType(int[] aggregateType) {
     this.aggregateType = aggregateType;
   }
 
-  /** @return Returns the groupField. */
+  /**
+   * @return Returns the groupField.
+   */
   public String[] getGroupField() {
     return groupField;
   }
 
-  /** @param groupField The groupField to set. */
+  /**
+   * @param groupField The groupField to set.
+   */
   public void setGroupField(String[] groupField) {
     this.groupField = groupField;
   }
 
-  /** @return Returns the passAllRows. */
+  /**
+   * @return Returns the passAllRows.
+   */
   public boolean passAllRows() {
     return passAllRows;
   }
 
-  /** @param passAllRows The passAllRows to set. */
+  /**
+   * @param passAllRows The passAllRows to set.
+   */
   public void setPassAllRows(boolean passAllRows) {
     this.passAllRows = passAllRows;
   }
 
-  /** @return Returns the subjectField. */
+  /**
+   * @return Returns the subjectField.
+   */
   public String[] getSubjectField() {
     return subjectField;
   }
 
-  /** @param subjectField The subjectField to set. */
+  /**
+   * @param subjectField The subjectField to set.
+   */
   public void setSubjectField(String[] subjectField) {
     this.subjectField = subjectField;
   }
 
-  /** @return Returns the valueField. */
+  /**
+   * @return Returns the valueField.
+   */
   public String[] getValueField() {
     return valueField;
   }
 
-  /** @param separatorField The valueField to set. */
+  /**
+   * @param separatorField The valueField to set.
+   */
   public void setValueField(String[] valueField) {
     this.valueField = valueField;
   }
@@ -593,52 +625,72 @@ public class GisGroupByMeta extends BaseTransformMeta<GisGroupBy, GisGroupByData
     }
   }
 
-  /** @return Returns the directory. */
+  /**
+   * @return Returns the directory.
+   */
   public String getDirectory() {
     return directory;
   }
 
-  /** @param directory The directory to set. */
+  /**
+   * @param directory The directory to set.
+   */
   public void setDirectory(String directory) {
     this.directory = directory;
   }
 
-  /** @return Returns the prefix. */
+  /**
+   * @return Returns the prefix.
+   */
   public String getPrefix() {
     return prefix;
   }
 
-  /** @param prefix The prefix to set. */
+  /**
+   * @param prefix The prefix to set.
+   */
   public void setPrefix(String prefix) {
     this.prefix = prefix;
   }
 
-  /** @return the addingLineNrInGroup */
+  /**
+   * @return the addingLineNrInGroup
+   */
   public boolean isAddingLineNrInGroup() {
     return addingLineNrInGroup;
   }
 
-  /** @param addingLineNrInGroup the addingLineNrInGroup to set */
+  /**
+   * @param addingLineNrInGroup the addingLineNrInGroup to set
+   */
   public void setAddingLineNrInGroup(boolean addingLineNrInGroup) {
     this.addingLineNrInGroup = addingLineNrInGroup;
   }
 
-  /** @return the lineNrInGroupField */
+  /**
+   * @return the lineNrInGroupField
+   */
   public String getLineNrInGroupField() {
     return lineNrInGroupField;
   }
 
-  /** @param lineNrInGroupField the lineNrInGroupField to set */
+  /**
+   * @param lineNrInGroupField the lineNrInGroupField to set
+   */
   public void setLineNrInGroupField(String lineNrInGroupField) {
     this.lineNrInGroupField = lineNrInGroupField;
   }
 
-  /** @return the alwaysGivingBackOneRow */
+  /**
+   * @return the alwaysGivingBackOneRow
+   */
   public boolean isAlwaysGivingBackOneRow() {
     return alwaysGivingBackOneRow;
   }
 
-  /** @param alwaysGivingBackOneRow the alwaysGivingBackOneRow to set */
+  /**
+   * @param alwaysGivingBackOneRow the alwaysGivingBackOneRow to set
+   */
   public void setAlwaysGivingBackOneRow(boolean alwaysGivingBackOneRow) {
     this.alwaysGivingBackOneRow = alwaysGivingBackOneRow;
   }

@@ -18,7 +18,9 @@ package org.kabeja.parser.table;
 import org.kabeja.dxf.DXFLineType;
 import org.kabeja.parser.DXFValue;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public class DXFLineTypeTableHandler extends AbstractTableHandler {
   public static final String TABLE_KEY = "LTYPE";
   public static final int GROUPCODE_LTYPE_NAME = 2;

@@ -22,7 +22,9 @@ import org.kabeja.dxf.Bounds;
 import org.kabeja.dxf.DXFHatch;
 import org.kabeja.math.MathUtils;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class HatchLineIterator implements Iterator {
   public static final double LIMIT = 0.00001;
   protected double angle;

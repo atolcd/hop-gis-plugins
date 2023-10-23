@@ -18,7 +18,9 @@ package org.kabeja.parser.table;
 import org.kabeja.dxf.DXFStyle;
 import org.kabeja.parser.DXFValue;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public class DXFStyleTableHandler extends AbstractTableHandler {
   public static String TABLE_KEY = "STYLE";
   public static final int GROUPCODE_NAME = 2;

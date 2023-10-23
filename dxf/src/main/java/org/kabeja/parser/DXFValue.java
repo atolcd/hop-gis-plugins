@@ -37,7 +37,9 @@ public final class DXFValue {
     return value;
   }
 
-  /** @param value The value to set. */
+  /**
+   * @param value The value to set.
+   */
   private void setValue(String value) {
     this.value = value.trim();
   }

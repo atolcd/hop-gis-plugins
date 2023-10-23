@@ -15,7 +15,9 @@
 */
 package org.kabeja.dxf.helpers;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class HatchLineFamily {
   private double rotationAngle;
   private double baseX;
@@ -25,64 +27,88 @@ public class HatchLineFamily {
   private double length = 0.0;
   private double[] pattern = new double[0];
 
-  /** @return Returns the baseX. */
+  /**
+   * @return Returns the baseX.
+   */
   public double getBaseX() {
     return baseX;
   }
 
-  /** @param baseX The baseX to set. */
+  /**
+   * @param baseX The baseX to set.
+   */
   public void setBaseX(double baseX) {
     this.baseX = baseX;
   }
 
-  /** @return Returns the baseY. */
+  /**
+   * @return Returns the baseY.
+   */
   public double getBaseY() {
     return baseY;
   }
 
-  /** @param baseY The baseY to set. */
+  /**
+   * @param baseY The baseY to set.
+   */
   public void setBaseY(double baseY) {
     this.baseY = baseY;
   }
 
-  /** @return Returns the offsetX. */
+  /**
+   * @return Returns the offsetX.
+   */
   public double getOffsetX() {
     return offsetX;
   }
 
-  /** @param offsetX The offsetX to set. */
+  /**
+   * @param offsetX The offsetX to set.
+   */
   public void setOffsetX(double offsetX) {
     this.offsetX = offsetX;
   }
 
-  /** @return Returns the offsetY. */
+  /**
+   * @return Returns the offsetY.
+   */
   public double getOffsetY() {
     return offsetY;
   }
 
-  /** @param offsetY The offsetY to set. */
+  /**
+   * @param offsetY The offsetY to set.
+   */
   public void setOffsetY(double offsetY) {
     this.offsetY = offsetY;
   }
 
-  /** @return Returns the pattern. */
+  /**
+   * @return Returns the pattern.
+   */
   public double[] getPattern() {
     return pattern;
   }
 
-  /** @param pattern The pattern to set. */
+  /**
+   * @param pattern The pattern to set.
+   */
   public void setPattern(double[] pattern) {
     if (pattern != null) {
       this.pattern = pattern;
     }
   }
 
-  /** @return Returns the rotationAngle. */
+  /**
+   * @return Returns the rotationAngle.
+   */
   public double getRotationAngle() {
     return rotationAngle;
   }
 
-  /** @param rotationAngle The rotationAngle to set. */
+  /**
+   * @param rotationAngle The rotationAngle to set.
+   */
   public void setRotationAngle(double rotationAngle) {
     this.rotationAngle = rotationAngle;
   }

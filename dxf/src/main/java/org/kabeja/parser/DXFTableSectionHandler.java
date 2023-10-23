@@ -19,7 +19,9 @@ import java.util.Hashtable;
 import java.util.Iterator;
 import org.kabeja.parser.table.DXFTableHandler;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class DXFTableSectionHandler extends AbstractSectionHandler implements HandlerManager {
   public static final String sectionKey = "TABLES";
   public static final String TABLE_START = "TABLE";

@@ -19,7 +19,9 @@ import org.kabeja.dxf.DXFDimensionStyle;
 import org.kabeja.parser.DXFValue;
 import org.kabeja.parser.entities.AbstractEntityHandler;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public class DXFDimensionStyleTableHandler extends AbstractTableHandler {
   public static final int GROUPCODE_NAME = 2;
   private DXFDimensionStyle style;

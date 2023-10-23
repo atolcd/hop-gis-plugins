@@ -32,7 +32,9 @@ import org.kabeja.xml.SAXFilter;
 import org.kabeja.xml.SAXGenerator;
 import org.kabeja.xml.SAXSerializer;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public class ProcessingManager {
   private Map saxfilters = new HashMap();
   private Map saxserializers = new HashMap();

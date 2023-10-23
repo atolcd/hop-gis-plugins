@@ -19,7 +19,9 @@ import org.kabeja.dxf.DXFEntity;
 import org.kabeja.dxf.DXFMText;
 import org.kabeja.parser.DXFValue;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public class DXFMTextHandler extends AbstractEntityHandler {
   public static final String ENTITY_NAME = "MTEXT";
   public static final int TEXT_VALUE_END = 1;

@@ -21,7 +21,9 @@ import org.kabeja.math.TransformContext;
 import org.xml.sax.ContentHandler;
 import org.xml.sax.SAXException;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class DXFVertex extends DXFPoint {
   private double startWidth = 0.0;
   private double endWidth = 0.0;
@@ -40,22 +42,30 @@ public class DXFVertex extends DXFPoint {
     super(p);
   }
 
-  /** @return Returns the endWidth. */
+  /**
+   * @return Returns the endWidth.
+   */
   public double getEndWidth() {
     return endWidth;
   }
 
-  /** @param endWidth The endWidth to set. */
+  /**
+   * @param endWidth The endWidth to set.
+   */
   public void setEndWidth(double endWidth) {
     this.endWidth = endWidth;
   }
 
-  /** @return Returns the startWidth. */
+  /**
+   * @return Returns the startWidth.
+   */
   public double getStartWidth() {
     return startWidth;
   }
 
-  /** @param startWidth The startWidth to set. */
+  /**
+   * @param startWidth The startWidth to set.
+   */
   public void setStartWidth(double startWidth) {
     this.startWidth = startWidth;
   }
@@ -73,12 +83,16 @@ public class DXFVertex extends DXFPoint {
     return super.getBounds();
   }
 
-  /** @return Returns the bulge. */
+  /**
+   * @return Returns the bulge.
+   */
   public double getBulge() {
     return bulge;
   }
 
-  /** @param bulge The bulge to set. */
+  /**
+   * @param bulge The bulge to set.
+   */
   public void setBulge(double bulge) {
     this.bulge = bulge;
   }
@@ -123,42 +137,58 @@ public class DXFVertex extends DXFPoint {
     return ((this.flags & 64) == 64) && ((this.flags & 8) == 8);
   }
 
-  /** @return Returns the polyFaceMeshVertex0. */
+  /**
+   * @return Returns the polyFaceMeshVertex0.
+   */
   public int getPolyFaceMeshVertex0() {
     return Math.abs(polyFaceMeshVertex0);
   }
 
-  /** @param polyFaceMeshVertex0 The polyFaceMeshVertex0 to set. */
+  /**
+   * @param polyFaceMeshVertex0 The polyFaceMeshVertex0 to set.
+   */
   public void setPolyFaceMeshVertex0(int polyFaceMeshVertex0) {
     this.polyFaceMeshVertex0 = polyFaceMeshVertex0;
   }
 
-  /** @return Returns the polyFaceMeshVertex1. */
+  /**
+   * @return Returns the polyFaceMeshVertex1.
+   */
   public int getPolyFaceMeshVertex1() {
     return Math.abs(polyFaceMeshVertex1);
   }
 
-  /** @param polyFaceMeshVertex1 The polyFaceMeshVertex1 to set. */
+  /**
+   * @param polyFaceMeshVertex1 The polyFaceMeshVertex1 to set.
+   */
   public void setPolyFaceMeshVertex1(int polyFaceMeshVertex1) {
     this.polyFaceMeshVertex1 = polyFaceMeshVertex1;
   }
 
-  /** @return Returns the polyFaceMeshVertex2. */
+  /**
+   * @return Returns the polyFaceMeshVertex2.
+   */
   public int getPolyFaceMeshVertex2() {
     return Math.abs(polyFaceMeshVertex2);
   }
 
-  /** @param polyFaceMeshVertex2 The polyFaceMeshVertex2 to set. */
+  /**
+   * @param polyFaceMeshVertex2 The polyFaceMeshVertex2 to set.
+   */
   public void setPolyFaceMeshVertex2(int polyFaceMeshVertex2) {
     this.polyFaceMeshVertex2 = polyFaceMeshVertex2;
   }
 
-  /** @return Returns the polyFaceMeshVertex3. */
+  /**
+   * @return Returns the polyFaceMeshVertex3.
+   */
   public int getPolyFaceMeshVertex3() {
     return Math.abs(polyFaceMeshVertex3);
   }
 
-  /** @param polyFaceMeshVertex3 The polyFaceMeshVertex3 to set. */
+  /**
+   * @param polyFaceMeshVertex3 The polyFaceMeshVertex3 to set.
+   */
   public void setPolyFaceMeshVertex3(int polyFaceMeshVertex3) {
     this.polyFaceMeshVertex3 = polyFaceMeshVertex3;
   }

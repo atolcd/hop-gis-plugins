@@ -8,7 +8,9 @@ import org.kabeja.dxf.helpers.Point;
 import org.kabeja.math.MathUtils;
 import org.kabeja.math.ParametricPlane;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class DXFArc extends DXFEntity {
   private Point center;
   private double radius;
@@ -20,32 +22,44 @@ public class DXFArc extends DXFEntity {
     center = new Point();
   }
 
-  /** @return Returns the end_angle. */
+  /**
+   * @return Returns the end_angle.
+   */
   public double getEndAngle() {
     return end_angle;
   }
 
-  /** @param end_angle The end_angle to set. */
+  /**
+   * @param end_angle The end_angle to set.
+   */
   public void setEndAngle(double end_angle) {
     this.end_angle = end_angle;
   }
 
-  /** @return Returns the radius. */
+  /**
+   * @return Returns the radius.
+   */
   public double getRadius() {
     return radius;
   }
 
-  /** @param radius The radius to set. */
+  /**
+   * @param radius The radius to set.
+   */
   public void setRadius(double radius) {
     this.radius = radius;
   }
 
-  /** @return Returns the start_angle. */
+  /**
+   * @return Returns the start_angle.
+   */
   public double getStartAngle() {
     return start_angle;
   }
 
-  /** @param start_angle The start_angle to set. */
+  /**
+   * @param start_angle The start_angle to set.
+   */
   public void setStartAngle(double start_angle) {
     this.start_angle = start_angle;
   }

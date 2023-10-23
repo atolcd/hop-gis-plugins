@@ -19,7 +19,9 @@ import org.kabeja.dxf.DXFDocument;
 import org.kabeja.dxf.DXFHeader;
 import org.kabeja.dxf.DXFVariable;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class DXFHeaderSectionHandler implements DXFSectionHandler {
   public static final int VARIABLE_CODE = 9;
   private final String sectionKey = "HEADER";

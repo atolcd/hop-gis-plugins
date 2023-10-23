@@ -14,6 +14,7 @@
    limitations under the License.
 */
 package org.kabeja.ui;
+
 /**
  * Main application service for starting and stopping the application.
  *

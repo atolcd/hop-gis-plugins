@@ -20,7 +20,9 @@ import java.util.StringTokenizer;
 import org.kabeja.dxf.DXFMText;
 import org.kabeja.dxf.DXFText;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class DXFTextParser {
   public static TextDocument parseDXFMText(DXFMText text) {
     // initialize

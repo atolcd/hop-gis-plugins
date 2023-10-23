@@ -14,6 +14,7 @@
    limitations under the License.
 */
 package org.kabeja.ui;
+
 /**
  * A component which implement this interface get access to the services which are provided by this
  * application.

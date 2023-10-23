@@ -30,7 +30,9 @@ import org.kabeja.xml.SAXSerializer;
 import org.xml.sax.ContentHandler;
 import org.xml.sax.SAXException;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public class ProcessPipeline {
   private ProcessingManager manager;
   private List postProcessorConfigs = new ArrayList();
@@ -114,32 +116,44 @@ public class ProcessPipeline {
     }
   }
 
-  /** @return Returns the serializer. */
+  /**
+   * @return Returns the serializer.
+   */
   public SAXSerializer getSAXSerializer() {
     return serializer;
   }
 
-  /** @param serializer The serializer to set. */
+  /**
+   * @param serializer The serializer to set.
+   */
   public void setSAXSerializer(SAXSerializer serializer) {
     this.serializer = serializer;
   }
 
-  /** @return Returns the manager. */
+  /**
+   * @return Returns the manager.
+   */
   public ProcessingManager getProcessorManager() {
     return manager;
   }
 
-  /** @param manager The manager to set. */
+  /**
+   * @param manager The manager to set.
+   */
   public void setProcessorManager(ProcessingManager manager) {
     this.manager = manager;
   }
 
-  /** @return Returns the name. */
+  /**
+   * @return Returns the name.
+   */
   public String getName() {
     return name;
   }
 
-  /** @param name The name to set. */
+  /**
+   * @param name The name to set.
+   */
   public void setName(String name) {
     this.name = name;
   }
@@ -158,12 +172,16 @@ public class ProcessPipeline {
     this.postProcessorConfigs.add(config);
   }
 
-  /** @return Returns the serializerProperties. */
+  /**
+   * @return Returns the serializerProperties.
+   */
   public Map getSerializerProperties() {
     return serializerProperties;
   }
 
-  /** @param serializerProperties The serializerProperties to set. */
+  /**
+   * @param serializerProperties The serializerProperties to set.
+   */
   public void setSAXSerializerProperties(Map serializerProperties) {
     this.serializerProperties = serializerProperties;
   }

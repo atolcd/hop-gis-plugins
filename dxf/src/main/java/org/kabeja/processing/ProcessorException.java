@@ -15,7 +15,9 @@
 */
 package org.kabeja.processing;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public class ProcessorException extends Exception {
   public ProcessorException() {}
 

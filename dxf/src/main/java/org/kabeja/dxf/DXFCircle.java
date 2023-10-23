@@ -18,7 +18,9 @@ package org.kabeja.dxf;
 import org.kabeja.dxf.helpers.Point;
 import org.kabeja.math.ParametricPlane;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class DXFCircle extends DXFEntity {
   private Point center;
   private double radius;
@@ -30,7 +32,9 @@ public class DXFCircle extends DXFEntity {
     return radius;
   }
 
-  /** @param radius The radius to set. */
+  /**
+   * @param radius The radius to set.
+   */
   public void setRadius(double radius) {
     this.radius = radius;
   }

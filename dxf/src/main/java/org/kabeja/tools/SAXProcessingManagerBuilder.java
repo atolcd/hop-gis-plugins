@@ -38,7 +38,9 @@ import org.xml.sax.Locator;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public class SAXProcessingManagerBuilder implements ContentHandler {
   public static String XMLNS_KABEJA_PROCESSING = "http://kabeja.org/processing/1.0";
   public static final String ELEMENT_CONFIGURATION = "configuration";

@@ -56,7 +56,9 @@ import org.kabeja.parser.table.DXFStyleTableHandler;
 import org.kabeja.parser.table.DXFVPortTableHandler;
 import org.kabeja.parser.table.DXFViewTableHandler;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class ParserBuilder {
   public static Parser createDefaultParser() {
     DXFParser parser = new DXFParser();

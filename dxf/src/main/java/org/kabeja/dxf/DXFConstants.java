@@ -17,7 +17,9 @@ package org.kabeja.dxf;
 
 import org.kabeja.dxf.helpers.Vector;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class DXFConstants {
   public static final int COMMAND_CODE = 0;
   public static final String DEFAULT_LAYER = "0";

@@ -20,7 +20,9 @@ import org.kabeja.dxf.DXFEntity;
 import org.kabeja.dxf.DXFExtendedData;
 import org.kabeja.parser.DXFValue;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth </a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth </a>
+ */
 public abstract class AbstractEntityHandler implements DXFEntityHandler {
   public static final int ELEMENT_REFERENCE = 5;
   public static final int GROUPCODE_START_X = 10;

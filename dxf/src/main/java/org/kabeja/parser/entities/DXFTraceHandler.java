@@ -18,7 +18,9 @@ package org.kabeja.parser.entities;
 import org.kabeja.dxf.DXFConstants;
 import org.kabeja.dxf.DXFTrace;
 
-/** @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de">Simon Mieth</a>
+ */
 public class DXFTraceHandler extends DXFSolidHandler {
   public String getDXFEntityName() {
     return DXFConstants.ENTITY_TYPE_TRACE;

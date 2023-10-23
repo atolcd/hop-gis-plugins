@@ -21,17 +21,23 @@ import java.util.List;
 import org.kabeja.dxf.Bounds;
 import org.kabeja.dxf.DXFEntity;
 
-/** @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a> */
+/**
+ * @author <a href="mailto:simon.mieth@gmx.de>Simon Mieth</a>
+ */
 public class HatchBoundaryLoop {
   private List edges = new ArrayList();
   private boolean outermost = true;
 
-  /** @return Returns the outermost. */
+  /**
+   * @return Returns the outermost.
+   */
   public boolean isOutermost() {
     return outermost;
   }
 
-  /** @param outermost The outermost to set. */
+  /**
+   * @param outermost The outermost to set.
+   */
   public void setOutermost(boolean outermost) {
     this.outermost = outermost;
   }
