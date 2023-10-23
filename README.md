@@ -72,12 +72,24 @@ If you plan to connect to an Oracle database, add needed jars in lib folder of P
 You can get them [here](http://www.oracle.com/technetwork/apps-tech/jdbc-112010-090769.html)
 
 
+Building a docker image
+---------------------
+
+See [dedicated page](docker/README.md)
+
+
+Testing the plugins
+---------------------
+
+See [dedicated page](example/README.md)
+
+
 Using the plugins
 ---------------------
 
 See [dedicated page](docs/README.md)
 
-You will find new elements in "Geospatial"'s directory :
+You will find new elements in *Geospatial*'s directory :
 
  - Geospatial Group by
  - GIS File output
@@ -151,11 +163,12 @@ LICENSE
 This extension is licensed under `GNU Library or "Lesser" General Public License (LGPL)`.
 
 Contributors :
-* [Marc Lherbette](https://github.com/scali)
-* [Matt Casters](https://github.com/mattcasters)
-* [Jérémy Tridard](https://github.com/jtridard)
-* [Charles-Henry Vagner](https://github.com/cvagner)
-* [Cédric Darbon](https://twitter.com/cedricdarbon)
+* [Bart Maertens](https://github.com/bamaer) 2.7.0-SNAPSHOT compatibility
+* [Marc Lherbette](https://github.com/scali) examples and metadata
+* [Matt Casters](https://github.com/mattcasters) review, cleanup, metadata
+* [Jérémy Tridard](https://github.com/jtridard) rewrite [pentaho-gis-plugins](https://github.com/atolcd/pentaho-gis-plugins) for hop
+* [Charles-Henry Vagner](https://github.com/cvagner) doc, init qa, dockerization and industrialization
+* [Cédric Darbon](https://twitter.com/cedricdarbon) first dev of [pentaho-gis-plugins](https://github.com/atolcd/pentaho-gis-plugins)
 
 
 Our company

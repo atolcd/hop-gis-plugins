@@ -9,7 +9,7 @@ You can run the examples from here.
 * deploy plugins: see "Installing/upgrading the module" of main [README.md](../README.md)
 * register project config:
 ```sh
-(cd examples && ${HOP_HOME}/hop-conf.sh --project-create --project hop-gis-plugins-examples --project-home=$(pwd))`
+(cd examples && ${HOP_HOME}/hop-conf.sh --project-create --project hop-gis-plugins-examples --project-home=$(pwd))
 ```
 
 
