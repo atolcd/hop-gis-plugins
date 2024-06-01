@@ -14,22 +14,21 @@
 
   <properties>
     <!-- Set this to the Hop version you want to debug against-->
-    <hop.version>2.7.0-SNAPSHOT</hop.version>
+    <hop.version>2.10.0-SNAPSHOT</hop.version>
 
     <!-- Path You will be using to debug the application >
     <hop.debug.path>TODO ?</hop.debug.path-->
 
     <!-- Third-party dependencies-->
-    <org.eclipse.platform.version>3.122.0</org.eclipse.platform.version>
+    <org.eclipse.platform.version>3.123.0</org.eclipse.platform.version>
     <maven-assembly-plugin.version>3.1.0</maven-assembly-plugin.version>
 
     <!-- Jandex For annotation Detection -->
-    <jandex.version>3.0.5</jandex.version>
+    <jandex.version>3.1.0</jandex.version>
 
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <spotless.version>2.40.0</spotless.version>
-
+    <spotless.version>2.43.0</spotless.version>
   </properties>
 
   <modules>
@@ -236,7 +235,7 @@
     <dependency>
       <groupId>org.postgresql</groupId>
       <artifactId>postgresql</artifactId>
-      <version>42.2.23</version>
+      <version>42.7.3</version>
     </dependency>
     <dependency>
       <groupId>net.postgis</groupId>
@@ -357,7 +356,7 @@
     <dependency>
       <groupId>com.atolcd.gis</groupId>
       <artifactId>concave-hull</artifactId>
-      <version>1.1</version>
+      <version>1.1.0</version>
     </dependency>
     <dependency>
       <groupId>com.atolcd.gis</groupId>
