@@ -44,7 +44,7 @@
         <configuration>
           <java>
             <googleJavaFormat>
-              <version>1.18.1</version>
+              <version>1.22.0</version>
             </googleJavaFormat>
           </java>
         </configuration>
@@ -94,22 +94,22 @@
     <dependency>
       <groupId>org.locationtech.jts</groupId>
       <artifactId>jts-core</artifactId>
-      <version>1.18.1</version>
+      <version>1.19.0</version>
     </dependency>
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-core</artifactId>
-      <version>2.10.1</version>
+      <version>2.17.1</version>
     </dependency>
     <dependency>
       <groupId>com.fasterxml.jackson.jaxrs</groupId>
       <artifactId>jackson-jaxrs-json-provider</artifactId>
-      <version>2.10.1</version>
+      <version>2.17.1</version>
     </dependency>
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
-      <version>2.12.4</version>
+      <version>2.17.1</version>
     </dependency>
   </dependencies>
 
