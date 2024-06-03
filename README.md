@@ -15,7 +15,7 @@ git clone git://github.com/atolcd/hop-gis-plugins.git
 cd hop-gis-plugins
 ```
 
-Run the following commands from the base project directory (with `java 11` and `maven` installed):
+Run the following commands from the base project directory (with `java 17` and `maven` installed):
 ```sh
 mvn clean package
 ```
@@ -29,7 +29,7 @@ docker run --network="host" --rm \
   -v ~/.m2:/var/maven/.m2 -v "${HOME}":/var/maven \
   -e HOME=/var/maven -e MAVEN_CONFIG=/var/maven/.m2 -e MAVEN_OPTS="-Duser.home=/var/maven" \
   \
-  maven:3-jdk-11 \
+  maven:3.9.7-eclipse-temurin-17 \
   \
   mvn clean package
 ```
