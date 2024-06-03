@@ -3,7 +3,7 @@ Apache Hop GIS Plugins
 
 This project allows you to manage GIS data in Apache Hop, [Hop Orchestration Platform](https://hop.apache.org/). It is a counterpart of [Pentaho Data Integrator GIS Plugins](https://github.com/atolcd/pentaho-gis-plugins).
 
-Tested with Apache Hop `2.7.0-SNAPSHOT`.
+Tested with Apache Hop `2.10.0-SNAPSHOT`.
 
 
 Building the plugins
@@ -163,7 +163,7 @@ LICENSE
 This extension is licensed under `GNU Library or "Lesser" General Public License (LGPL)`.
 
 Contributors :
-* [Bart Maertens](https://github.com/bamaer) 2.7.0-SNAPSHOT compatibility
+* [Bart Maertens](https://github.com/bamaer) 2.7.0+ compatibility
 * [Marc Lherbette](https://github.com/scali) examples and metadata
 * [Matt Casters](https://github.com/mattcasters) review, cleanup, metadata
 * [Jérémy Tridard](https://github.com/jtridard) rewrite [pentaho-gis-plugins](https://github.com/atolcd/pentaho-gis-plugins) for hop
