@@ -34,7 +34,7 @@ docker run --network="host" --rm \
   mvn clean package
 ```
 
-The built package is `assemblies/target/gis-plugin-assemblies-X.X.X.zip` (version can differ).
+The built package is `assemblies/target/gis-plugin-assemblies-X.X.X.zip` (version comes from the main `pom.xml`).
 
 
 Installing/upgrading the module
@@ -42,7 +42,7 @@ Installing/upgrading the module
 
 ***Method 1 : Manual installation***
 
-Extract the content of `gis-plugin-assemblies-X.X.X.zip` in ${HOP_HOME}/plugins.
+Extract the content of `gis-plugin-assemblies-X.X.X.zip` in `${HOP_HOME}/plugins`.
 Examples of extraction from the root directory of the project :
 
 ```sh
@@ -64,10 +64,10 @@ To upgrade the plugins, delete files you added before and start a fresh installa
 
 ***Oracle JDBC usage***
 
-If you plan to connect to an Oracle database, add needed jars in lib folder of PDI :
+If you plan to connect to an Oracle database, add needed jars in `lib` folder of Hop :
 
- - ${HOP_HOME}/lib/ojdbc11.jar
- - ${HOP_HOME}/lib/orai18n.jar
+ - `${HOP_HOME}/lib/ojdbc11.jar`
+ - `${HOP_HOME}/lib/orai18n.jar`
 
 You can get them [here](http://www.oracle.com/technetwork/apps-tech/jdbc-112010-090769.html)
 
