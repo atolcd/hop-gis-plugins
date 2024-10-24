@@ -3,7 +3,7 @@ Apache Hop GIS Plugins
 
 This project allows you to manage GIS data in Apache Hop, [Hop Orchestration Platform](https://hop.apache.org/). It is a counterpart of [Pentaho Data Integrator GIS Plugins](https://github.com/atolcd/pentaho-gis-plugins).
 
-Tested with Apache Hop `2.10.0-SNAPSHOT`.
+Tested with Apache Hop `2.10.0`.
 
 
 Building the plugins
@@ -46,7 +46,7 @@ Extract the content of `gis-plugin-assemblies-X.X.X.zip` in `${HOP_HOME}/plugins
 Examples of extraction from the root directory of the project :
 
 ```sh
-GIS_PLUGINS_VERSION="1.3.0"
+GIS_PLUGINS_VERSION="1.3.1"
 
 # Use compiled version...
 GIS_PLUGINS_ASSEMBLY="assemblies/target/gis-plugin-assemblies-${GIS_PLUGINS_VERSION}.zip"
@@ -81,7 +81,7 @@ See [dedicated page](docker/README.md)
 Testing the plugins
 ---------------------
 
-See [dedicated page](example/README.md)
+See [dedicated page](examples/README.md)
 
 
 Using the plugins
