@@ -3,7 +3,7 @@ Apache Hop GIS Plugins
 
 This project allows you to manage GIS data in Apache Hop, [Hop Orchestration Platform](https://hop.apache.org/). It is a counterpart of [Pentaho Data Integrator GIS Plugins](https://github.com/atolcd/pentaho-gis-plugins).
 
-Tested with Apache Hop `2.10.0-SNAPSHOT`.
+Tested with Apache Hop `2.10.0`.
 
 
 Building the plugins
