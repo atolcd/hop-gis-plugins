@@ -81,7 +81,7 @@ See [dedicated page](docker/README.md)
 Testing the plugins
 ---------------------
 
-See [dedicated page](example/README.md)
+See [dedicated page](examples/README.md)
 
 
 Using the plugins
