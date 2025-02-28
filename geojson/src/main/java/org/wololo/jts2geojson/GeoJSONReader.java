@@ -25,7 +25,9 @@ public class GeoJSONReader {
   }
 
   public Geometry read(GeoJSON geoJSON) {
-    if (geoJSON instanceof Point) {
+    if (geoJSON == null) {
+      return null;
+    } else if (geoJSON instanceof Point) {
       return convert((Point) geoJSON);
     } else if (geoJSON instanceof LineString) {
       return convert((LineString) geoJSON);
