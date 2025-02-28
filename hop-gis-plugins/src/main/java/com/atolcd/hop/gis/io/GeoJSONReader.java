@@ -29,6 +29,7 @@ import com.atolcd.hop.gis.utils.GeometryUtils;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.apache.hop.core.exception.HopException;
@@ -43,6 +44,29 @@ public class GeoJSONReader extends AbstractFileReader {
   private String geoJsonFileName;
   private boolean geoJsonFileExist;
   private GeoJSON json;
+
+  private FieldType inferFieldType(Object value) {
+    if (value instanceof String) return FieldType.STRING;
+    if (value instanceof Integer) return FieldType.LONG;
+    if (value instanceof Boolean) return FieldType.BOOLEAN;
+    if (value instanceof Double) return FieldType.DOUBLE;
+    if (value instanceof Date) return FieldType.DATE;
+    return null;
+  }
+
+  private FieldType mergeFieldTypes(FieldType existingType, FieldType newType) {
+    if (existingType == null) return newType;
+
+    if (existingType == FieldType.STRING || newType == FieldType.STRING) return FieldType.STRING;
+    if (existingType == FieldType.BOOLEAN && newType == FieldType.BOOLEAN) return FieldType.BOOLEAN;
+    if (existingType == FieldType.DATE && newType == FieldType.DATE) return FieldType.DATE;
+    if (existingType == FieldType.LONG && newType == FieldType.LONG) return FieldType.LONG;
+    // Deux flottants ou bien un flottant et un entier
+    if ((existingType == FieldType.LONG || existingType == FieldType.DOUBLE)
+        && (newType == FieldType.LONG || newType == FieldType.DOUBLE)) return FieldType.DOUBLE;
+
+    return null;
+  }
 
   public GeoJSONReader(String fileName, String geometryFieldName, String charsetName)
       throws HopException {
@@ -63,35 +87,27 @@ public class GeoJSONReader extends AbstractFileReader {
 
     if (this.json instanceof FeatureCollection) {
 
-      org.wololo.geojson.Feature geoJsonfeature = ((FeatureCollection) json).getFeatures()[0];
-      for (Map.Entry<String, Object> entry : geoJsonfeature.getProperties().entrySet()) {
+      Map<String, FieldType> fieldTypes = new HashMap<>();
 
-        Field field = null;
-        String fieldName = entry.getKey();
-        Object value = entry.getValue();
+      for (org.wololo.geojson.Feature feature : ((FeatureCollection) json).getFeatures()) {
+        for (Map.Entry<String, Object> entry : feature.getProperties().entrySet()) {
+          String fieldName = entry.getKey();
+          Object value = entry.getValue();
+          FieldType newType = inferFieldType(value);
 
-        if (value instanceof String) {
-
-          field = new Field(fieldName, FieldType.STRING, null, null);
-
-        } else if (value instanceof Integer) {
-
-          field = new Field(fieldName, FieldType.LONG, null, null);
-
-        } else if (value instanceof Boolean) {
-
-          field = new Field(fieldName, FieldType.BOOLEAN, null, null);
-
-        } else if (value instanceof Double) {
-
-          field = new Field(fieldName, FieldType.DOUBLE, null, null);
-
-        } else if (value instanceof Date) {
-
-          field = new Field(fieldName, FieldType.DATE, null, null);
+          fieldTypes.put(fieldName, mergeFieldTypes(fieldTypes.get(fieldName), newType));
         }
+      }
 
-        this.fields.add(field);
+      // Création des champs avec les types consolidés
+      for (Map.Entry<String, FieldType> entry : fieldTypes.entrySet()) {
+        // FieldType.STRING par défaut
+        this.fields.add(
+            new Field(
+                entry.getKey(),
+                entry.getValue() == null ? FieldType.STRING : entry.getValue(),
+                null,
+                null));
       }
 
     } else {
@@ -141,15 +157,18 @@ public class GeoJSONReader extends AbstractFileReader {
 
           Geometry geometry = geoJSONReader.read(geoJsonfeature.getGeometry());
 
-          if (this.forceTo2DGeometry) {
-            geometry = GeometryUtils.get2DGeometry(geometry);
+          if (geometry != null) {
+            if (this.forceTo2DGeometry) {
+              geometry = GeometryUtils.get2DGeometry(geometry);
+            }
+
+            if (this.forceToMultiGeometry) {
+              geometry = GeometryUtils.getMultiGeometry(geometry);
+            }
+
+            geometry.setSRID(srid);
           }
 
-          if (this.forceToMultiGeometry) {
-            geometry = GeometryUtils.getMultiGeometry(geometry);
-          }
-
-          geometry.setSRID(srid);
           feature.addValue(field, geometry);
 
         } else {

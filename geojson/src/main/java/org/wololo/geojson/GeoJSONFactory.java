@@ -65,8 +65,14 @@ public class GeoJSONFactory {
     JavaType javaType =
         mapper.getTypeFactory().constructMapType(Map.class, String.class, Object.class);
     Map<String, Object> properties = mapper.readValue(node.get("properties").traverse(), javaType);
-    String type = geometryNode.get("type").asText();
-    Geometry geometry = readGeometry(geometryNode, type);
+
+    Geometry geometry = null;
+
+    if (geometryNode != null && geometryNode.get("type") != null) {
+      String type = geometryNode.get("type").asText();
+      geometry = readGeometry(geometryNode, type);
+    }
+
     return new Feature(geometry, properties);
   }
 
