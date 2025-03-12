@@ -288,7 +288,7 @@ public class GisGroupBy extends BaseTransform<GisGroupByMeta, GisGroupByData> {
     data.previous = data.inputRowMeta.cloneRow(r);
 
     if (checkFeedback(getLinesRead())) {
-      if (log.isBasic()) {
+      if (isBasic()) {
         logBasic(BaseMessages.getString(PKG, "GroupBy.LineNumber") + getLinesRead());
       }
     }
