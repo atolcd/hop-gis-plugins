@@ -14,7 +14,7 @@
 
   <properties>
     <!-- Set this to the Hop version you want to debug against-->
-    <hop.version>2.10.0</hop.version>
+    <hop.version>2.12.0</hop.version>
 
     <!-- Path You will be using to debug the application >
     <hop.debug.path>TODO ?</hop.debug.path-->
@@ -163,11 +163,6 @@
       <id>jboss.org</id>
       <name>jboss.org</name>
       <url>https://repository.jboss.org</url>
-    </repository>
-    <repository>
-      <id>spring-repo</id>
-      <name>Spring Repository</name>
-      <url>https://repo.spring.io/release</url>
     </repository>
     <repository>
       <id>maven-us.nuxeo.org</id>

@@ -75,10 +75,6 @@
       <url>https://repository.jboss.org</url>
     </repository>
     <repository>
-      <id>pentaho-releases</id>
-      <url>https://repository.pentaho.org/artifactory/repo/</url>
-    </repository>
-    <repository>
       <id>maven-us.nuxeo.org</id>
       <name>maven-us.nuxeo.org</name>
       <url>https://maven-us.nuxeo.org/nexus/content/groups/public/</url>
@@ -94,7 +90,7 @@
     <dependency>
       <groupId>org.locationtech.jts</groupId>
       <artifactId>jts-core</artifactId>
-      <version>1.19.0</version>
+      <version>1.20.0</version>
     </dependency>
     <!-- In the local repository -->
     <dependency>
