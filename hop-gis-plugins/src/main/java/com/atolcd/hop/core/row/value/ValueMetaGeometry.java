@@ -38,7 +38,6 @@ import java.sql.Types;
 import java.util.Date;
 import oracle.spatial.geometry.JGeometry;
 import oracle.spatial.util.WKT;
-import oracle.sql.STRUCT;
 import org.apache.hop.core.Const;
 import org.apache.hop.core.database.DatabaseMeta;
 import org.apache.hop.core.database.IDatabase;
@@ -624,7 +623,7 @@ public class ValueMetaGeometry extends ValueMetaBase implements GeometryInterfac
 
         if (resultSet.getObject(index + 1) != null) {
 
-          STRUCT st = (oracle.sql.STRUCT) resultSet.getObject(index + 1);
+          byte[] st = resultSet.getBytes(index + 1);
           JGeometry ociGeometry = JGeometry.load(st);
           srid = ociGeometry.getSRID();
 
@@ -647,7 +646,18 @@ public class ValueMetaGeometry extends ValueMetaBase implements GeometryInterfac
           }
 
           String wkt = new String(ociWktReaderWriter.fromJGeometry(ociGeometry));
-          geometry = new WKTReader().read(wkt);
+          try {
+            geometry = new WKTReader().read(wkt);
+          } catch (ParseException e) {
+            throw new HopDatabaseException(
+                toStringMeta()
+                    + " : Unable to get Geometry item '"
+                    + wkt
+                    + "' from resultset at index "
+                    + index
+                    + " for "
+                    + databaseInterface.getDriverClass().toString());
+          }
         }
 
         // MySQL
@@ -831,6 +841,7 @@ public class ValueMetaGeometry extends ValueMetaBase implements GeometryInterfac
           if (geometry.getSRID() > 0) {
             ociGeometry.setSRID(geometry.getSRID());
           }
+
           preparedStatement.setObject(
               index, JGeometry.store(ociGeometry, preparedStatement.getConnection()), Types.STRUCT);
 
