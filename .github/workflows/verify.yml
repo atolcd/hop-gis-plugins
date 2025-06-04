@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Set up JDK 17
-        uses: actions/setup-java@v4.2.1
+        uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'adopt'
@@ -28,7 +28,7 @@ jobs:
       - name: Verify with Maven
         run: mvn -B -U -e -ff clean verify --file pom.xml
       - run: mkdir staging && cp assemblies/target/gis-plugin-assemblies-*.zip staging
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: Upload artifact
           path: staging
