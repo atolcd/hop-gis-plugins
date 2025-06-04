@@ -1,8 +1,8 @@
-ARG HOP_VERSION=2.6.0
+ARG HOP_VERSION=2.14.0
 # --------------------
 # Build artefacts - hop-gis-plugins
 # --------------------
-FROM maven:3.9.7-eclipse-temurin-17 as builder
+FROM maven:3-eclipse-temurin-17 as builder
 WORKDIR /app
 USER root
 COPY . /app

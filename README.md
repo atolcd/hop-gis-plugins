@@ -3,7 +3,7 @@ Apache Hop GIS Plugins
 
 This project allows you to manage GIS data in Apache Hop, [Hop Orchestration Platform](https://hop.apache.org/). It is a counterpart of [Pentaho Data Integrator GIS Plugins](https://github.com/atolcd/pentaho-gis-plugins).
 
-Tested with Apache Hop `2.10.0`.
+Tested with Apache Hop `2.14.0`.
 
 
 Building the plugins
@@ -29,7 +29,7 @@ docker run --network="host" --rm \
   -v ~/.m2:/var/maven/.m2 -v "${HOME}":/var/maven \
   -e HOME=/var/maven -e MAVEN_CONFIG=/var/maven/.m2 -e MAVEN_OPTS="-Duser.home=/var/maven" \
   \
-  maven:3.9.7-eclipse-temurin-17 \
+  maven:3-eclipse-temurin-17 \
   \
   mvn clean package
 ```
@@ -46,7 +46,7 @@ Extract the content of `gis-plugin-assemblies-X.X.X.zip` in `${HOP_HOME}/plugins
 Examples of extraction from the root directory of the project :
 
 ```sh
-GIS_PLUGINS_VERSION="1.3.1"
+GIS_PLUGINS_VERSION="1.4.0"
 
 # Use compiled version...
 GIS_PLUGINS_ASSEMBLY="assemblies/target/gis-plugin-assemblies-${GIS_PLUGINS_VERSION}.zip"
@@ -163,7 +163,7 @@ LICENSE
 This extension is licensed under `GNU Library or "Lesser" General Public License (LGPL)`.
 
 Contributors :
-* [Bart Maertens](https://github.com/bamaer) 2.7.0+ compatibility
+* [Bart Maertens](https://github.com/bamaer) compatibility/version upgrades and cleaning
 * [Marc Lherbette](https://github.com/scali) examples and metadata
 * [Matt Casters](https://github.com/mattcasters) review, cleanup, metadata
 * [Jérémy Tridard](https://github.com/jtridard) rewrite [pentaho-gis-plugins](https://github.com/atolcd/pentaho-gis-plugins) for hop
