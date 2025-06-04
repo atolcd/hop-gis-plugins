@@ -1,4 +1,4 @@
-# Geospatial group by
+# Spatial relationship
 Spatial relationship and proximity.
 
 ## Fields

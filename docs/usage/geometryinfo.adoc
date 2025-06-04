@@ -1,4 +1,4 @@
-# GIS File input
+# Geometry information
 Returns geometry information.
 
 ## Fields
