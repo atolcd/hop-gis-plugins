@@ -52,6 +52,8 @@ Read GIS files from different formats.
 |===
 |Parameter | Required | Value
 |Force to multi geometries | ✓ | Yes / **No**
+3+|**Notes**
+3+|Formats such as GeoJSON allow objects to contain different fields ('schemaless'). However, Hop requires a schema definition (i.e. field descriptions) that is consistent across all objects in an input stream. Therefore, the GIS File Input must extract the schema definition from the data. This is done using the properties of the first GeoJSON object.
 |===
 
 ## `GeoPackage` : Other parameters
