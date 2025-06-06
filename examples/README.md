@@ -80,6 +80,35 @@ docker run -it --rm  --name hop-gis-plugins-examples \
 | Output |  `output/test-types_geojson.shp` |
 
 
+### Injection of a Shapefile to PostGIS
+
+![width:1024px](pipelines-and-workflows/shp2postgis.png)
+
+Before running, start a postgis container:
+```sh
+docker run --rm --name hop-gis-plugins-tests --network=host -e POSTGRES_PASSWORD=postgres -d postgis/postgis:17-3.5-alpine
+```
+
+| **Pipeline** |  **`pipelines-and-workflows/shp2geojson.hpl`** |
+|-------------------------|---|
+| Description  | Inject a file from Shapefile format to a table in PostGIS |
+| Run example  | `PIPELINE_TO_RUN="shp2postgis.hpl"` |
+| Input | `datasets/velo_tour_2013/velo_tour_2013.*`  |
+| Output |  `velo_tour_2013` table |
+
+And after, check loaded data and stop container:
+```sh
+# Read info in PostgreSQL
+docker exec -it hop-gis-plugins-tests psql -U postgres -c 'select name, st_length(geometrie, true)/1000 as km from public.parcours'
+#              name               |        km
+#---------------------------------+-------------------
+# Dijon Vélo Tour 08/09/2013 9:55 | 30.01201409343904
+#(1 row)
+
+# Stop PostgreSQL
+docker stop hop-gis-plugins-tests
+```
+
 ### Metadata injection in GisFileInput tranform
 
 ![width:1024px](pipelines-and-workflows/A000-MI-metadata-injection-test.png)
