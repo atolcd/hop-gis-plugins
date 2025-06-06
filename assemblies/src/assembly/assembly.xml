@@ -48,7 +48,6 @@
         <include>org.apache.hop:hop-databases-oracle:jar</include>
         <include>mil.nga.geopackage:geopackage:jar</include>
         <include>mil.nga.geopackage:geopackage-core:jar</include>
-        <include>org.postgis:postgis-jdbc:jar</include>
         <include>org.geolatte:geolatte-geom:jar</include>
         <include>oracle:sdoutl:jar</include>
         <include>oracle:sdoapi:jar</include>
@@ -67,7 +66,6 @@
         <include>org.apache.commons:commons-math:jar</include>
         <include>de.micromata.jak:JavaAPIforKml:jar</include>
         <include>org.apache.hop:hop-databases-postgresql:jar</include>
-        <include>org.postgis:postgis-jdbc:jar</include>
         <include>net.postgis:postgis-jdbc:jar</include>
         <include>org.apache.hop:hop-databases-mysql:jar</include>
         <include>org.mariadb.jdbc:mariadb-java-client:jar</include>
