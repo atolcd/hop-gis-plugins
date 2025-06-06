@@ -209,7 +209,7 @@ public final class FeatureConverter {
 
         } else if (field.getType().equals(FieldType.DOUBLE)) {
 
-          value = valueMeta.getNumber(featureValue);
+          value = valueMeta.getNumber(Double.parseDouble(String.valueOf(featureValue)));
 
         } else if (field.getType().equals(FieldType.LONG)) {
 

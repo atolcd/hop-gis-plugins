@@ -68,6 +68,18 @@ docker run -it --rm  --name hop-gis-plugins-examples \
 | Output |  `output/velo_tour_2013.geojson` |
 
 
+### Conversion from GeoJSON with types to Shapefile
+
+![width:1024px](pipelines-and-workflows/geojson2shp-types.png)
+
+| **Pipeline** |  **`pipelines-and-workflows/geojson2shp-types.hpl`** |
+|-------------------------|---|
+| Description  | Convert a file from Shapefile format to GeoJSON format |
+| Run example  | `PIPELINE_TO_RUN="geojson2shp-types.hpl"` |
+| Input | `datasets/test-types.geojson`  |
+| Output |  `output/test-types_geojson.shp` |
+
+
 ### Metadata injection in GisFileInput tranform
 
 ![width:1024px](pipelines-and-workflows/A000-MI-metadata-injection-test.png)
