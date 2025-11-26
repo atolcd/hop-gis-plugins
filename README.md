@@ -64,12 +64,15 @@ To upgrade the plugins, delete files you added before and start a fresh installa
 
 ***Oracle JDBC usage***
 
-If you plan to connect to an Oracle database, add needed jars in `lib` folder of Hop :
+Note: This needs rechecking — the `Injection of a Shapefile to Oracle Spatial` test pipeline in [examples](examples/README.md#injection-of-a-shapefile-to-oracle-spatial) currently fails.
 
- - `${HOP_HOME}/lib/ojdbc11.jar`
- - `${HOP_HOME}/lib/orai18n.jar`
+If you plan to connect to an Oracle database, add needed jars in `lib/jdbc` folder of Hop :
 
-You can get them [here](http://www.oracle.com/technetwork/apps-tech/jdbc-112010-090769.html)
+ - `${HOP_HOME}/lib/jdbc/ojdbc11.jar`
+ - `${HOP_HOME}/lib/jdbc/orai18n.jar`
+
+You can get them from [oracle](http://www.oracle.com/technetwork/apps-tech/jdbc-112010-090769.html
+) or [maven repositories](https://repo1.maven.org/maven2/com/oracle/database/jdbc/).
 
 
 Building a docker image

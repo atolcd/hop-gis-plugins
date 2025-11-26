@@ -109,6 +109,86 @@ docker exec -it hop-gis-plugins-tests psql -U postgres -c 'select name, st_lengt
 docker stop hop-gis-plugins-tests
 ```
 
+
+### Injection of a Shapefile to Oracle Spatial
+
+![width:1024px](pipelines-and-workflows/shp2oracle.png)
+
+| **Pipeline** |  **`pipelines-and-workflows/shp2oracle.hpl`** |
+|-------------------------|---|
+| Description  | inject data from a Shapefile to an Oracle Spatial database |
+| Run example  | `PIPELINE_TO_RUN="shp2oracle.hpl"` |
+| Input | `datasets/velo_tour_2013/velo_tour_2013.*`  |
+| Output | see logs |
+
+This pipeline uses the JDBC connection "hop-oracle-spatial" defined in `metadata/rdbms/hop-oracle-spatial.json`. Please note that the password is embedded as test credentials.
+
+Create a Oracle 23 database prior to running the example:
+```sh
+# Service name fixed to 'FREEPDB1'
+docker run -d --rm --name oracle-spatial \
+  --network="host" \
+  -e APP_USER=hop \
+  -e APP_USER_PASSWORD=hop \
+  gvenzl/oracle-free:23-faststart
+```
+
+For more about configuration, see [gvenzl/oracle-free](https://hub.docker.com/r/gvenzl/oracle-free) documentation.
+
+Wait a few seconds for the container to be ready, then execute some simple spatial queries as 'hop':
+```sh
+docker exec -i oracle-spatial sqlplus hop/hop@//localhost:1521/FREEPDB1 <<EOF
+  -- OGC WKT
+  SELECT SDO_GEOMETRY('POINT(1 1)', 4326) FROM DUAL;
+
+  -- WKT helper (requires Java, supported in Oracle Free)
+  SELECT SDO_UTIL.FROM_WKTGEOMETRY('POINT(1 1)') FROM DUAL;
+
+  -- Native constructor
+  SELECT SDO_GEOMETRY(2001, 4326, SDO_POINT_TYPE(1, 1, NULL), NULL, NULL) from dual;
+EOF
+```
+
+```sh
+docker exec -i oracle-spatial sqlplus hop/hop@//localhost:1521/FREEPDB1 <<EOF
+  CREATE TABLE HOP.velotour
+  (
+    geometrie SDO_GEOMETRY,
+    name VARCHAR2(2000),
+    cmt VARCHAR2(2000),
+    "desc" VARCHAR2(2000),
+    src VARCHAR2(2000),
+    link1_href VARCHAR2(2000),
+    link1_text VARCHAR2(2000),
+    link1_type VARCHAR2(2000),
+    link2_href VARCHAR2(2000),
+    link2_text VARCHAR2(2000),
+    link2_type VARCHAR2(2000),
+    "number" INTEGER,
+    type VARCHAR2(2000),
+    topografix VARCHAR2(2000)
+  );
+EOF
+```
+
+Then run the pipeline (read `Oracle JDBC usage` in the [main README](../README.md)). Example:
+```sh
+${HOP_HOME}/hop-run.sh --file=pipelines-and-workflows/shp2oracle.hpl  --project=hop-gis-plugins-examples --runconfig=local --level=Basic
+```
+
+Check:
+```sh
+docker exec -i oracle-spatial sqlplus hop/hop@//localhost:1521/FREEPDB1 <<EOF
+  SELECT SDO_UTIL.TO_WKTGEOMETRY(geometrie), name FROM hop.velotour WHERE ROWNUM <= 5;
+EOF
+```
+
+Finally stop the container:
+```sh
+docker stop oracle-spatial
+```
+
+
 ### Metadata injection in GisFileInput tranform
 
 ![width:1024px](pipelines-and-workflows/A000-MI-metadata-injection-test.png)
