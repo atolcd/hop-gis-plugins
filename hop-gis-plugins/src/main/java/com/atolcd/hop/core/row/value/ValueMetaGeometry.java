@@ -31,6 +31,7 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.SocketTimeoutException;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -814,12 +815,9 @@ public class ValueMetaGeometry extends ValueMetaBase implements GeometryInterfac
 
         // Oracle Spatial/Locator
       } else if (databaseMeta.getIDatabase().isOracleVariant()) {
-
         Geometry geometry = getGeometry(data);
 
         if (geometry != null) {
-
-          String wkt = null;
 
           // TODO : gerer la 3D sans passer par du WKT
           /*
@@ -833,21 +831,54 @@ public class ValueMetaGeometry extends ValueMetaBase implements GeometryInterfac
                 toStringMeta()
                     + " : Unable to set Geometry 3D on prepared statement on index "
                     + index);
+          }
+
+          // Convertir en WKT
+          String wkt = new WKTWriter(2).write(geometry);
+          int srid = geometry.getSRID() > 0 ? geometry.getSRID() : 0;
+
+          Connection conn = preparedStatement.getConnection();
+
+          // Si le WKT est long, utiliser un CLOB
+          if (wkt.length() > 4000) {
+            // Créer SDO_GEOMETRY via CLOB pour les grandes géométries
+            String sql = "SELECT MDSYS.SDO_GEOMETRY(?, ?) FROM DUAL";
+
+            try (PreparedStatement geomPs = conn.prepareStatement(sql)) {
+              // Créer un CLOB pour le WKT
+              java.sql.Clob clob = conn.createClob();
+              clob.setString(1, wkt);
+
+              geomPs.setClob(1, clob);
+              geomPs.setInt(2, srid);
+
+              try (java.sql.ResultSet rs = geomPs.executeQuery()) {
+                if (rs.next()) {
+                  Object sdoGeometry = rs.getObject(1);
+                  preparedStatement.setObject(index, sdoGeometry, Types.STRUCT);
+                }
+              }
+
+              clob.free();
+            }
           } else {
-            wkt = new WKTWriter(2).write(geometry);
+            // Pour les petites géométries, utiliser String directement
+            String sql = "SELECT MDSYS.SDO_GEOMETRY(?, ?) FROM DUAL";
+
+            try (PreparedStatement geomPs = conn.prepareStatement(sql)) {
+              geomPs.setString(1, wkt);
+              geomPs.setInt(2, srid);
+
+              try (java.sql.ResultSet rs = geomPs.executeQuery()) {
+                if (rs.next()) {
+                  Object sdoGeometry = rs.getObject(1);
+                  preparedStatement.setObject(index, sdoGeometry, Types.STRUCT);
+                }
+              }
+            }
           }
-
-          JGeometry ociGeometry = ociWktReaderWriter.toJGeometry(wkt.getBytes());
-          if (geometry.getSRID() > 0) {
-            ociGeometry.setSRID(geometry.getSRID());
-          }
-
-          preparedStatement.setObject(
-              index, JGeometry.store(ociGeometry, preparedStatement.getConnection()), Types.STRUCT);
-
         } else {
-
-          preparedStatement.setObject(index, null, Types.STRUCT);
+          preparedStatement.setNull(index, Types.STRUCT);
         }
 
         // Mysql
